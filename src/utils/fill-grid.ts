@@ -1,5 +1,5 @@
 
-import { GRID, NUMBERS, SQUARE } from '../typings'
+import { GRID, NUMBERS, SQUARE, INDEX } from '../typings'
 import { shuffle } from './'
 
 
@@ -8,7 +8,7 @@ const numbers: NUMBERS[] = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 /**
  * Create a full valid Sudoku Grid
  */
-export function createGrid(): GRID {
+export function buildGrid(): GRID {
     const grid: GRID = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -21,12 +21,16 @@ export function createGrid(): GRID {
         [0, 0, 0, 0, 0, 0, 0, 0, 0]
     ]
 
+    // Optional: then 9 can be a variable input
+    // console.log(Array.from({ length: 9 }).map((e, i) => Array.from({ length: 9 }).map(() => 0)))
+
     fillGrid(grid)
+
     return grid
 }
 /**
- * Bactracking recursive fn  to check all the possible combination of numbers, 
- * until a solution is found
+ * Backtracking recursion 
+ * to check all the possible combination of numbers
  * @param grid 
  */
 export function fillGrid(grid: GRID) {
@@ -67,13 +71,13 @@ export function fillGrid(grid: GRID) {
 
 export interface RowInput {
     grid: GRID
-    row: number
+    row: INDEX
     value: NUMBERS
 }
 
 /**
- * 
- * @param param0 
+ * Function that returns true if the value is already being used in the current grid row
+ * @param input Object with 9x9 Sudoku Grid, Row and Column indexes
  * @returns 
  */
 export function isInRow({ grid, row, value }: RowInput): boolean {
@@ -82,13 +86,13 @@ export function isInRow({ grid, row, value }: RowInput): boolean {
 
 export interface ColInput {
     grid: GRID
-    col: number
+    col: INDEX
     value: NUMBERS
 }
 
 /**
  * Function that returns true if the value is already being used in the current grid column
- * @param input Object with 9x9 Sudoku Grid, Row and column index 
+ * @param input Object with 9x9 Sudoku Grid, Row and Column indexes
  * @returns 
  */
 export function isInCol({ grid, col, value}: ColInput): boolean {
@@ -100,8 +104,8 @@ export function isInCol({ grid, col, value}: ColInput): boolean {
 
 export interface WorkingSquareInput {
     grid: GRID
-    col: number
-    row: number
+    col: INDEX
+    row: INDEX
 }
 
 /**

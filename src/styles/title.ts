@@ -1,6 +1,5 @@
 
 import  styled, { css } from 'styled-components'
-import { theme } from './core'
 
 export const Title = styled.h1`
     ${({ theme }) => css`
