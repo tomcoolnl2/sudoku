@@ -3,15 +3,15 @@ import { GridMatrix, GridMatrixRegion } from '../typings'
 import { 
     isInRow, 
     isInCol,
-    identifySquare,
-    isInSquare,
+    identifyRegion,
+    isInRegion,
     checkGrid,
     fillGrid,
     buildGrid,
     RowInput, 
     ColInput, 
-    WorkingSquareInput,
-    SquareInput
+    RegionIdentifierInput,
+    RegionInput
 } from './fill-grid'
 
 describe('isInCol', () => {
@@ -130,7 +130,7 @@ describe('identifySquare', () => {
     
     it('identifies the correct square with a given grid, row index and column index', () => {
         
-        let input: WorkingSquareInput
+        let input: RegionIdentifierInput
         
         const grid: GridMatrix = [
             [8, 4, 2, 6, 5, 1, 3, 9, 7],
@@ -145,21 +145,21 @@ describe('identifySquare', () => {
         ]
 
         input = { col: 2, grid, row: 2 }
-        expect(identifySquare(input)).toStrictEqual([
+        expect(identifyRegion(input)).toStrictEqual([
             [8, 4, 2],
             [5, 3, 7],
             [6, 9, 1]
         ])
 
         input = { col: 5, grid, row: 5 }
-        expect(identifySquare(input)).toStrictEqual([
+        expect(identifyRegion(input)).toStrictEqual([
             [8, 4, 5],
             [1, 9, 2],
             [3, 7, 6]
         ])
 
         input = { col: 8, grid, row: 8 }
-        expect(identifySquare(input)).toStrictEqual([
+        expect(identifyRegion(input)).toStrictEqual([
             [2, 3, 9],
             [7, 9, 4],
             [8, 5, 6]
@@ -171,38 +171,38 @@ describe('isInSquare', () => {
     
     it('returns true when value is in grid square', () => {
 
-        let input: SquareInput
+        let input: RegionInput
 
-        const square: GridMatrixRegion = [
+        const region: GridMatrixRegion = [
             [1, 3, 4],
             [8, 2, 7],
             [6, 9, 5]
         ]
         
-        input = { square, value: 1 }
-        expect(isInSquare(input)).toBeTruthy()
+        input = { region, value: 1 }
+        expect(isInRegion(input)).toBeTruthy()
 
 
-        input = { square, value: 9 }
-        expect(isInSquare(input)).toBeTruthy()
+        input = { region, value: 9 }
+        expect(isInRegion(input)).toBeTruthy()
     })
 
     it('returns false when value is not in grid square', () => {
         
-        let input: SquareInput
+        let input: RegionInput
 
-        const square: GridMatrixRegion = [
+        const region: GridMatrixRegion = [
             [0, 3, 4],
             [8, 2, 7],
             [6, 0, 5]
         ]
         
-        input = { square, value: 1 }
-        expect(isInSquare(input)).toBeFalsy()
+        input = { region, value: 1 }
+        expect(isInRegion(input)).toBeFalsy()
 
 
-        input = { square, value: 9 }
-        expect(isInSquare(input)).toBeFalsy()
+        input = { region, value: 9 }
+        expect(isInRegion(input)).toBeFalsy()
     })
 })
 

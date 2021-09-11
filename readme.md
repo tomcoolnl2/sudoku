@@ -5,6 +5,8 @@
 [ ] Add the sounds/pronounciation
 [ ] 9 as a cont/variable and use it as it's calculations
 [ ] Create interfaces and settings for 4x4, 6x6 and it's terminology. Default to 9x9 (us e overloading?)
+[ ] Write a `solve` method acc to: https://en.wikipedia.org/wiki/Sudoku_solving_algorithms
+[ ] Convert HTML to SVG
 
 - Horizontally adjacent rows are a band, and vertically adjacent columns are a stack
 - The initially defined values are clues or givens

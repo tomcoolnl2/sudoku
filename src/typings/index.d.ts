@@ -1,4 +1,6 @@
 
+import { SUDOKU } from './sudoku'
+
 // All options a Region can contain
 // Zero (0) is used to fall back to, so we can apply validation on it
 export type N = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9

@@ -27,7 +27,7 @@ export const Block: FC<BlockProps> = ({ ri, ci }) => {
 
     const dispatch = useDispatch<Dispatch<AnyAction>>()
 
-    function clickHandler() {
+    const clickHandler = () => {
         !active && dispatch(selectCell([ri, ci]))
     }
 
