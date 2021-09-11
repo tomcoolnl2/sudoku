@@ -11,7 +11,7 @@ export type GridMatrixIndex = Exclude<N, 9>
 
 // Zero based indexes where a Region exists within the GridMatix
 // [0] GridMatrixRow, [1] GridMatrixCell
-export type GridMatrixCellCoörds = [GridMatrixIndex, GridMatrixIndex]
+export type GridMatrixCoörds = [GridMatrixIndex, GridMatrixIndex]
 
 // The entire Sudoku Grid
 export type GridMatrix = [
