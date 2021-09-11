@@ -2,7 +2,7 @@
 import { FC } from 'react'
 import { Dispatch, AnyAction } from 'redux'
 import { useSelector, useDispatch } from 'react-redux'
-import { selectBlock, StoreReducer } from '../redux'
+import { selectCell, StoreReducer } from '../redux'
 import { GridMatrixIndex, N } from '../typings'
 import * as Styled from '../styles'
 
@@ -28,7 +28,7 @@ export const Block: FC<BlockProps> = ({ ri, ci }) => {
     const dispatch = useDispatch<Dispatch<AnyAction>>()
 
     function clickHandler() {
-        !active && dispatch(selectBlock([ri, ci]))
+        !active && dispatch(selectCell([ri, ci]))
     }
 
     return (

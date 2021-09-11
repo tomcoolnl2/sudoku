@@ -6,7 +6,7 @@ import * as types from './types'
 
 export const createGrid = (): Action => ({ type: types.UNLEASH_THE_MATRIX })
 
-export const selectBlock = (coords: GridMatrixCoörds): AnyAction => ({ 
+export const selectCell = (coords: GridMatrixCoörds): AnyAction => ({ 
     coords,
-    type: types.SELECT_REGION
+    type: types.SELECT_CELL
 })

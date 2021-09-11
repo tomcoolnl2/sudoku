@@ -1,5 +1,5 @@
 
-import { GridMatrix, GridMatrixSquare } from '../typings'
+import { GridMatrix, GridMatrixRegion } from '../typings'
 import { 
     isInRow, 
     isInCol,
@@ -173,7 +173,7 @@ describe('isInSquare', () => {
 
         let input: SquareInput
 
-        const square: GridMatrixSquare = [
+        const square: GridMatrixRegion = [
             [1, 3, 4],
             [8, 2, 7],
             [6, 9, 5]
@@ -191,7 +191,7 @@ describe('isInSquare', () => {
         
         let input: SquareInput
 
-        const square: GridMatrixSquare = [
+        const square: GridMatrixRegion = [
             [0, 3, 4],
             [8, 2, 7],
             [6, 0, 5]

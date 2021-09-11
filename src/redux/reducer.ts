@@ -13,7 +13,7 @@ export function reducer(state = initialState, action: AnyAction) {
                 ...state,
                 grid: buildGrid()
             }
-        case types.SELECT_REGION:
+        case types.SELECT_CELL:
             return {
                 ...state,
                 selection: action.coords

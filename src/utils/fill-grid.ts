@@ -1,5 +1,5 @@
 
-import { GridMatrix, SudokuInput, GridMatrixSquare, GridMatrixIndex } from '../typings'
+import { GridMatrix, SudokuInput, GridMatrixRegion, GridMatrixIndex } from '../typings'
 import { shuffle } from './'
 
 
@@ -115,7 +115,7 @@ export interface WorkingSquareInput {
  * @param input object with a 9x9 sudoku Grid, row index and column index 
  * @returns 
  */
-export function identifySquare({ col, grid, row }: WorkingSquareInput): GridMatrixSquare {
+export function identifySquare({ col, grid, row }: WorkingSquareInput): GridMatrixRegion {
     const square = []
     if(row < 3) {
         if (col < 3) {
@@ -168,11 +168,11 @@ export function identifySquare({ col, grid, row }: WorkingSquareInput): GridMatr
             }
         }
     }
-    return square as GridMatrixSquare
+    return square as GridMatrixRegion
 }
 
 export interface SquareInput {
-    square: GridMatrixSquare
+    square: GridMatrixRegion
     value: SudokuInput
 }
 
