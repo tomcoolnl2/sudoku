@@ -6,10 +6,10 @@ import useMouseTrap from 'react-hook-mousetrap'
 import * as Styled from '../styles'
 import { Block } from './block'
 import { createGrid, StoreReducer } from '../redux'
-import { GridMatrixCoörds, GridMatrixIndex } from '../typings'
+import { GridMatrixCellCoörds, GridMatrixIndex } from '../typings'
 
 interface GridState {
-    selection?: GridMatrixCoörds
+    selection?: GridMatrixCellCoörds
 }
 
 export const Grid: FC = () => {

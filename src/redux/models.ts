@@ -1,8 +1,8 @@
 
-import { GridMatrix, GridMatrixCoörds } from '../typings'
+import { GridMatrix, GridMatrixCellCoörds } from '../typings'
 
 
 export interface AppState {
     grid?: GridMatrix,
-    selection?: GridMatrixCoörds
+    selection?: GridMatrixCellCoörds
 }
