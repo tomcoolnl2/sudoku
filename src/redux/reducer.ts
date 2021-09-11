@@ -4,19 +4,18 @@ import { buildGrid } from '../utils'
 import { AppState } from './models'
 import * as types from './types'
 
-const initialState: AppState = {}
 
-export function reducer(state = initialState, action: AnyAction) {
+export function reducer(state: AppState = {}, action: AnyAction) {
     switch(action.type) {
-        case types.CREATE_GRID:
+        case types.UNLEASH_THE_MATRIX:
             return {
                 ...state,
                 grid: buildGrid()
             }
-        case types.SELECT_BLOCK:
+        case types.SELECT_CELL:
             return {
                 ...state,
-                selectedBlock: action.coords
+                selection: action.coords
             }
         default:
              return state

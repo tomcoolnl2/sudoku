@@ -3,13 +3,13 @@ import  styled, { css } from 'styled-components'
 
 
 interface BlockContainerProps {
-    isActive?: boolean
+    active?: boolean
 }
 
 export const BlockContainer = styled.div<BlockContainerProps>`
-    ${({ theme, isActive }) => css`
+    ${({ theme, active }) => css`
         align-items: center;
-        background-color: ${theme.colors[isActive ? 'lightBlue' : 'white']}
+        background-color: ${theme.colors[active ? 'lightBlue' : 'white']}
         ;
         border: 1px solid ${theme.colors.black};
         cursor: pointer;

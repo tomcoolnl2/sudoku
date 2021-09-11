@@ -1,3 +1,3 @@
 
-export const CREATE_GRID = 'CREATE_GRID'
-export const SELECT_BLOCK = 'SELECT_BLOCK'
+export const UNLEASH_THE_MATRIX = 'UNLEASH_THE_MATRIX'
+export const SELECT_CELL = 'SELECT_CELL'

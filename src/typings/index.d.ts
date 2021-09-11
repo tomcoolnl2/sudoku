@@ -1,16 +1,42 @@
- 0
-export type BLOCK_COORDS = [INDEX, INDEX] // cooler name: Matrix
 
-export type INDEX = Exclude<N, 9> // ranged_index? type ColumnIndex && type RowIndex = NUMBER, RowOrColumnIdex?
+import { SUDOKU } from './sudoku'
 
-export type GRID = [ROW, ROW, ROW, ROW, ROW, ROW, ROW, ROW, ROW]
+// All options a Region can contain
+// Zero (0) is used to fall back to, so we can apply validation on it
+export type N = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 
-export type NUMBERS = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+// All possible input numbers to solve a Sudoku
+export type SudokuInput = Exclude<N, 0>
 
-export type N = 0 | NUMBERS
+// A zero based index, mainly for use in loops
+export type GridMatrixIndex = Exclude<N, 9>
 
-export type ROW = [N, N, N, N, N, N, N, N, N]
+// Zero based indexes where a Region exists within the GridMatix
+// [0] GridMatrixRow, [1] GridMatrixCell
+export type GridMatrixCoörds = [GridMatrixIndex, GridMatrixIndex]
 
-export type SQUARE = [SQUARE_ROW, SQUARE_ROW, SQUARE_ROW]
+// The entire Sudoku Grid
+export type GridMatrix = [
+    GridMatrixRow,
+    GridMatrixRow,
+    GridMatrixRow,
+    GridMatrixRow,
+    GridMatrixRow,
+    GridMatrixRow,
+    GridMatrixRow,
+    GridMatrixRow,
+    GridMatrixRow
+]
 
-export type SQUARE_ROW = [N, N, N]
+// Sudoku Grid Row
+export type GridMatrixRow = [N, N, N, N, N, N, N, N, N]
+
+// A square covering 3 GridMatrixRows, also called a Region
+export type GridMatrixRegion = [
+    GridMatrixRegionRow,
+    GridMatrixRegionRow,
+    GridMatrixRegionRow
+]
+
+// A single row within a GridMatrixRegion
+export type GridMatrixRegionRow = [N, N, N]

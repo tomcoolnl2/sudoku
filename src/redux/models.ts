@@ -1,8 +1,8 @@
 
-import { GRID, BLOCK_COORDS } from '../typings'
+import { GridMatrix, GridMatrixCoörds } from '../typings'
 
 
 export interface AppState {
-    grid?: GRID,
-    selectedBlock?: BLOCK_COORDS
+    grid?: GridMatrix,
+    selection?: GridMatrixCoörds
 }
