@@ -8,7 +8,7 @@ const numbers: NUMBERS[] = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 /**
  * Create a full valid Sudoku Grid
  */
-export function createGrid(): GRID {
+export function buildGrid(): GRID {
     const grid: GRID = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -21,12 +21,16 @@ export function createGrid(): GRID {
         [0, 0, 0, 0, 0, 0, 0, 0, 0]
     ]
 
+    // Optional: then 9 can be a variable input
+    // console.log(Array.from({ length: 9 }).map((e, i) => Array.from({ length: 9 }).map(() => 0)))
+
     fillGrid(grid)
+
     return grid
 }
 /**
- * Bactracking recursive fn  to check all the possible combination of numbers, 
- * until a solution is found
+ * Backtracking recursion 
+ * to check all the possible combination of numbers
  * @param grid 
  */
 export function fillGrid(grid: GRID) {
@@ -72,8 +76,8 @@ export interface RowInput {
 }
 
 /**
- * 
- * @param param0 
+ * Function that returns true if the value is already being used in the current grid row
+ * @param input Object with 9x9 Sudoku Grid, Row and Column indexes
  * @returns 
  */
 export function isInRow({ grid, row, value }: RowInput): boolean {
@@ -88,7 +92,7 @@ export interface ColInput {
 
 /**
  * Function that returns true if the value is already being used in the current grid column
- * @param input Object with 9x9 Sudoku Grid, Row and column index 
+ * @param input Object with 9x9 Sudoku Grid, Row and Column indexes
  * @returns 
  */
 export function isInCol({ grid, col, value}: ColInput): boolean {

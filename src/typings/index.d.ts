@@ -1,4 +1,7 @@
+ 0
+export type BLOCK_COORDS = [INDEX, INDEX] // cooler name: Matrix
 
+export type INDEX = Exclude<N, 9> // ranged_index?
 
 export type GRID = [ROW, ROW, ROW, ROW, ROW, ROW, ROW, ROW, ROW]
 

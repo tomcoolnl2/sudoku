@@ -7,7 +7,7 @@ import {
     isInSquare,
     checkGrid,
     fillGrid,
-    createGrid,
+    buildGrid,
     RowInput, 
     ColInput, 
     WorkingSquareInput,
@@ -287,7 +287,7 @@ describe('createGrid', () => {
     
     it('creates a 9x9 grid with value rage', () => {
 
-        const grid = createGrid()
+        const grid = buildGrid()
 
         for (let row in grid) {
             for (let col in grid[row]) {

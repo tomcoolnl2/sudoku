@@ -1,10 +1,16 @@
 
 import  styled, { css } from 'styled-components'
 
-export const BlockContainer = styled.div`
-    ${({ theme }) => css`
+
+interface BlockContainerProps {
+    isActive?: boolean
+}
+
+export const BlockContainer = styled.div<BlockContainerProps>`
+    ${({ theme, isActive }) => css`
         align-items: center;
-        background-color: ${theme.colors.white};
+        background-color: ${theme.colors[isActive ? 'lightBlue' : 'white']}
+        ;
         border: 1px solid ${theme.colors.black};
         cursor: pointer;
         display: flex;
