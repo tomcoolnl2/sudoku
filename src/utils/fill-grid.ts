@@ -1,5 +1,5 @@
 
-import { GRID, NUMBERS, SQUARE } from '../typings'
+import { GRID, NUMBERS, SQUARE, INDEX } from '../typings'
 import { shuffle } from './'
 
 
@@ -71,7 +71,7 @@ export function fillGrid(grid: GRID) {
 
 export interface RowInput {
     grid: GRID
-    row: number
+    row: INDEX
     value: NUMBERS
 }
 
@@ -86,7 +86,7 @@ export function isInRow({ grid, row, value }: RowInput): boolean {
 
 export interface ColInput {
     grid: GRID
-    col: number
+    col: INDEX
     value: NUMBERS
 }
 
@@ -104,8 +104,8 @@ export function isInCol({ grid, col, value}: ColInput): boolean {
 
 export interface WorkingSquareInput {
     grid: GRID
-    col: number
-    row: number
+    col: INDEX
+    row: INDEX
 }
 
 /**

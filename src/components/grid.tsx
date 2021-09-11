@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import useMouseTrap from 'react-hook-mousetrap'
 import * as Styled from '../styles'
 import { Block } from './block'
-import { AppState, createGrid } from '../redux'
+import { createGrid, StoreReducer } from '../redux'
 import { BLOCK_COORDS, INDEX } from '../typings'
 
 interface GridState {
@@ -14,7 +14,7 @@ interface GridState {
 
 export const Grid: FC = () => {
     
-    const { selectedBlock } = useSelector<AppState, GridState>(state => state)
+    const { selectedBlock } = useSelector<StoreReducer, GridState>(state => state)
     const dispatch = useDispatch<Dispatch<AnyAction>>()
     const create = useCallback(() => dispatch(createGrid()), [dispatch])
 
