@@ -61,10 +61,10 @@ export const Grid: FC = () => {
 
     return (
         <Styled.GridContainer>
-            {Children.toArray([...Array(9)].map((_: undefined, i: number) => (
+            {Children.toArray([...Array(9)].map((_: undefined, ri: number) => (
                 <Styled.GridRow>
-                    {Children.toArray([...Array(9)].map((_: undefined, j: number) => (
-                        <Block ri={i as GridMatrixIndex} ci={j as GridMatrixIndex} />
+                    {Children.toArray([...Array(9)].map((_: undefined, ci: number) => (
+                        <Block ri={ri as INDEX} ci={ci as INDEX} />
                     )))}
                 </Styled.GridRow>
             )))}
