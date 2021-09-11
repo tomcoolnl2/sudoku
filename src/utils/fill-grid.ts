@@ -1,15 +1,15 @@
 
-import { GRID, NUMBERS, SQUARE, INDEX } from '../typings'
+import { GridMatrix, SudokuInput, GridMatrixSquare, GridMatrixIndex } from '../typings'
 import { shuffle } from './'
 
 
-const numbers: NUMBERS[] = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+const numbers: SudokuInput[] = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 /**
  * Create a full valid Sudoku Grid
  */
-export function buildGrid(): GRID {
-    const grid: GRID = [
+export function buildGrid(): GridMatrix {
+    const grid: GridMatrix = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -33,16 +33,18 @@ export function buildGrid(): GRID {
  * to check all the possible combination of numbers
  * @param grid 
  */
-export function fillGrid(grid: GRID) {
+export function fillGrid(grid: GridMatrix) {
     
-    let row = 0
-    let col = 0
+    let row: GridMatrixIndex = 0
+    let col: GridMatrixIndex = 0
   
-    for (let i = 0; i < 81; i++) {
-        row = Math.floor(i / 9)
-        col = i % 9
+    for (let i = 0; i < 81; i += 1) {
+
+        row = (i / 9) << 0 as GridMatrixIndex
+        col = i % 9 as GridMatrixIndex
   
         if (grid[row][col] === 0) {
+            
             shuffle(numbers)
 
             for (let value of numbers) {
@@ -70,9 +72,9 @@ export function fillGrid(grid: GRID) {
 }
 
 export interface RowInput {
-    grid: GRID
-    row: INDEX
-    value: NUMBERS
+    grid: GridMatrix
+    row: GridMatrixIndex
+    value: SudokuInput
 }
 
 /**
@@ -85,9 +87,9 @@ export function isInRow({ grid, row, value }: RowInput): boolean {
 }
 
 export interface ColInput {
-    grid: GRID
-    col: INDEX
-    value: NUMBERS
+    grid: GridMatrix
+    col: GridMatrixIndex
+    value: SudokuInput
 }
 
 /**
@@ -103,9 +105,9 @@ export function isInCol({ grid, col, value}: ColInput): boolean {
 }
 
 export interface WorkingSquareInput {
-    grid: GRID
-    col: INDEX
-    row: INDEX
+    grid: GridMatrix
+    col: GridMatrixIndex
+    row: GridMatrixIndex
 }
 
 /**
@@ -113,7 +115,7 @@ export interface WorkingSquareInput {
  * @param input object with a 9x9 sudoku Grid, row index and column index 
  * @returns 
  */
-export function identifySquare({ col, grid, row }: WorkingSquareInput): SQUARE {
+export function identifySquare({ col, grid, row }: WorkingSquareInput): GridMatrixSquare {
     const square = []
     if(row < 3) {
         if (col < 3) {
@@ -166,12 +168,12 @@ export function identifySquare({ col, grid, row }: WorkingSquareInput): SQUARE {
             }
         }
     }
-    return square as SQUARE
+    return square as GridMatrixSquare
 }
 
 export interface SquareInput {
-    square: SQUARE
-    value: NUMBERS
+    square: GridMatrixSquare
+    value: SudokuInput
 }
 
 /**
@@ -188,7 +190,7 @@ export function isInSquare({ square, value }: SquareInput): boolean {
  * @param grid A 9x9 Array
  * @returns 
  */
-export function checkGrid(grid: GRID): boolean {
+export function checkGrid(grid: GridMatrix): boolean {
     for (let i = 0; i < 9; i += 1) {
         for (let j = 0; j < 9; j += 1) {
             // TODO Array.prototype.some() ?

@@ -8,15 +8,15 @@ const initialState: AppState = {}
 
 export function reducer(state = initialState, action: AnyAction) {
     switch(action.type) {
-        case types.CREATE_GRID:
+        case types.UNLEASH_THE_MATRIX:
             return {
                 ...state,
                 grid: buildGrid()
             }
-        case types.SELECT_BLOCK:
+        case types.SELECT_REGION:
             return {
                 ...state,
-                selectedBlock: action.coords
+                selection: action.coords
             }
         default:
              return state

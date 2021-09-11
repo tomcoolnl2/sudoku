@@ -3,24 +3,24 @@ import { FC } from 'react'
 import { Dispatch, AnyAction } from 'redux'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectBlock, StoreReducer } from '../redux'
-import { INDEX, N } from '../typings'
+import { GridMatrixIndex, N } from '../typings'
 import * as Styled from '../styles'
 
 interface BlockProps {
-    ri: INDEX
-    ci: INDEX
+    ri: GridMatrixIndex
+    ci: GridMatrixIndex
 }
 
 interface BlockState {
-    isActive: boolean
+    active: boolean
     value: N
 }
 
 export const Block: FC<BlockProps> = ({ ri, ci }) => {
 
-    const { value, isActive } = useSelector<StoreReducer, BlockState>(({ grid, selectedBlock }) => ({ 
-        isActive: selectedBlock 
-            ? selectedBlock[0] === ri && selectedBlock[1] === ci 
+    const { value, active } = useSelector<StoreReducer, BlockState>(({ grid, selection }) => ({ 
+        active: selection 
+            ? selection[0] === ri && selection[1] === ci 
             : false,
         value: grid ? grid[ri][ci] : 0
     }))
@@ -28,11 +28,11 @@ export const Block: FC<BlockProps> = ({ ri, ci }) => {
     const dispatch = useDispatch<Dispatch<AnyAction>>()
 
     function clickHandler() {
-        !isActive && dispatch(selectBlock([ri, ci]))
+        !active && dispatch(selectBlock([ri, ci]))
     }
 
     return (
-        <Styled.BlockContainer isActive={isActive} onClick={clickHandler}>
+        <Styled.BlockContainer active={active} onClick={clickHandler}>
             {value === 0 ? '' : value}
         </Styled.BlockContainer>
     )

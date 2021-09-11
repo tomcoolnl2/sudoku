@@ -1,5 +1,5 @@
 
-import { GRID, SQUARE } from '../typings'
+import { GridMatrix, GridMatrixSquare } from '../typings'
 import { 
     isInRow, 
     isInCol,
@@ -20,7 +20,7 @@ describe('isInCol', () => {
         
         let input: ColInput
         
-        const grid: GRID = [
+        const grid: GridMatrix = [
             [8, 4, 2, 6, 5, 1, 3, 9, 7],
             [5, 3, 7, 2, 8, 9, 6, 4, 1],
             [6, 9, 1, 7, 3, 4, 5, 2, 8],
@@ -47,7 +47,7 @@ describe('isInCol', () => {
         
         let input: ColInput
         
-        const grid: GRID = [
+        const grid: GridMatrix = [
             [8, 4, 2, 6, 5, 1, 3, 9, 7],
             [5, 3, 7, 2, 8, 0, 6, 4, 1],
             [6, 9, 1, 7, 3, 4, 5, 2, 8],
@@ -76,7 +76,7 @@ describe('isInRow', () => {
         
         let input: RowInput
         
-        const grid: GRID = [
+        const grid: GridMatrix = [
             [8, 4, 2, 6, 5, 1, 3, 9, 7],
             [5, 3, 7, 2, 8, 9, 6, 4, 1],
             [6, 9, 1, 7, 3, 4, 5, 2, 8],
@@ -103,7 +103,7 @@ describe('isInRow', () => {
         
         let input: RowInput
         
-        const grid: GRID = [
+        const grid: GridMatrix = [
             [8, 4, 2, 6, 5, 1, 3, 0, 7],
             [5, 3, 7, 2, 8, 0, 6, 4, 1],
             [6, 9, 1, 7, 3, 4, 5, 2, 8],
@@ -132,7 +132,7 @@ describe('identifySquare', () => {
         
         let input: WorkingSquareInput
         
-        const grid: GRID = [
+        const grid: GridMatrix = [
             [8, 4, 2, 6, 5, 1, 3, 9, 7],
             [5, 3, 7, 2, 8, 9, 6, 4, 1],
             [6, 9, 1, 7, 3, 4, 5, 2, 8],
@@ -173,7 +173,7 @@ describe('isInSquare', () => {
 
         let input: SquareInput
 
-        const square: SQUARE = [
+        const square: GridMatrixSquare = [
             [1, 3, 4],
             [8, 2, 7],
             [6, 9, 5]
@@ -191,7 +191,7 @@ describe('isInSquare', () => {
         
         let input: SquareInput
 
-        const square: SQUARE = [
+        const square: GridMatrixSquare = [
             [0, 3, 4],
             [8, 2, 7],
             [6, 0, 5]
@@ -210,7 +210,7 @@ describe('isInSquare', () => {
 describe('checkGrid', () => {
     
     it('returns false when grid is not complete', () => {
-        const grid1: GRID = [
+        const grid1: GridMatrix = [
             [0, 4, 2, 6, 5, 1, 3, 9, 7],
             [5, 3, 7, 2, 8, 9, 6, 4, 1],
             [6, 9, 1, 7, 3, 4, 5, 2, 8],
@@ -224,7 +224,7 @@ describe('checkGrid', () => {
         
         expect(checkGrid(grid1)).toBeFalsy()
 
-        const grid2: GRID = [
+        const grid2: GridMatrix = [
             [8, 4, 2, 6, 5, 1, 3, 9, 7],
             [5, 3, 7, 2, 8, 9, 6, 4, 1],
             [6, 9, 1, 7, 3, 4, 5, 2, 8],
@@ -240,7 +240,7 @@ describe('checkGrid', () => {
     })
 
     it('returns true when grid is complete', () => {
-        const grid: GRID = [
+        const grid: GridMatrix = [
             [8, 4, 2, 6, 5, 1, 3, 9, 7],
             [5, 3, 7, 2, 8, 9, 6, 4, 1],
             [6, 9, 1, 7, 3, 4, 5, 2, 8],
@@ -260,7 +260,7 @@ describe('fillGrid', () => {
     
     it('fills an empty grid', () => {
 
-        const grid: GRID = [
+        const grid: GridMatrix = [
             [0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0],

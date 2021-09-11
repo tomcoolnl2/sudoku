@@ -1,12 +1,12 @@
 
 import { Action, AnyAction } from 'redux'
-import { BLOCK_COORDS } from '../typings'
+import { GridMatrixCoörds } from '../typings'
 import * as types from './types'
 
 
-export const createGrid = (): Action => ({ type: types.CREATE_GRID })
+export const createGrid = (): Action => ({ type: types.UNLEASH_THE_MATRIX })
 
-export const selectBlock = (coords: BLOCK_COORDS): AnyAction => ({ 
+export const selectBlock = (coords: GridMatrixCoörds): AnyAction => ({ 
     coords,
-    type: types.SELECT_BLOCK
+    type: types.SELECT_REGION
 })
