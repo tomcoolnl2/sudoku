@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import useMouseTrap from 'react-hook-mousetrap'
 import * as Styled from '../styles'
 import { Block } from './block'
-import { createGrid, StoreReducer } from '../redux'
+import { createGrid, StoreReducer, selectCell } from '../redux'
 import { GridMatrixCoörds, GridMatrixIndex } from '../typings'
 
 interface GridState {
@@ -18,22 +18,40 @@ export const Grid: FC = () => {
     const dispatch = useDispatch<Dispatch<AnyAction>>()
     const create = useCallback(() => dispatch(createGrid()), [dispatch])
 
-    useEffect(() => { create() }, [create])
+    useEffect(() => { 
+        create() 
+    }, [create])
 
     function moveDown() {
-        if (selection && selection[0] < 8) console.log('down')
+        if (selection && selection[0] < 8) {
+            dispatch(selectCell([
+                (selection[0] + 1) as GridMatrixIndex, selection[1]
+            ]))
+        }
     }
 
     function moveLeft() {
-        if (selection && selection[1] > 0) console.log('left')
+        if (selection && selection[1] > 0) {
+            dispatch(selectCell([
+                selection[0], (selection[1] - 1) as GridMatrixIndex
+            ]))
+        }
     }
 
     function moveRight() {
-        if (selection && selection[1] < 8)  console.log('right')
+        if (selection && selection[1] < 8)  {
+            dispatch(selectCell([
+                selection[0], (selection[1] + 1) as GridMatrixIndex
+            ]))
+        }
     }
 
     function moveUp() {
-        if (selection && selection[0] > 0) console.log('up')
+        if (selection && selection[0] > 0) {
+            dispatch(selectCell([
+                (selection[0] - 1) as GridMatrixIndex, selection[1]
+            ]))
+        }
     }
 
     useMouseTrap('down', moveDown)
