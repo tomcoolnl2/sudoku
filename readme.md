@@ -1,4 +1,4 @@
-[ ] convert into a class
+[ ] convert into a class, pref a singleton
 [ ] Use Region for Block
 [ ] Search for algorithms that better fit this program
 [ ] Use chinese characters
