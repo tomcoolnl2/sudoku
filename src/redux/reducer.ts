@@ -15,7 +15,7 @@ export function reducer(state: AppState = {}, action: AnyAction): AppState {
             // use spread to copy the solvedGrid, to prevent a object reference
             let gridClone = [...solvedGrid].map(row => [...row]) as GridMatrix
             const challengeGrid: GridMatrix = removeNumbers(gridClone)
-            // use spread to copy the solvedGrid, to prevent a object reference
+            // use spread to copy the cloned Grid, to prevent a object reference
             gridClone = [...gridClone].map(row => [...row]) as GridMatrix
             const workingGrid: GridMatrix = gridClone
 
