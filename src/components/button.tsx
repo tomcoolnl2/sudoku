@@ -15,7 +15,7 @@ interface NumbersState {
     selectedValue?: N
 }
 
-export const NumberButton: FC<NumbersProps> = memo(({ value }) => {
+export const UIButton: FC<NumbersProps> = memo(({ value }) => {
 
     const { selection, selectedValue } = useSelector<StoreReducer, NumbersState>(({ selection, workingGrid }) => ({ 
         selection,
