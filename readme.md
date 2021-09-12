@@ -16,7 +16,8 @@
 [ ] Make highlighting optional
 [ ] Create a erase/clear functionality for a cell
 [ ] When guessed the wrong input, show it anyway, but in error-red
-[ ] When all Cells for a number are revealed, remove/disable the buttion/option form the butons
+[ ] When all Cells for a number are revealed, remove/disable the buttion/option from the butons
+[ ] Introduce a gameover state, e.g when a user guess 3 times wrong.
 
 -   Horizontally adjacent rows are a band, and vertically adjacent columns are a stack
 -   The initially defined values are clues or givens

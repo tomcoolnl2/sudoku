@@ -12,7 +12,6 @@ export const fillCell = (value: SudokuInput, coords: GridMatrixCoörds): AnyActi
     type: types.FILL_CELL
 })
 
-
 export const selectCell = (coords: GridMatrixCoörds): AnyAction => ({ 
     coords,
     type: types.SELECT_CELL
