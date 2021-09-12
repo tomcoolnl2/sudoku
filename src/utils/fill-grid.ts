@@ -211,7 +211,7 @@ export function removeNumbers(grid: GridMatrix, attempts: number = 5): GridMatri
         grid[row][col] = 0
         
 
-        const gridCopy = copyGrid(grid)
+        const gridCopy = [...grid] as GridMatrix
         global.counter = 0
         solveGrid(gridCopy)
 
@@ -220,8 +220,6 @@ export function removeNumbers(grid: GridMatrix, attempts: number = 5): GridMatri
             attempts--
         }
     }
-
-    console.log('removeNumbers', grid)
 
     return grid
 }
@@ -237,9 +235,9 @@ export function getRandomIndex(): number {
  * Function to check all possible combinations of numbers until a solution is found
  * @param grid 9x9 array of values form 0-9
  */
-const numbers = initialSubGrid().map((_, i) => i + 1) as SudokuInput[] // [1, 2, 3, ...]
 export function solveGrid(grid: GridMatrix) {
     
+    const numbers = initialSubGrid().map((_, i) => i + 1) as SudokuInput[] // [1, 2, 3, ...]
     let row: GridMatrixIndex = 0
     let col: GridMatrixIndex = 0
     

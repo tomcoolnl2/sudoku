@@ -11,7 +11,7 @@ export function reducer(state: AppState = {}, action: AnyAction) {
         case types.UNLEASH_THE_MATRIX:
             const solvedGrid = [...buildGrid()] as GridMatrix
             console.log('solvedGrid' , solvedGrid)
-            const copiedGrid: GridMatrix = copyGrid(solvedGrid)
+            const copiedGrid: GridMatrix = [...solvedGrid]
             console.log('copiedGrid', copiedGrid)
             console.log(solvedGrid === copiedGrid)
             const challengeGrid: GridMatrix = removeNumbers(copiedGrid)
