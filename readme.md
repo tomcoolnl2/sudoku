@@ -1,12 +1,14 @@
 [ ] convert into a class, pref a singleton
-[ ] Use Region for Block
+[ ] Fix global/index stuff
+[ ] Refactor checkGrid -> array.flat().inlcudes(0)
+[ ] copyGrid -> [...grid]: would it be enough?
+[x] Use Region for Block
 [ ] Search for algorithms that better fit this program
 [ ] Use chinese characters
 [ ] Add the sounds/pronounciation
 [ ] 9 as a cont/variable and use it as it's calculations
-[ ] Create interfaces and settings for 4x4, 6x6 and it's terminology. Default to 9x9 (us e overloading?)
-[ ] Write a `solve` method acc to: https://en.wikipedia.org/wiki/Sudoku_solving_algorithms
-[ ] Convert HTML to SVG
+[ ] Investigate a better `solve` method acc to: https://en.wikipedia.org/wiki/Sudoku_solving_algorithms
+[ ] 100% test coverage
 
 - Horizontally adjacent rows are a band, and vertically adjacent columns are a stack
 - The initially defined values are clues or givens
