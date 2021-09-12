@@ -1,5 +1,5 @@
 
-import { FC } from 'react'
+import { FC, memo } from 'react'
 import { Dispatch, AnyAction } from 'redux'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectCell, StoreReducer } from '../redux'
@@ -13,16 +13,18 @@ interface BlockProps {
 
 interface BlockState {
     active: boolean
+    isPuzzle: boolean
     value: N
 }
 
-export const Block: FC<BlockProps> = ({ ri, ci }) => {
+export const Block: FC<BlockProps> = memo(({ ri, ci }) => {
 
-    const { value, active } = useSelector<StoreReducer, BlockState>(({ grid, selection }) => ({ 
+    const { value, active, isPuzzle } = useSelector<StoreReducer, BlockState>(({ challengeGrid, workingGrid, selection }) => ({
         active: selection 
             ? selection[0] === ri && selection[1] === ci 
             : false,
-        value: grid ? grid[ri][ci] : 0
+        value: workingGrid ? workingGrid[ri][ci] : 0,
+        isPuzzle: challengeGrid && challengeGrid[ri][ci] !== 0 ? true: false
     }))
 
     const dispatch = useDispatch<Dispatch<AnyAction>>()
@@ -32,8 +34,8 @@ export const Block: FC<BlockProps> = ({ ri, ci }) => {
     }
 
     return (
-        <Styled.BlockContainer active={active} onClick={clickHandler}>
+        <Styled.BlockContainer active={active} puzzle={isPuzzle} onClick={clickHandler}>
             {value === 0 ? '' : value}
         </Styled.BlockContainer>
     )
-}
+})

@@ -1,18 +1,25 @@
 
+import global from '../global'
 import { GridMatrix, SudokuInput, GridMatrixRegion, GridMatrixIndex } from '../typings'
 import { shuffle } from './'
 
 
-const subset: undefined[] = Array.from({ length: 9 })
+export function initialSubGrid(indicator: number | undefined = undefined): (number | undefined)[] {
+    return Array.from({ length: 9 }).map(() => indicator)
+}
+
+export function initialGrid(): GridMatrix {
+    return initialSubGrid().map(() => initialSubGrid(0)) as GridMatrix
+}
+    
 /**
  * Create a full valid Sudoku Grid
  */
 export function buildGrid(): GridMatrix {
 
     // set a row of 9 cells for each row with 9 columns
-    const grid = subset.map(() => [...subset].map(() => 0)) as GridMatrix
-
-    fillGrid(grid)
+    const grid = initialGrid()
+    fillGrid(grid) // TODO not only change the reference to 'grid', but let it return e grid. = Readability
 
     return grid
 }
@@ -23,7 +30,7 @@ export function buildGrid(): GridMatrix {
  */
 export function fillGrid(grid: GridMatrix) {
 
-    const numbers = subset.map((_, i) => i + 1) as SudokuInput[]
+    const numbers = initialSubGrid().map((_, i) => i + 1) as SudokuInput[]
     let row: GridMatrixIndex = 0
     let col: GridMatrixIndex = 0
   
@@ -180,14 +187,84 @@ export function isInRegion({ region, value }: RegionInput): boolean {
  * @returns 
  */
 export function checkGrid(grid: GridMatrix): boolean {
+    return !grid.flat().includes(0)
+}
 
-    for (let i = 0; i < 9; i += 1) {
-        for (let j = 0; j < 9; j += 1) {
-            if (grid[i][j] === 0) {
-                return false
-            }
+/**
+ * Removes numbers from a full grid to set an actual Sudoku Challenge
+ * @param grid The filled in grid
+ * @param attempts Number of attepts to solve (higher means more difficult) - default 5
+ * @returns 
+ */
+export function removeNumbers(grid: GridMatrix, attempts: number = 5): GridMatrix {
+    
+    while (attempts > 0) {
+        let row = getRandomIndex()
+        let col = getRandomIndex()
+
+        if (grid[row][col] === 0) {
+            row = getRandomIndex()
+            col = getRandomIndex()
+        }
+
+        const backup = grid[row][col]
+        grid[row][col] = 0
+
+        const gridCopy = [...grid].map(row => [...row]) as GridMatrix
+        global.counter = 0
+        solveGrid(gridCopy)
+
+        if (global.counter !== 1) {
+            grid[row][col] = backup
+            attempts--
         }
     }
 
-    return true
+    return grid
+}
+
+/**
+ * Random get a number between 0 and 8
+ * @returns A random number between 0 and 8
+ */
+export function getRandomIndex(): number {
+    return (Math.random() * 9) << 0
+}
+/**
+ * Function to check all possible combinations of numbers until a solution is found
+ * @param grid 9x9 array of values form 0-9
+ */
+export function solveGrid(grid: GridMatrix) {
+    
+    const numbers = initialSubGrid().map((_, i) => i + 1) as SudokuInput[] // [1, 2, 3, ...]
+    let row: GridMatrixIndex = 0
+    let col: GridMatrixIndex = 0
+    
+    for (let i = 0; i < 81; i += 1) {
+    
+        row = (i / 9) << 0 as GridMatrixIndex
+        col = i % 9 as GridMatrixIndex
+
+        if (grid[row][col] === 0) {
+            for (let value of numbers) {
+                if (!isInRow({ grid, row, value })) {
+                    if (!isInCol({ grid, col, value })) {
+                        const region = identifyRegion({ grid, row, col })
+                        if (!isInRegion({ region, value })) {
+                            grid[row][col] = value
+                            if (checkGrid(grid)) {
+                                global.counter++
+                                break
+                            }
+                            else if (solveGrid(grid)) {
+                                return true
+                            }
+                        }
+                    }
+                }
+            }
+            break
+        }
+    }
+    grid[row][col] = 0
 }
