@@ -14,6 +14,9 @@
 [ ] Highlight number of the same type as selected
 [ ] Highlight row/column of selected
 [ ] Make highlighting optional
+[ ] Create a erase/clear functionality for a cell
+[ ] When guessed the wrong input, show it anyway, but in error-red
+[ ] When all Cells for a number are revealed, remove/disable the buttion/option form the butons
 
 -   Horizontally adjacent rows are a band, and vertically adjacent columns are a stack
 -   The initially defined values are clues or givens

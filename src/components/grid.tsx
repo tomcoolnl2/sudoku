@@ -4,7 +4,7 @@ import { Dispatch, AnyAction } from 'redux'
 import { useDispatch, useSelector } from 'react-redux'
 import useMouseTrap from 'react-hook-mousetrap'
 import * as Styled from '../styles'
-import { Block } from './block'
+import { Block, Numbers } from './'
 import { createGrid, StoreReducer, selectCell, fillCell } from '../redux'
 import { GridMatrix, GridMatrixCoörds, GridMatrixIndex, N, SudokuInput } from '../typings'
 
@@ -16,7 +16,7 @@ interface GridState {
 
 export const Grid: FC = () => {
     
-    const { selection, workingGrid, selectedValue } = useSelector<StoreReducer, GridState>(({ selection, workingGrid }) => ({ 
+    const { selection, selectedValue } = useSelector<StoreReducer, GridState>(({ selection, workingGrid }) => ({ 
         selection, 
         workingGrid,
         selectedValue: workingGrid && selection ? workingGrid[selection[0]][selection[1]] : 0
@@ -27,7 +27,6 @@ export const Grid: FC = () => {
     const create = useCallback(() => dispatch(createGrid()), [dispatch])
     
     const fill = useCallback((n: SudokuInput) => {
-            console.log(n)
         if (selection && selectedValue === 0) {
             dispatch(fillCell(n, selection))
         }
@@ -94,6 +93,8 @@ export const Grid: FC = () => {
                     )))}
                 </Styled.GridRow>
             )))}
+            <br />
+            <Numbers />
         </Styled.GridContainer>
     )
 }

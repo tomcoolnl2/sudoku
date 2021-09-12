@@ -40,14 +40,14 @@ export function reducer(state: AppState = {}, action: AnyAction): AppState {
                 const [ri, ci] = action.coords
                 
                 if (solvedGrid[ri][ci] !== value) {
-                    alert('WRONG')
+                    console.log('WRONG')
                     return state
                 }
 
                 workingGrid[ri][ci] = value
                 
                 if (compareArrays(workingGrid, solvedGrid)) {
-                    alert('WIN')
+                    console.log('WIN')
                     return {
                         ...state,
                         workingGrid: [...workingGrid]
