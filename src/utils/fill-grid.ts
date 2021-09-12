@@ -209,9 +209,8 @@ export function removeNumbers(grid: GridMatrix, attempts: number = 5): GridMatri
 
         const backup = grid[row][col]
         grid[row][col] = 0
-        
 
-        const gridCopy = [...grid] as GridMatrix
+        const gridCopy = [...grid].map(row => [...row]) as GridMatrix
         global.counter = 0
         solveGrid(gridCopy)
 

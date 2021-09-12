@@ -19,10 +19,6 @@ export function reducer(state: AppState = {}, action: AnyAction): AppState {
             gridClone = [...gridClone].map(row => [...row]) as GridMatrix
             const workingGrid: GridMatrix = gridClone
 
-            console.log('solvedGrid', solvedGrid)
-            console.log('challengeGrid', challengeGrid)
-            console.log('workingGrid', workingGrid)
-
             return {
                 ...state,
                 challengeGrid,
