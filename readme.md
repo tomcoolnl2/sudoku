@@ -3,12 +3,17 @@
 [ ] Refactor checkGrid -> array.flat().inlcudes(0)
 [x] copyGrid -> [...grid]: would it be enough?
 [x] Use Region for Block
+[ ] Set different color for user input
 [ ] Search for algorithms that better fit this program
 [ ] Use chinese characters
 [ ] Add the sounds/pronounciation
 [ ] 9 as a cont/variable and use it as it's calculations
 [ ] Investigate a better `solve` method acc to: https://en.wikipedia.org/wiki/Sudoku_solving_algorithms
 [ ] 100% test coverage
+[ ] Use floodfill to animate solved rows/colums/regions/entire field
+[ ] Highlight number of the same type as selected
+[ ] Highlight row/column of selected
+[ ] Make highlighting optional
 
 -   Horizontally adjacent rows are a band, and vertically adjacent columns are a stack
 -   The initially defined values are clues or givens

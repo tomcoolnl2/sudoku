@@ -18,11 +18,11 @@ interface BlockState {
 
 export const Block: FC<BlockProps> = ({ ri, ci }) => {
 
-    const { value, active } = useSelector<StoreReducer, BlockState>(({ grid, selection }) => ({ 
+    const { value, active } = useSelector<StoreReducer, BlockState>(({ workingGrid, selection }) => ({ 
         active: selection 
             ? selection[0] === ri && selection[1] === ci 
             : false,
-        value: grid ? grid[ri][ci] : 0
+        value: workingGrid ? workingGrid[ri][ci] : 0
     }))
 
     const dispatch = useDispatch<Dispatch<AnyAction>>()

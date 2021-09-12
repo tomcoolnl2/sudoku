@@ -5,22 +5,33 @@ import { useDispatch, useSelector } from 'react-redux'
 import useMouseTrap from 'react-hook-mousetrap'
 import * as Styled from '../styles'
 import { Block } from './block'
-import { createGrid, StoreReducer, selectCell } from '../redux'
-import { GridMatrixCoörds, GridMatrixIndex } from '../typings'
+import { createGrid, StoreReducer, selectCell, fillCell } from '../redux'
+import { GridMatrix, GridMatrixCoörds, GridMatrixIndex, N, SudokuInput } from '../typings'
 
 interface GridState {
     selection?: GridMatrixCoörds
+    selectedValue: N
+    workingGrid?: GridMatrix
 }
 
 export const Grid: FC = () => {
     
-    const { selection } = useSelector<StoreReducer, GridState>(state => state)
+    const { selection, workingGrid, selectedValue } = useSelector<StoreReducer, GridState>(({ selection, workingGrid }) => ({ 
+        selection, 
+        workingGrid,
+        selectedValue: workingGrid && selection ? workingGrid[selection[0]][selection[1]] : 0
+    }))
+    
     const dispatch = useDispatch<Dispatch<AnyAction>>()
+    
     const create = useCallback(() => dispatch(createGrid()), [dispatch])
-
-    useEffect(() => { 
-        create() 
-    }, [create])
+    
+    const fill = useCallback((n: SudokuInput) => {
+            console.log(n)
+        if (selection && selectedValue === 0) {
+            dispatch(fillCell(n, selection))
+        }
+    }, [dispatch, selection, selectedValue])
 
     function moveDown() {
         if (selection && selection[0] < 8) {
@@ -54,10 +65,25 @@ export const Grid: FC = () => {
         }
     }
 
+    useMouseTrap('1', () => fill(1))
+    useMouseTrap('2', () => fill(2))
+    useMouseTrap('3', () => fill(3))
+    useMouseTrap('4', () => fill(4))
+    useMouseTrap('5', () => fill(5))
+    useMouseTrap('6', () => fill(6))
+    useMouseTrap('7', () => fill(7))
+    useMouseTrap('8', () => fill(8))
+    useMouseTrap('9', () => fill(9))
+
+    useMouseTrap('down', moveDown)
     useMouseTrap('down', moveDown)
     useMouseTrap('left', moveLeft)
     useMouseTrap('right', moveRight)
     useMouseTrap('up', moveUp)
+
+    useEffect(() => { 
+        create() 
+    }, [create])
 
     return (
         <Styled.GridContainer>

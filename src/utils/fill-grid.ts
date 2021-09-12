@@ -269,20 +269,3 @@ export function solveGrid(grid: GridMatrix) {
     }
     grid[row][col] = 0
 }
-
-/**
- * 
- * @param grid 9x9 Grid
- * @returns 
- */
-export function copyGrid(grid: GridMatrix): GridMatrix {
-    
-    const gridCopy: GridMatrix = initialGrid()
-
-    for (let r: GridMatrixIndex = 0; r < 9; r += 1) {
-        for (let c: GridMatrixIndex = 0; c < 9; c += 1) {
-            gridCopy[r][c] = grid[r][c]
-        }
-    }
-    return gridCopy
-}
