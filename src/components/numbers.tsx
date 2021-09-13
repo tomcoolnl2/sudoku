@@ -1,7 +1,7 @@
 
 import { FC, useRef, memo } from 'react'
 import * as Styled from '../styles'
-import { UIButton } from './button'
+import { InputValueButton } from './input-value-button'
 import { SudokuInput } from '../typings'
 
 
@@ -12,7 +12,7 @@ export const Numbers: FC = memo(() => {
     return (
         <Styled.NumbersContainer>
             {nrs.current.map(nr => (
-                <UIButton key={nr} value={nr}>{nr}</UIButton>
+                <InputValueButton key={nr} value={nr}>{nr}</InputValueButton>
             ))}
         </Styled.NumbersContainer>
     )

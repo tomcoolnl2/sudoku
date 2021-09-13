@@ -1,10 +1,10 @@
 
-import { Children, FC, useEffect, useCallback } from 'react'
+import { Children, FC, useEffect, useCallback, memo } from 'react'
 import { Dispatch, AnyAction } from 'redux'
 import { useDispatch, useSelector } from 'react-redux'
 import useMouseTrap from 'react-hook-mousetrap'
 import * as Styled from '../styles'
-import { Block, Numbers } from './'
+import { Block, Numbers, NewGameButton } from './'
 import { createGrid, StoreReducer, selectCell, fillCell } from '../redux'
 import { GridMatrix, GridMatrixCoörds, GridMatrixIndex, N, SudokuInput } from '../typings'
 
@@ -14,7 +14,7 @@ interface GridState {
     workingGrid?: GridMatrix
 }
 
-export const Grid: FC = () => {
+export const Grid: FC = memo(() => {
     
     const { selection, selectedValue } = useSelector<StoreReducer, GridState>(({ selection, workingGrid }) => ({ 
         selection, 
@@ -24,7 +24,9 @@ export const Grid: FC = () => {
     
     const dispatch = useDispatch<Dispatch<AnyAction>>()
     
-    const create = useCallback(() => dispatch(createGrid()), [dispatch])
+    const create = useCallback(() => {
+        dispatch(createGrid())
+    }, [dispatch])
     
     const fill = useCallback((n: SudokuInput) => {
         if (selection && selectedValue === 0) {
@@ -86,6 +88,8 @@ export const Grid: FC = () => {
 
     return (
         <Styled.GridContainer>
+            <NewGameButton reset={create} />
+            <br />
             {Children.toArray([...Array(9)].map((_: undefined, ri: number) => (
                 <Styled.GridRow>
                     {Children.toArray([...Array(9)].map((_: undefined, ci: number) => (
@@ -97,4 +101,4 @@ export const Grid: FC = () => {
             <Numbers />
         </Styled.GridContainer>
     )
-}
+})

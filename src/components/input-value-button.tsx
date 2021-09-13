@@ -6,18 +6,18 @@ import { fillCell, StoreReducer, } from '../redux'
 import { SudokuInput, GridMatrixCoörds, N } from '../typings'
 
 
-interface NumbersProps {
+interface InputValueProps {
     value: SudokuInput
 }
 
-interface NumbersState {
+interface InputValueState {
     selection?: GridMatrixCoörds
     selectedValue?: N
 }
 
-export const UIButton: FC<NumbersProps> = memo(({ value }) => {
+export const InputValueButton: FC<InputValueProps> = memo(({ value }) => {
 
-    const { selection, selectedValue } = useSelector<StoreReducer, NumbersState>(({ selection, workingGrid }) => ({ 
+    const { selection, selectedValue } = useSelector<StoreReducer, InputValueState>(({ selection, workingGrid }) => ({ 
         selection,
         selectedValue: workingGrid && selection ? workingGrid[selection[0]][selection[1]] : 0
     }))

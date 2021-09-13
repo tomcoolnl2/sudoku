@@ -2,4 +2,5 @@
 export * from './grid'
 export * from './block'
 export * from './numbers'
-export * from './button'
+export * from './input-value-button'
+export * from './reset-button'
