@@ -1,18 +1,21 @@
 [ ] convert into a class, pref a singleton
 [ ] Fix global/index stuff
-[ ] Reset/New Game button
+[x] Reset/New Game button
 [ ] Custom hook to create a row with 9xN
 [x] Refactor checkGrid -> array.flat().inlcudes(0)
 [x] copyGrid -> [...grid]: would it be enough?
 [x] Use Region for Block
 [x] Set different color for user input
-[ ] Search for algorithms that better fit this program
-[ ] Use chinese characters
+[ ] Analize performance of reset functionality
+[ ] Add Unit tests for the Redux Reducer
+[ ] Add snapshot/DOM tests for any react component
 [ ] Add Dark/Light mode theme: https://www.smashingmagazine.com/2020/04/dark-mode-react-apps-styled-components/
-[ ] Add the sounds/pronounciation
 [ ] 9 as a cont/variable and use it as it's calculations
 [ ] Investigate a better `solve` method acc to: https://en.wikipedia.org/wiki/Sudoku_solving_algorithms
 [ ] 100% test coverage
+[ ] Search for algorithms that better fit this program
+[ ] Use chinese characters
+[ ] Add the sounds/pronounciation
 [ ] Use floodfill to animate solved rows/colums/regions/entire field
 [ ] Highlight number of the same type as selected
 [ ] Highlight row/column of selected

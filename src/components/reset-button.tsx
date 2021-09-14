@@ -1,9 +1,6 @@
 
-import { FC, useCallback, memo } from 'react'
-import { useDispatch } from 'react-redux'
-import { Dispatch, AnyAction } from 'redux'
+import { FC, memo } from 'react'
 import * as Styled from '../styles'
-import { createGrid } from '../redux'
 import { ReloadIcon } from '../icons'
 
 interface NewGameButtonProps {
