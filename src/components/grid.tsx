@@ -4,7 +4,7 @@ import { Dispatch, AnyAction } from 'redux'
 import { useDispatch, useSelector } from 'react-redux'
 import useMouseTrap from 'react-hook-mousetrap'
 import * as Styled from '../styles'
-import { Block, Numbers, NewGameButton } from './'
+import { Block, Numbers, ResetGameButton } from './'
 import { createGrid, StoreReducer, selectCell, fillCell } from '../redux'
 import { GridMatrix, GridMatrixCoörds, GridMatrixIndex, N, SudokuInput } from '../typings'
 
@@ -89,7 +89,7 @@ export const Grid: FC = memo(() => {
     return (
         <>
             <Styled.GridContainer>
-                <NewGameButton reset={create} />
+                <ResetGameButton reset={create} />
             </Styled.GridContainer>
             <Styled.GridContainer>
                 {Children.toArray([...Array(9)].map((_: undefined, ri: number) => (

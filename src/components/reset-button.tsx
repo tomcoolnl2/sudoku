@@ -3,11 +3,11 @@ import { FC, memo } from 'react'
 import * as Styled from '../styles'
 import { ReloadIcon } from '../icons'
 
-interface NewGameButtonProps {
+interface ResetGameButtonProps {
     reset: () => void
 }
 
-export const NewGameButton: FC<NewGameButtonProps> = memo(({ reset }) => {
+export const ResetGameButton: FC<ResetGameButtonProps> = memo(({ reset }) => {
 
     return (
         <Styled.Button onClick={reset}>

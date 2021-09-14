@@ -34,14 +34,14 @@ export const Button = styled.button`
             opacity: .8;
         }
 
-        > svg {
+        > svg { 
             margin-right: 10px;
             fill: ${theme.colors.white}
         }
 
         &:hover {
             > svg {
-                animation: ${rotate} 2s linear infinite
+                animation: ${rotate} 2s linear infinite;
             }
         }
     `}
