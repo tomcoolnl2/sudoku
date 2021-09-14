@@ -1,10 +1,12 @@
 [ ] Convert into a class, (singleton?)
 [x] Reset/New Game button
-[ ] Custom hook to create a row with 9xN
+[ ] Create better method, incl generic for creating grid/rows 9xN
 [x] Refactor checkGrid -> array.flat().inlcudes(0)
 [x] copyGrid -> [...grid]: would it be enough?
 [x] Use Region for Block
 [x] Set different color for user input
+[ ] Add favicon.ico
+[ ] Add proper JSDocs to make Intellisence happy
 [ ] Analize performance of reset functionality
 [ ] Add Unit tests for the Redux Reducer: https://betterprogramming.pub/unit-testing-react-redux-hooks-ce7d69e1e834
 [ ] Add snapshot/DOM tests for any react component
@@ -14,9 +16,8 @@
 [ ] 100% test coverage
 [ ] Search for algorithms that better fit this program
 [ ] Use chinese characters
-[ ] Add the sounds/pronounciation
 [ ] Fix global/index stuff
-[ ] Use floodfill to animate solved rows/colums/regions/entire field
+[ ] Use floodfill-algorithm to animate solved rows/colums/regions/entire field
 [ ] Highlight number of the same type as selected
 [ ] Highlight row/column of selected
 [ ] Make highlighting optional
