@@ -1,5 +1,4 @@
-[ ] convert into a class, pref a singleton
-[ ] Fix global/index stuff
+[ ] Convert into a class, (singleton?)
 [x] Reset/New Game button
 [ ] Custom hook to create a row with 9xN
 [x] Refactor checkGrid -> array.flat().inlcudes(0)
@@ -7,7 +6,7 @@
 [x] Use Region for Block
 [x] Set different color for user input
 [ ] Analize performance of reset functionality
-[ ] Add Unit tests for the Redux Reducer
+[ ] Add Unit tests for the Redux Reducer: https://betterprogramming.pub/unit-testing-react-redux-hooks-ce7d69e1e834
 [ ] Add snapshot/DOM tests for any react component
 [ ] Add Dark/Light mode theme: https://www.smashingmagazine.com/2020/04/dark-mode-react-apps-styled-components/
 [ ] 9 as a cont/variable and use it as it's calculations
@@ -16,14 +15,18 @@
 [ ] Search for algorithms that better fit this program
 [ ] Use chinese characters
 [ ] Add the sounds/pronounciation
+[ ] Fix global/index stuff
 [ ] Use floodfill to animate solved rows/colums/regions/entire field
 [ ] Highlight number of the same type as selected
 [ ] Highlight row/column of selected
 [ ] Make highlighting optional
 [ ] Create a erase/clear functionality for a cell
-[ ] When guessed the wrong input, show it anyway, but in error-red
-[ ] When all Cells for a number are revealed, remove/disable the buttion/option from the butons
+[ ] When guessed the wrong input, show it anyway, but in error-red. It should be deletable
+[ ] When all Cells for a number are revealed, remove/disable the button/option from the butons
 [ ] Introduce a gameover state, e.g when a user guess 3 times wrong.
+[ ] Add cypress e2e testing
+[ ] Create a button to show hints for empty cells
+[ ] Create options to allow and reveal a max amount of cells
 
 -   Horizontally adjacent rows are a band, and vertically adjacent columns are a stack
 -   The initially defined values are clues or givens
