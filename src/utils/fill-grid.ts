@@ -4,18 +4,6 @@ import { SudokuInput, GridMatrix, GridMatrixRegion, GridMatrixIndex } from '../t
 import { Sudoku } from '../Sudoku'
 import { shuffle } from './'
 
-
-type FillSeries = (e: unknown, i: number) => unknown
-
-function initialSubGrid<T>(indicator: number, fill: FillSeries = () => indicator): T {
-    return Array.from({ length: 9 }).map(fill) as unknown as T
-}
-
-export { initialSubGrid }
-
-export function initialGrid(): GridMatrix {
-    return Sudoku.createSeries<GridMatrix>(() => Sudoku.createSeries<number>(Sudoku.MIN_VALUE))
-}
     
 /**
  * Create a full valid Sudoku Grid
@@ -23,7 +11,7 @@ export function initialGrid(): GridMatrix {
 export function buildGrid(): GridMatrix {
 
     // set a row of 9 cells for each row with 9 columns
-    const grid = initialGrid()
+    const grid: GridMatrix = Sudoku.createGridMatrix()
     fillGrid(grid) // TODO not only change the reference to 'grid', but let it return e grid. = Readability
 
     return grid
@@ -35,14 +23,14 @@ export function buildGrid(): GridMatrix {
  */
 export function fillGrid(grid: GridMatrix) {
 
-    const numbers = Sudoku.createSeries<SudokuInput[]>((_, i) => i + 1)
+    const numbers = Sudoku.createSeries<SudokuInput[], number>((_, i) => i + 1)
     let row: GridMatrixIndex = 0
     let col: GridMatrixIndex = 0
   
-    for (let i = 0; i < Sudoku.MAX_CELLS; i += 1) {
+    for (let i = 0; i < Sudoku.CELLS; i += 1) {
 
-        row = (i / 9) << 0 as GridMatrixIndex
-        col = i % 9 as GridMatrixIndex
+        row = (i / Sudoku.SIZE) << 0 as GridMatrixIndex
+        col = i % Sudoku.SIZE as GridMatrixIndex
   
         if (grid[row][col] === 0) {
             
@@ -99,7 +87,7 @@ export interface ColInput {
  * @returns 
  */
 export function isInCol({ grid, col, value}: ColInput): boolean {
-    for (let i = 0; i < 9; i += 1) {
+    for (let i = 0; i < Sudoku.SIZE; i += 1) {
         if (value === grid[i][col]) return true
     }
     return false
@@ -192,7 +180,7 @@ export function isInRegion({ region, value }: RegionInput): boolean {
  * @returns 
  */
 export function checkGrid(grid: GridMatrix): boolean {
-    return !grid.flat().includes(0)
+    return !grid.flat().includes(Sudoku.HIDDEN_CELL_VALUE)
 }
 
 /**
@@ -241,16 +229,16 @@ export function getRandomIndex(): number {
  */
 export function solveGrid(grid: GridMatrix) {
     
-    const numbers = Sudoku.createSeries<SudokuInput[]>((_, i) => i + 1)
     let row: GridMatrixIndex = 0
     let col: GridMatrixIndex = 0
+    const numbers = Sudoku.createSeries<SudokuInput[], number>((_, i) => i + 1)
     
-    for (let i = 0; i < Sudoku.MAX_CELLS; i += 1) {
+    for (let i = 0; i < Sudoku.CELLS; i += 1) {
     
-        row = (i / 9) << 0 as GridMatrixIndex
-        col = i % 9 as GridMatrixIndex
+        row = (i / Sudoku.SIZE) << 0 as GridMatrixIndex
+        col = i % Sudoku.SIZE as GridMatrixIndex
 
-        if (grid[row][col] === 0) {
+        if (grid[row][col] === Sudoku.HIDDEN_CELL_VALUE) {
             for (let value of numbers) {
                 if (!isInRow({ grid, row, value })) {
                     if (!isInCol({ grid, col, value })) {

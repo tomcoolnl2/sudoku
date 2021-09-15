@@ -1,32 +1,44 @@
 
-type SeriesIndex = (e: unknown, i: number) => unknown
+import { GridMatrix, N } from './typings'
+
+
+type SeriesIndex<R> = (e: unknown, i: number) => R | R[]
 
 export class Sudoku {
 
-    /** The minimal value a Cell can hold. 0 is used to show empty cells and to validate between user input and the hidden solution Grid. */
-    public static readonly MIN_VALUE: number = 0
+    /** The number a cell has when it's value is hidden. */
+    public static readonly HIDDEN_CELL_VALUE: N = 0    
     /** The maximum value a Cell can hold. */
-    public static readonly MAX_VALUE: number = 9
+    public static readonly SIZE: N = 9
     /** The total of a 9x9 Grid. */
-    public static readonly MAX_CELLS: number = 81
+    public static readonly CELLS: number = Sudoku.SIZE * Sudoku.SIZE
 
+    /**
+     * Create a empty 9x9 Grid
+     * @returns a 9x9 GridMatrix
+     */
+    public static createGridMatrix(): GridMatrix {
+        return Sudoku.createSeries(() => {
+            return Sudoku.createSeries(Sudoku.HIDDEN_CELL_VALUE)
+        })
+    }
     /**
      * Create a Series of N length, filled with an Array of Numbers.
      * @param argument Either a Number or a Method, both are ways to provide values for a Series.
      */ 
     public static createSeries<T>(value: number): T
-    public static createSeries<T>(fill: SeriesIndex): T
-    public static createSeries<T>(argument: number | SeriesIndex): T {
+    public static createSeries<T, R = unknown>(fill: SeriesIndex<R>): T
+    public static createSeries<T, R = unknown>(argument: number | SeriesIndex<R>): T {
         
-        let index: number = 0
-        let mapFn: SeriesIndex = () => index
+        let index: number = Sudoku.HIDDEN_CELL_VALUE
+        let mapFn: SeriesIndex<unknown> = () => index
 
         if (typeof argument === 'number') {
             index = argument
         } else {
-            mapFn = argument as SeriesIndex
+            mapFn = argument
         }
         
-        return Array.from({ length: Sudoku.MAX_VALUE }).map(mapFn) as unknown as T
+        return Array.from({ length: Sudoku.SIZE }).map(mapFn) as unknown as T
     }
 }
