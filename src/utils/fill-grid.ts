@@ -4,18 +4,7 @@ import { SudokuInput, GridMatrix, GridMatrixRegion, GridMatrixIndex } from '../t
 import { Sudoku } from '../Sudoku'
 import { shuffle } from './'
 
-    
-/**
- * Create a full valid Sudoku Grid
- */
-export function buildGrid(): GridMatrix {
 
-    // set a row of 9 cells for each row with 9 columns
-    const grid: GridMatrix = Sudoku.createGridMatrix()
-    fillGrid(grid) // TODO not only change the reference to 'grid', but let it return e grid. = Readability
-
-    return grid
-}
 /**
  * Backtracking recursion 
  * to check all the possible combination of numbers
@@ -38,8 +27,8 @@ export function fillGrid(grid: GridMatrix) {
 
             for (let value of numbers) {
                 if (!isInRow({ grid, row, value })) {
-                    if (!isInCol({ col, grid, value })) {
-                        const region = identifyRegion({ col, grid, row })
+                    if (!isInCol({ grid, col, value })) {
+                        const region = identifyRegion({ grid, row, col })
                         if (!isInRegion({ region, value })) {
                             grid[row][col] = value
                             if (checkGrid(grid)) {
@@ -105,58 +94,26 @@ export interface RegionIdentifierInput { // SquareInput
  * @returns 
  */
 export function identifyRegion({ col, grid, row }: RegionIdentifierInput): GridMatrixRegion {
+    
     const region = []
+
     if(row < 3) {
-        if (col < 3) {
-            for (let x = 0; x < 3; x += 1) {
-                region.push([grid[x][0], grid[x][1], grid[x][2]])
-            }
-        }
-        else if (col < 6) {
-            for (let x = 0; x < 3; x += 1) {
-                region.push([grid[x][3], grid[x][4], grid[x][5]])
-            }
-        }
-        else {
-            for (let x = 0; x < 3; x += 1) {
-                region.push([grid[x][6], grid[x][7], grid[x][8]])
-            }
-        }
+        // const
+        if (col < 3)      for (let x = 0; x < 3; x += 1) region.push([grid[x][0], grid[x][1], grid[x][2]])
+        else if (col < 6) for (let x = 0; x < 3; x += 1) region.push([grid[x][3], grid[x][4], grid[x][5]])
+        else              for (let x = 0; x < 3; x += 1) region.push([grid[x][6], grid[x][7], grid[x][8]])
     }
     else if (row < 6) {
-        if (col < 3) {
-            for (let x = 3; x < 6; x += 1) {
-                region.push([grid[x][0], grid[x][1], grid[x][2]])
-            }
-        }
-        else if (col < 6) {
-            for (let x = 3; x < 6; x += 1) {
-                region.push([grid[x][3], grid[x][4], grid[x][5]])
-            }
-        }
-        else {
-            for (let x = 3; x < 6; x += 1) {
-                region.push([grid[x][6], grid[x][7], grid[x][8]])
-            }
-        }
+        if (col < 3)      for (let x = 3; x < 6; x += 1) region.push([grid[x][0], grid[x][1], grid[x][2]])
+        else if (col < 6) for (let x = 3; x < 6; x += 1) region.push([grid[x][3], grid[x][4], grid[x][5]])
+        else              for (let x = 3; x < 6; x += 1) region.push([grid[x][6], grid[x][7], grid[x][8]])
     }
     else {
-        if (col < 3) {
-            for (let x = 6; x < 9; x += 1) {
-                region.push([grid[x][0], grid[x][1], grid[x][2]])
-            }
-        }
-        else if (col < 6) {
-            for (let x = 6; x < 9; x += 1) {
-                region.push([grid[x][3], grid[x][4], grid[x][5]])
-            }
-        }
-        else {
-            for (let x = 6; x < 9; x += 1) {
-                region.push([grid[x][6], grid[x][7], grid[x][8]])
-            }
-        }
+        if (col < 3)      for (let x = 6; x < 9; x += 1) region.push([grid[x][0], grid[x][1], grid[x][2]])
+        else if (col < 6) for (let x = 6; x < 9; x += 1) region.push([grid[x][3], grid[x][4], grid[x][5]])
+        else              for (let x = 6; x < 9; x += 1) region.push([grid[x][6], grid[x][7], grid[x][8]])
     }
+    
     return region as GridMatrixRegion
 }
 
@@ -175,7 +132,7 @@ export function isInRegion({ region, value }: RegionInput): boolean {
 }
 
 /**
- * A function to check if the grid is full
+ * A function to check if the grid is full and does not contain any zeroes (0)
  * @param grid A 9x9 Array
  * @returns 
  */

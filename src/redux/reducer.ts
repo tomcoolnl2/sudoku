@@ -1,7 +1,8 @@
 
 import { AnyAction } from 'redux'
+import { Sudoku } from '../Sudoku'
 import { GridMatrix } from '../typings'
-import { buildGrid, compareArrays, removeNumbers } from '../utils'
+import { compareArrays, removeNumbers } from '../utils'
 import { AppState } from './models'
 import * as types from './types'
 
@@ -11,7 +12,8 @@ export function reducer(state: AppState = {}, action: AnyAction): AppState {
     switch(action.type) {
     
         case types.UNLEASH_THE_MATRIX: {
-            const solvedGrid = buildGrid() as GridMatrix
+            
+            const solvedGrid: GridMatrix = Sudoku.buildGrid()
             // use spread to copy the solvedGrid, to prevent a object reference
             let gridClone = [...solvedGrid].map(row => [...row]) as GridMatrix
             const challengeGrid: GridMatrix = removeNumbers(gridClone)
@@ -43,11 +45,12 @@ export function reducer(state: AppState = {}, action: AnyAction): AppState {
                 workingGrid[ri][ci] = value
                 
                 if (compareArrays(workingGrid, solvedGrid)) {
-                    console.log('WIN')
-                    return {
-                        ...state,
-                        workingGrid: [...workingGrid]
-                    }
+                    console.log('WIN')    
+                }
+
+                return {
+                    ...state,
+                    workingGrid: [...workingGrid]
                 }
             }
 

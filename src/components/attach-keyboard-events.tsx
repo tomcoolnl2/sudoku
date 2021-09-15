@@ -5,7 +5,6 @@ import { AnyAction } from 'redux'
 import useMouseTrap from 'react-hook-mousetrap'
 import { selectCell } from '../redux'
 import { GridMatrixCoörds, GridMatrixIndex, SudokuInput } from '../typings'
-import { Sudoku } from '../Sudoku'
 
 
 interface AttachKeyBoardEventsProps {

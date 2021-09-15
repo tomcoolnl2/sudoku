@@ -1,4 +1,5 @@
 
+import { Sudoku } from '../Sudoku'
 import { GridMatrix, GridMatrixRegion } from '../typings'
 import { 
     isInRow, 
@@ -7,7 +8,6 @@ import {
     isInRegion,
     checkGrid,
     fillGrid,
-    buildGrid,
     RowInput, 
     ColInput, 
     RegionIdentifierInput,
@@ -287,13 +287,17 @@ describe('fillGrid', () => {
     })
 })
 
-describe('createGrid', () => {
+describe('Build a grid from the Sudoku class', () => {
     
     it('creates a 9x9 grid with value rage', () => {
 
-        const grid = buildGrid()
+        const grid = Sudoku.buildGrid()
 
+        expect(grid).toHaveLength(9)
+        
         for (let row in grid) {
+            
+            expect(grid[row]).toHaveLength(9)
             for (let col in grid[row]) {
                 expect(grid[row][col]).toBeGreaterThanOrEqual(1)
                 expect(grid[row][col]).toBeLessThanOrEqual(9)
