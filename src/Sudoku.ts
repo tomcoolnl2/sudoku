@@ -30,5 +30,3 @@ export class Sudoku {
         return Array.from({ length: Sudoku.MAX_VALUE }).map(mapFn) as unknown as T
     }
 }
-
-Sudoku.MAX_CELLS
