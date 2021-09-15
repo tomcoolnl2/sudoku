@@ -2,7 +2,7 @@
 import { AnyAction } from 'redux'
 import { Sudoku } from '../Sudoku'
 import { GridMatrix } from '../typings'
-import { compareArrays, removeNumbers } from '../utils'
+import { compareArrays } from '../utils'
 import { AppState } from './models'
 import * as types from './types'
 
@@ -16,7 +16,7 @@ export function reducer(state: AppState = {}, action: AnyAction): AppState {
             const solvedGrid: GridMatrix = Sudoku.buildGrid()
             // use spread to copy the solvedGrid, to prevent a object reference
             let gridClone = [...solvedGrid].map(row => [...row]) as GridMatrix
-            const challengeGrid: GridMatrix = removeNumbers(gridClone)
+            const challengeGrid: GridMatrix = Sudoku.emptyCells(gridClone)
             // use spread to copy the cloned Grid, to prevent a object reference
             gridClone = [...gridClone].map(row => [...row]) as GridMatrix
             const workingGrid: GridMatrix = gridClone
