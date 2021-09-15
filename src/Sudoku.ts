@@ -1,5 +1,6 @@
 
 import { GridMatrix, N } from './typings'
+import { fillGrid } from './utils'
 
 
 type SeriesIndex<R> = (e: unknown, i: number) => R | R[]
@@ -21,6 +22,14 @@ export class Sudoku {
         return Sudoku.createSeries(() => {
             return Sudoku.createSeries(Sudoku.HIDDEN_CELL_VALUE)
         })
+    }
+
+    public static buildGrid(): GridMatrix {
+
+        const grid: GridMatrix = Sudoku.createGridMatrix()
+        fillGrid(grid)
+    
+        return grid
     }
     /**
      * Create a Series of N length, filled with an Array of Numbers.
