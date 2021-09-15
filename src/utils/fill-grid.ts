@@ -1,15 +1,20 @@
 
 import global from '../global'
-import { GridMatrix, SudokuInput, GridMatrixRegion, GridMatrixIndex } from '../typings'
+import { SudokuInput, GridMatrix, GridMatrixRegion, GridMatrixIndex } from '../typings'
+import { Sudoku } from '../Sudoku'
 import { shuffle } from './'
 
 
-export function initialSubGrid(indicator: number | undefined = undefined): (number | undefined)[] {
-    return Array.from({ length: 9 }).map(() => indicator)
+type FillSeries = (e: unknown, i: number) => unknown
+
+function initialSubGrid<T>(indicator: number, fill: FillSeries = () => indicator): T {
+    return Array.from({ length: 9 }).map(fill) as unknown as T
 }
 
+export { initialSubGrid }
+
 export function initialGrid(): GridMatrix {
-    return initialSubGrid().map(() => initialSubGrid(0)) as GridMatrix
+    return Sudoku.createSeries<GridMatrix>(() => Sudoku.createSeries<number>(Sudoku.MIN_VALUE))
 }
     
 /**
@@ -30,11 +35,11 @@ export function buildGrid(): GridMatrix {
  */
 export function fillGrid(grid: GridMatrix) {
 
-    const numbers = initialSubGrid().map((_, i) => i + 1) as SudokuInput[]
+    const numbers = Sudoku.createSeries<SudokuInput[]>((_, i) => i + 1)
     let row: GridMatrixIndex = 0
     let col: GridMatrixIndex = 0
   
-    for (let i = 0; i < 81; i += 1) {
+    for (let i = 0; i < Sudoku.MAX_CELLS; i += 1) {
 
         row = (i / 9) << 0 as GridMatrixIndex
         col = i % 9 as GridMatrixIndex
@@ -236,11 +241,11 @@ export function getRandomIndex(): number {
  */
 export function solveGrid(grid: GridMatrix) {
     
-    const numbers = initialSubGrid().map((_, i) => i + 1) as SudokuInput[] // [1, 2, 3, ...]
+    const numbers = Sudoku.createSeries<SudokuInput[]>((_, i) => i + 1)
     let row: GridMatrixIndex = 0
     let col: GridMatrixIndex = 0
     
-    for (let i = 0; i < 81; i += 1) {
+    for (let i = 0; i < Sudoku.MAX_CELLS; i += 1) {
     
         row = (i / 9) << 0 as GridMatrixIndex
         col = i % 9 as GridMatrixIndex
