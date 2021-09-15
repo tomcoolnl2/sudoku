@@ -28,7 +28,7 @@ ReactDOM.render(
 );
 
 // https://cra.link/PWA
-serviceWorkerRegistration.unregister()
+serviceWorkerRegistration.register()
 
 // TODO send to an analytics endpoint. 
 // https://bit.ly/CRA-vitals
