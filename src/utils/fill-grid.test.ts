@@ -168,7 +168,7 @@ describe('identifySquare', () => {
 })
 
 describe('isInSquare', () => {
-    
+
     it('returns true when value is in grid square', () => {
 
         let input: RegionInput
@@ -258,7 +258,7 @@ describe('checkGrid', () => {
 
 describe('fillGrid', () => {
     
-    it('fills an empty grid', () => {
+    it('fills an empty grid to contain a full Sudoku', () => {
 
         const grid: GridMatrix = [
             [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -274,7 +274,11 @@ describe('fillGrid', () => {
 
         fillGrid(grid)
 
+        expect(grid).toHaveLength(9)
+
         for (let row in grid) {
+            
+            expect(grid[row]).toHaveLength(9)
             for (let col in grid[row]) {
                 expect(grid[row][col]).toBeGreaterThanOrEqual(1)
                 expect(grid[row][col]).toBeLessThanOrEqual(9)

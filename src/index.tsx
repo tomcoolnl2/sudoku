@@ -35,4 +35,4 @@ serviceWorkerRegistration.register()
 
 // TODO send to an analytics endpoint. 
 // https://bit.ly/CRA-vitals
-// reportWebVitals(console.warn)
+reportWebVitals()

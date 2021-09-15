@@ -9,12 +9,15 @@
 [x] Create a persistence between reloads/tabs
 [x] Add favicon.ico
 [ ] Add loading state to Redux and add buissiness rules for that
-[ ] Create custom hooks for keyboard events
+[ ] Add Jest VSCode debugging
+[x] Create custom hooks for keyboard events
+[ ] Fix persitence bug for user input
 [ ] Add TSDocs and ESLint to make Intellisence happy: https://github.com/microsoft/tsdoc/tree/master/eslint-plugin
 [ ] Analize performance of reset functionality
 [ ] Add Unit tests for the Redux Reducer: https://betterprogramming.pub/unit-testing-react-redux-hooks-ce7d69e1e834
 [ ] Add snapshot/DOM tests for any react component
 [ ] Add Dark/Light mode theme: https://www.smashingmagazine.com/2020/04/dark-mode-react-apps-styled-components/
+[ ] Toggle theme with a cutom hook: https://fettblog.eu/typescript-react-typeing-custom-hooks/
 [ ] 9 as a cont/variable and use it as it's calculations
 [ ] Investigate a better `solve` method acc to: https://en.wikipedia.org/wiki/Sudoku_solving_algorithms
 [ ] 100% test coverage
