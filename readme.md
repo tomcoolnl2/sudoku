@@ -1,13 +1,15 @@
 [ ] Convert into a class, (singleton?)
 [x] Reset/New Game button
-[ ] Create better method, incl generic for creating grid/rows 9xN
+[x] Create better method, incl generic for creating grid/rows 9xN
 [x] Refactor checkGrid -> array.flat().inlcudes(0)
 [x] copyGrid -> [...grid]: would it be enough?
 [x] Use Region for Block
 [x] Set different color for user input
-[ ] Register serviceworker to enable PWA/Offline support
-[ ] Create a persistence between reloads/tabs
-[ ] Add favicon.ico
+[x] Register serviceworker to enable PWA/Offline support
+[x] Create a persistence between reloads/tabs
+[x] Add favicon.ico
+[ ] Add loading state to Redux and add buissiness rules for that
+[ ] Create custom hooks for keyboard events
 [ ] Add TSDocs and ESLint to make Intellisence happy: https://github.com/microsoft/tsdoc/tree/master/eslint-plugin
 [ ] Analize performance of reset functionality
 [ ] Add Unit tests for the Redux Reducer: https://betterprogramming.pub/unit-testing-react-redux-hooks-ce7d69e1e834
