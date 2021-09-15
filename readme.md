@@ -5,8 +5,10 @@
 [x] copyGrid -> [...grid]: would it be enough?
 [x] Use Region for Block
 [x] Set different color for user input
+[ ] Register serviceworker to enable PWA/Offline support
+[ ] Create a persistence between reloads/tabs
 [ ] Add favicon.ico
-[ ] Add proper JSDocs to make Intellisence happy
+[ ] Add TSDocs and ESLint to make Intellisence happy: https://github.com/microsoft/tsdoc/tree/master/eslint-plugin
 [ ] Analize performance of reset functionality
 [ ] Add Unit tests for the Redux Reducer: https://betterprogramming.pub/unit-testing-react-redux-hooks-ce7d69e1e834
 [ ] Add snapshot/DOM tests for any react component
