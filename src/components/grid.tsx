@@ -11,15 +11,15 @@ import { GridMatrix, GridMatrixCoörds, GridMatrixIndex, N, SudokuInput } from '
 interface GridState {
     selection?: GridMatrixCoörds
     selectedValue: N
-    workingGrid?: GridMatrix
+    solvedGrid?: GridMatrix
 }
 
 export const Grid: FC = memo(() => {
     
-    const { selection, selectedValue } = useSelector<StoreReducer, GridState>(({ selection, workingGrid }) => ({ 
-        selection, 
-        workingGrid,
-        selectedValue: workingGrid && selection ? workingGrid[selection[0]][selection[1]] : 0
+    const { selection, selectedValue, solvedGrid } = useSelector<StoreReducer, GridState>(({ selection, solvedGrid, workingGrid }) => ({ 
+        selection,
+        selectedValue: workingGrid && selection ? workingGrid[selection[0]][selection[1]] : 0,
+        solvedGrid
     }))
     
     const dispatch = useDispatch<Dispatch<AnyAction>>()
@@ -83,8 +83,8 @@ export const Grid: FC = memo(() => {
     useMouseTrap('up', moveUp)
 
     useEffect(() => { 
-        create() 
-    }, [create])
+        if (!solvedGrid) create() 
+    }, [create, solvedGrid])
 
     return (
         <>

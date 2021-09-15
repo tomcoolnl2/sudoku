@@ -2,6 +2,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/integration/react'
 import { ThemeProvider }  from 'styled-components'
 import { GlobalStyles, theme } from './styles/core'
 import * as Styled from './styles'
@@ -10,18 +11,20 @@ import { configureStore } from './redux'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 import reportWebVitals from './reportWebVitals'
 
-const store = configureStore()
+const { store, persistor } = configureStore()
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
     <GlobalStyles />
     <Provider store={store}>
-      <Styled.Content>
-        <Styled.Title>Sudoku</Styled.Title>
-        <Styled.Card>
-          <Grid />
-        </Styled.Card>
-      </Styled.Content>
+      <PersistGate loading={null} persistor={persistor}>
+        <Styled.Content>
+          <Styled.Title>Sudoku</Styled.Title>
+          <Styled.Card>
+            <Grid />
+          </Styled.Card>
+        </Styled.Content>
+      </PersistGate>
     </Provider>
   </ThemeProvider>,
   document.getElementById('root')
@@ -32,4 +35,4 @@ serviceWorkerRegistration.register()
 
 // TODO send to an analytics endpoint. 
 // https://bit.ly/CRA-vitals
-reportWebVitals(console.warn)
+// reportWebVitals(console.warn)
