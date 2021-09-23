@@ -4,14 +4,10 @@ import { GridMatrix, GridMatrixIndex, SudokuInput } from './'
 
 export type SeriesIndex<R> = (e: unknown, i: number) => R | R[]
 
-export interface IdentifyRegionSettings {
-    grid: GridMatrix
-    col: GridMatrixIndex
-    row: GridMatrixIndex
-}
-
 export interface RegionSettings {
-    region: GridMatrixRegion
+    grid: GridMatrix
+    row: GridMatrixIndex
+    col: GridMatrixIndex
     value: SudokuInput
 }
 

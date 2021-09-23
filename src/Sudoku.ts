@@ -1,37 +1,33 @@
 
 import global from './global'
 
-import { GridMatrix, GridMatrixIndex, GridMatrixRegion, N, SudokuInput } from './typings'
-import { 
-    IdentifyRegionSettings,
-    RegionSettings,
-    RowSettings,
-    ColumnSettings,
-    SeriesIndex
-} from './typings/Sudoku'
+import { GridMatrix, GridMatrixIndex, GridMatrixRegionSeries, N, SudokuInput } from './typings'
 import { shuffle } from './utils'
+import { RegionSettings, RowSettings, ColumnSettings, SeriesIndex } from './typings/Sudoku'
 
 export class Sudoku {
-
-    /** The number a cell has when it's value is hidden. */
+    
+    /** The number a cell has when it's value is hidden: 0 */
     public static readonly HIDDEN_CELL_VALUE: N = 0    
-    /** The maximum value a Cell can hold. */
+    /** The maximum value a Cell can hold: 9 */
     public static readonly SIZE: N = 9
-    /** The total of a 9x9 Grid. */
+    /** The total of a 9x9 Grid: 81 */
     public static readonly CELLS: number = Sudoku.SIZE * Sudoku.SIZE
 
-    /**
-     * Create a empty 9x9 Grid
-     * @returns a 9x9 GridMatrix
-     */
-    public static createGridMatrix(): GridMatrix {
-        return Sudoku.createSeries(() => Sudoku.createSeries(Sudoku.HIDDEN_CELL_VALUE))
+    /**  */
+    public readonly grid: GridMatrix
+
+    constructor() {
+        //always start with a 9x9 grid, filled with 0 as cell values
+        this.grid = Sudoku.generateMatrix()
     }
 
-    public static buildGrid(): GridMatrix {
-        const grid: GridMatrix = Sudoku.createGridMatrix()
-        Sudoku.fillGrid(grid)
-        return grid
+    /**
+     * Create a empty 9x9 Grid, filled with zeros (0)
+     * @returns a 9x9 GridMatrix
+     */
+    public static generateMatrix(): GridMatrix {
+        return Sudoku.createSeries(() => Sudoku.createSeries(Sudoku.HIDDEN_CELL_VALUE))
     }
 
     /**
@@ -53,51 +49,36 @@ export class Sudoku {
         
         return Array.from({ length: Sudoku.SIZE }).map(mapFn) as unknown as T
     }
-    
-    /**
-     * Identify and return the current Region of a given Sudoku Grid at a row and column index
-     * @param input Object with a 9x9 Sudoku Grid, Row and Column index 
-     * @returns 
-     */
-    public static identifyRegionsForRow({ grid, row, col }: IdentifyRegionSettings): GridMatrixRegion {
-        
-        const region = []
-    
-        if (row < 3) {
-            // const
-            if (col < 3)      for (let x = 0; x < 3; x += 1) region.push([grid[x][0], grid[x][1], grid[x][2]])
-            else if (col < 6) for (let x = 0; x < 3; x += 1) region.push([grid[x][3], grid[x][4], grid[x][5]])
-            else              for (let x = 0; x < 3; x += 1) region.push([grid[x][6], grid[x][7], grid[x][8]])
-        }
-        else if (row < 6) {
-            if (col < 3)      for (let x = 3; x < 6; x += 1) region.push([grid[x][0], grid[x][1], grid[x][2]])
-            else if (col < 6) for (let x = 3; x < 6; x += 1) region.push([grid[x][3], grid[x][4], grid[x][5]])
-            else              for (let x = 3; x < 6; x += 1) region.push([grid[x][6], grid[x][7], grid[x][8]])
-        }
-        else {
-            if (col < 3)      for (let x = 6; x < 9; x += 1) region.push([grid[x][0], grid[x][1], grid[x][2]])
-            else if (col < 6) for (let x = 6; x < 9; x += 1) region.push([grid[x][3], grid[x][4], grid[x][5]])
-            else              for (let x = 6; x < 9; x += 1) region.push([grid[x][6], grid[x][7], grid[x][8]])
-        }
-        
-        return region as GridMatrixRegion
-    }
-    
+
     /**
      * Returns true if the value is already being used in the current grid Region
      * @param input Object with 3x3 Region and value
      * @returns 
      */
-    public static valueExistsInRegion({ region, value }: RegionSettings): boolean {
-        return region.flat().includes(value)
-    }
+    private valueExistsInRegion({ grid, row, col, value }: RegionSettings) : boolean{
+        
+        // Define top left corner of the region for empty cell
+        const x = row - (row % 3) as GridMatrixIndex
+        const y = col - (col % 3) as GridMatrixIndex
+        const series: GridMatrixRegionSeries = [0, 1, 2]
+        
+        // Check the 3x3 region
+        for (const ri of series) {
+          for (const ci of series) {
+            if (grid[x + ri][y + ci] === value) { 
+                return true // If number is found, it is not safe to place
+            }
+          }
+        }
+        return false
+      }
     
     /**
      * Returns true if the value is already being used in the current grid row
      * @param input Object with 9x9 Sudoku Grid, Row and Column indexes
      * @returns 
      */
-    public static valueExistsInRow({ grid, row, value }: RowSettings): boolean {
+    private valueExistsInRow({ grid, row, value }: RowSettings): boolean {
         return grid[row].includes(value)
     }
 
@@ -106,19 +87,17 @@ export class Sudoku {
      * @param input Object with 9x9 Sudoku Grid, Row and Column indexes
      * @returns 
      */
-    public static valueExistsInColumn({ grid, col, value}: ColumnSettings): boolean {
-        for (let i = 0; i < Sudoku.SIZE; i += 1) {
-            if (value === grid[i][col]) return true
-        }
-        return false
+    private valueExistsInColumn({ grid, col, value }: ColumnSettings): boolean {
+        return grid.some(row => row[col] === value)
     }
+    
     /**
      * Validate if the grid is full and does not contain any zeroes (0)
-     * @param grid A 9x9 Array
-     * @returns 
+     * @param grid The grid to validate
+     * @returns boolean
      */
-    public static isValid(grid: GridMatrix): boolean {
-        return !grid.flat().includes(Sudoku.HIDDEN_CELL_VALUE)
+    private isValid(grid: GridMatrix): boolean {
+        return grid.flat().includes(Sudoku.HIDDEN_CELL_VALUE)
     }
 
     /**
@@ -131,118 +110,112 @@ export class Sudoku {
 
     /**
      * Removes numbers from a full grid to set an actual Sudoku Challenge
-     * @param grid The filled in grid
      * @param attempts Number of attepts to solve (higher means more difficult) - default 5
      * @returns GridMatrix
      */
-    public static emptyCells(grid: GridMatrix, attempts: number = 5): GridMatrix {
+    public initialGame(attempts: number = 5) {
         
         while (attempts > 0) {
             let row = Sudoku.getRandomIndex()
             let col = Sudoku.getRandomIndex()
     
-            if (grid[row][col] === 0) {
+            if (this.grid[row][col] === 0) {
                 row = Sudoku.getRandomIndex()
                 col = Sudoku.getRandomIndex()
             }
     
-            const backup = grid[row][col]
-            grid[row][col] = 0
-    
-            const gridCopy = [...grid].map(row => [...row]) as GridMatrix
+            const backup = this.grid[row][col]
+            this.grid[row][col] = 0
+
             global.counter = 0
-            Sudoku.solveGrid(gridCopy)
+            // const clone = [...this.grid].map(row => [...row]) as GridMatrix
+            
+            // this.solveGrid(clone)
     
             if (global.counter !== 1) {
-                grid[row][col] = backup
+                this.grid[row][col] = backup
                 attempts--
             }
+            console.log(global.counter)
         }
-    
-        return grid
+        return this
+    }
+
+    private nextEmptyCell(grid: GridMatrix): [number, number] | false {
+
+        const position: [number, number] = [-1, -1]
+        
+        // eslint-disable-next-line
+        for (let i = 0, row: number[]; row = grid[i]; i += 1) {
+
+            // find first zero-element
+            let firstZero = row.find(col => col === Sudoku.HIDDEN_CELL_VALUE)
+            
+            // if no zero present, skip to next row
+            if (firstZero === undefined) {
+                break
+            }
+            
+            position[0] = i
+            position[1] = row.indexOf(firstZero)
+        }
+        
+        if (~position[1]) {
+            return position
+        }
+
+        // If emptyCell was never assigned, there are no more zeros
+        return false
     }
 
     /**
      * Backtracking recursion 
      * to check all the possible combination of numbers
      * @param grid 
+     * @returns 
      */
-    public static fillGrid(grid: GridMatrix): true | void  {
+    public createSolution(grid = this.grid): Sudoku {
 
-        const numbers = Sudoku.createSeries<SudokuInput[], number>((_, i) => i + 1)
+        // const grid = [...this.grid].map(row => [...row]) as GridMatrix
+
+        // Create [1, 2, 3, 4, 5, 6, 7, 8, 9] to check against
+        const series = Sudoku.createSeries<SudokuInput[], number>((_, i) => i + 1)
+        
+        // we start at [0][0] of the grid
         let row: GridMatrixIndex = 0
         let col: GridMatrixIndex = 0
-    
-        for (let i = 0; i < Sudoku.CELLS; i += 1) {
 
+        // label this loop so we can reference to it from inside inner loops 
+        allCells: for (let i = 0; i < Sudoku.CELLS; i += 1) {
+            // we gracefully increace row every 9th iteration
             row = (i / Sudoku.SIZE) << 0 as GridMatrixIndex
-            col = i % Sudoku.SIZE as GridMatrixIndex
-    
-            if (grid[row][col] === 0) {
-                
-                shuffle(numbers)
-
-                for (let value of numbers) {
-                    if (!Sudoku.valueExistsInRow({ grid, row, value })) {
-                        if (!Sudoku.valueExistsInColumn({ grid, col, value })) {
-                            const region = Sudoku.identifyRegionsForRow({ grid, row, col })
-                            if (!Sudoku.valueExistsInRegion({ region, value })) {
-                                grid[row][col] = value
-                                if (Sudoku.isValid(grid)) {
-                                    return true
-                                }
-                                else if (Sudoku.fillGrid(grid)) {
-                                    return true
-                                }
-                            }
-                        }
-                    }
-                }
-
-                break
-            }
-        }
-    
-        grid[row][col] = 0
-    }
-
-    /**
-     * Function to check all possible combinations of numbers until a solution is found
-     * @param grid 9x9 array of values form 0-9
-     */
-    public static solveGrid(grid: GridMatrix): true | undefined {
-        
-        let row: GridMatrixIndex = 0
-        let col: GridMatrixIndex = 0
-        const numbers = Sudoku.createSeries<SudokuInput[], number>((_, i) => i + 1)
-        
-        for (let i = 0; i < Sudoku.CELLS; i += 1) {
-        
-            row = (i / Sudoku.SIZE) << 0 as GridMatrixIndex
+            // this will count from 0-8 (9%9 = 0), and then start over again
             col = i % Sudoku.SIZE as GridMatrixIndex
 
             if (grid[row][col] === Sudoku.HIDDEN_CELL_VALUE) {
-                for (let value of numbers) {
-                    if (!Sudoku.valueExistsInRow({ grid, row, value })) {
-                        if (!Sudoku.valueExistsInColumn({ grid, col, value })) {
-                            const region = Sudoku.identifyRegionsForRow({ grid, row, col })
-                            if (!Sudoku.valueExistsInRegion({ region, value })) {
-                                grid[row][col] = value
-                                if (Sudoku.isValid(grid)) {
-                                    global.counter++
-                                    break
-                                }
-                                else if (Sudoku.solveGrid(grid)) {
-                                    return true
-                                }
-                            }
-                        }
+                // The range of values 1 to 9 is shuffled at the start of each iteration, 
+                // ensuring the that probability of each new game being similar is low.
+                shuffle(series)
+                // validate every possible (but shuffled) number
+                // eslint-disable-next-line
+                for (const value of series) {
+                    
+                    // if value does not already exists in region, row or col
+                    const notInRegion = !this.valueExistsInRegion({ grid, row, col, value })
+                    const notInRow = !this.valueExistsInRow({ grid, row, value })
+                    const notInColumn = !this.valueExistsInColumn({ grid, col, value })
+
+                    if (notInRegion && notInRow && notInColumn) {
+                        // we have a match 
+                        grid[row][col] = value
+                        // and we can bust out to the outer loop
+                        continue allCells
                     }
                 }
-                break
             }
         }
-        grid[row][col] = 0
+        
+        return this
     }
 
 }

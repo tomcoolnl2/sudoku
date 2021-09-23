@@ -37,6 +37,7 @@
 [ ] Create a button to show hints for empty cells
 [ ] Create options to allow and reveal a max amount of cells
 [ ] Introduce Easy/Medium/Hard difficulties
+[ ] Add timer to track duration
 
 -   Horizontally adjacent rows are a band, and vertically adjacent columns are a stack
 -   The initially defined values are clues or givens

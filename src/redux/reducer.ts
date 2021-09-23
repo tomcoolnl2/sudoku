@@ -13,20 +13,26 @@ export function reducer(state: AppState = {}, action: AnyAction): AppState {
     
         case types.UNLEASH_THE_MATRIX: {
             
-            const solvedGrid: GridMatrix = Sudoku.buildGrid()
-            // use spread to copy the solvedGrid, to prevent a object reference
-            let gridClone = [...solvedGrid].map(row => [...row]) as GridMatrix
-            const challengeGrid: GridMatrix = Sudoku.emptyCells(gridClone)
-            // use spread to copy the cloned Grid, to prevent a object reference
-            gridClone = [...gridClone].map(row => [...row]) as GridMatrix
-            const workingGrid: GridMatrix = gridClone
+            // solutionGrid
+            const solution = new Sudoku().createSolution()
+            console.log('solution', solution, solution?.grid)
 
-            return {
-                ...state,
-                challengeGrid,
-                solvedGrid,
-                workingGrid
-            }
+            // // initialGrid
+            // const initial = new Sudoku().initialGame()
+            // // const challengeGrid: GridMatrix = new Sudoku().initialGameGrid()
+            // console.log('initial', initial, initial.grid)
+            
+            // // use spread to copy the cloned Grid, to prevent a object reference
+            // gridClone = [...gridClone].map(row => [...row]) as GridMatrix
+            // const workingGrid: GridMatrix = gridClone
+
+            // return {
+            //     ...state,
+            //     challengeGrid,
+            //     solvedGrid,
+            //     workingGrid
+            // }
+            return { ...state }
         }
         case types.FILL_CELL: {
 

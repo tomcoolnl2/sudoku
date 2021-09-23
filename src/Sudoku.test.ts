@@ -3,7 +3,6 @@ import { Sudoku } from './Sudoku'
 import { GridMatrix, GridMatrixRegion } from './typings'
 import { 
     ColumnSettings,
-    IdentifyRegionSettings,
     RegionSettings, 
     RowSettings
 } from './typings/Sudoku'
