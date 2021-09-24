@@ -9,61 +9,61 @@ import * as types from './types'
 
 export function reducer(state: AppState = {}, action: AnyAction): AppState {
     
-    switch(action.type) {
+	switch(action.type) {
     
-        case types.UNLEASH_THE_MATRIX: {
+	case types.UNLEASH_THE_MATRIX: {
             
-            const { solutionMatrix, initialGameMatrix, workingMatrix } = new Sudoku()
+		const { solutionMatrix, initialGameMatrix, workingMatrix } = new Sudoku()
 
-            console.log('solution', solutionMatrix)
-            console.log('initialGame', initialGameMatrix)
-            console.log('workingMatrix', workingMatrix)
+		console.log('solution', solutionMatrix)
+		console.log('initialGame', initialGameMatrix)
+		console.log('workingMatrix', workingMatrix)
 
-            return {
-                ...state,
-                solutionMatrix,
-                initialGameMatrix,
-                workingMatrix
-            }
-        }
-        case types.FILL_CELL: {
+		return {
+			...state,
+			solutionMatrix,
+			initialGameMatrix,
+			workingMatrix
+		}
+	}
+	case types.FILL_CELL: {
 
-            const { workingMatrix, solutionMatrix } = state
-            const { value, coords } = action
+		const { workingMatrix, solutionMatrix } = state
+		const { value, coords } = action
             
-            if (workingMatrix && solutionMatrix) {
+		if (workingMatrix && solutionMatrix) {
                 
-                const [ri, ci]: GridMatrixCoörds = coords
+			const [ri, ci]: GridMatrixCoörds = coords
                 
-                if (solutionMatrix[ri][ci] !== value) {
-                    console.log('WRONG')
-                    return state
-                }
+			if (solutionMatrix[ri][ci] !== value) {
+				console.log('WRONG')
+				return state
+			}
 
-                workingMatrix[ri][ci] = value
+			workingMatrix[ri][ci] = value
                 
-                if (compareArrays(workingMatrix, solutionMatrix)) {
-                    console.log('WIN')    
-                }
+			if (compareArrays(workingMatrix, solutionMatrix)) {
+				console.log('WIN')    
+			}
 
-                return {
-                    ...state,
-                    workingMatrix: [...workingMatrix]
-                }
-            }
+			return {
+				...state,
+				workingMatrix: [...workingMatrix]
+			}
+		}
 
-            return {
-                ...state,
-            }
-        }
-        case types.SELECT_CELL: {
-            return {
-                ...state,
-                selection: action.coords
-            }
-        }
-        default: {
-            return state
-        }
-    }
+		return {
+			...state,
+		}
+	}
+	case types.SELECT_CELL: {
+		return {
+			...state,
+			selection: action.coords
+		}
+	}
+	default: {
+		return state
+	}
+	}
 }

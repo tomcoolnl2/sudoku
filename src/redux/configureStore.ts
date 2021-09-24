@@ -7,20 +7,20 @@ import { reducer } from '.'
 
 
 const persistConfig = {
-    key: 'root',
-    storage
+	key: 'root',
+	storage
 }
 
 const persistedReducer = persistReducer(persistConfig, reducer)
 
-export function configureStore() {
+export function configureStore(): unknown {
     
-    const store = createStore(
-        persistedReducer,
-        devToolsEnhancer({})
-    )
+	const store = createStore(
+		persistedReducer,
+		devToolsEnhancer({})
+	)
 
-    const persistor = persistStore(store)
+	const persistor = persistStore(store)
     
-    return { store, persistor }
+	return { store, persistor }
 }

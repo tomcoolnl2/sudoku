@@ -9,8 +9,8 @@ interface ResetGameButtonProps {
 
 export const ResetGameButton: FC<ResetGameButtonProps> = memo(({ reset }) => {
 
-    return (
-        <Styled.Button onClick={reset}>
-            <ReloadIcon /> New Game
-        </Styled.Button>)
+	return (
+		<Styled.Button onClick={reset}>
+			<ReloadIcon /> New Game
+		</Styled.Button>)
 })
