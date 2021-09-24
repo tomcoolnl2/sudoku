@@ -1,5 +1,5 @@
 [x] Convert into a class, (singleton?)
-[ ] Fix and cover proficient testing with Jest
+[x] Fix and cover proficient testing with Jest
 [x] Reset/New Game button
 [x] Create better method, incl generic for creating grid/rows 9xN
 [x] Refactor checkGrid -> array.flat().inlcudes(0)
