@@ -1,6 +1,7 @@
 
 import { AnyAction } from 'redux'
 import { Sudoku } from '../Sudoku'
+import { GridMatrixCoörds } from '../typings'
 import { compareArrays } from '../utils'
 import { AppState } from './models'
 import * as types from './types'
@@ -28,11 +29,11 @@ export function reducer(state: AppState = {}, action: AnyAction): AppState {
         case types.FILL_CELL: {
 
             const { workingMatrix, solutionMatrix } = state
-            const { value } = action
+            const { value, coords } = action
             
             if (workingMatrix && solutionMatrix) {
                 
-                const [ri, ci] = action.coords
+                const [ri, ci]: GridMatrixCoörds = coords
                 
                 if (solutionMatrix[ri][ci] !== value) {
                     console.log('WRONG')
