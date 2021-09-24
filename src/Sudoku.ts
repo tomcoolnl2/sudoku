@@ -25,7 +25,7 @@ export class Sudoku {
         //always start with a 9x9 grid, filled with 0 as cell values
         this.solutionGrid = Sudoku.generateMatrix()
         this.createSolution()
-        // poke some holes in the solution. so we have an actual game
+        // poke some holes in the solution; so we have an actual game
         this.setInitialGame()
         // colone the initial game so we have something a user can play with
         this.workingGrid = Sudoku.cloneGrid(this.initialGrid)
@@ -118,7 +118,7 @@ export class Sudoku {
             }
         }
         return false
-      }
+    }
     
     /**
      * Returns true if the value is already being used in the current grid row
@@ -138,6 +138,11 @@ export class Sudoku {
         return grid.some(row => row[col] === value)
     }
 
+    /**
+     * Combine valueExistsInRegion, valueExistsInRow and valueExistsInColumn to return a boolean
+     * @param param RegionSettings
+     * @returns boolean Weather it is safe to place this value into the current cell
+     */
     private valueIsSafeToPlace({ grid, row, col, value }: RegionSettings): boolean {
         return !this.valueExistsInRegion({ grid, row, col, value })
             && !this.valueExistsInRow({ grid, row, value })
