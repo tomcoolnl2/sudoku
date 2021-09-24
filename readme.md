@@ -13,7 +13,6 @@
 [ ] Add Jest VSCode debugging
 [x] Create custom hooks for keyboard events
 [x] Fix persitence bug for user input
-[ ] Write unit test for
 [ ] Add TSDocs and ESLint to make Intellisence happy: https://github.com/microsoft/tsdoc/tree/master/eslint-plugin
 [ ] Analize performance of reset functionality
 [ ] Add Unit tests for the Redux Reducer: https://betterprogramming.pub/unit-testing-react-redux-hooks-ce7d69e1e834

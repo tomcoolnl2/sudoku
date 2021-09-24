@@ -103,11 +103,11 @@ export class Sudoku {
         
         // Check the 3x3 region
         for (const ri of series) {
-          for (const ci of series) {
-            if (grid[x + ri][y + ci] === value) { 
-                return true // If number is found, it is not safe to place
+            for (const ci of series) {
+                if (grid[x + ri][y + ci] === value) { 
+                    return true // If number is found, it is not safe to place
+                }
             }
-          }
         }
         return false
       }
