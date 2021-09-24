@@ -14,21 +14,21 @@ import reportWebVitals from './reportWebVitals'
 const { store, persistor } = configureStore()
 
 ReactDOM.render(
-  <ThemeProvider theme={theme}>
-    <GlobalStyles />
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <Styled.Content>
-          <Styled.Title>Sudoku</Styled.Title>
-          <Styled.Card>
-            <Grid />
-          </Styled.Card>
-        </Styled.Content>
-      </PersistGate>
-    </Provider>
-  </ThemeProvider>,
-  document.getElementById('root')
-);
+	<ThemeProvider theme={theme}>
+		<GlobalStyles />
+		<Provider store={store}>
+			<PersistGate loading={null} persistor={persistor}>
+				<Styled.Content>
+					<Styled.Title>Sudoku</Styled.Title>
+					<Styled.Card>
+						<Grid />
+					</Styled.Card>
+				</Styled.Content>
+			</PersistGate>
+		</Provider>
+	</ThemeProvider>,
+	document.getElementById('root')
+)
 
 // https://cra.link/PWA
 serviceWorkerRegistration.register()

@@ -19,23 +19,23 @@ interface BlockState {
 
 export const Block: FC<BlockProps> = memo(({ ri, ci }) => {
 
-    const { value, active, isPuzzle } = useSelector<StoreReducer, BlockState>(({ initialGameMatrix, workingMatrix, selection }) => ({
-        active: selection 
-            ? selection[0] === ri && selection[1] === ci 
-            : false,
-        value: workingMatrix ? workingMatrix[ri][ci] : 0,
-        isPuzzle: initialGameMatrix && initialGameMatrix[ri][ci] !== 0 ? true: false
-    }))
+	const { value, active, isPuzzle } = useSelector<StoreReducer, BlockState>(({ initialGameMatrix, workingMatrix, selection }) => ({
+		active: selection 
+			? selection[0] === ri && selection[1] === ci 
+			: false,
+		value: workingMatrix ? workingMatrix[ri][ci] : 0,
+		isPuzzle: initialGameMatrix && initialGameMatrix[ri][ci] !== 0 ? true: false
+	}))
 
-    const dispatch = useDispatch<Dispatch<AnyAction>>()
+	const dispatch = useDispatch<Dispatch<AnyAction>>()
 
-    const clickHandler = () => {
-        !active && dispatch(selectCell([ri, ci]))
-    }
+	const clickHandler = () => {
+		!active && dispatch(selectCell([ri, ci]))
+	}
 
-    return (
-        <Styled.BlockContainer active={active} puzzle={isPuzzle} onClick={clickHandler}>
-            {value === 0 ? '' : value}
-        </Styled.BlockContainer>
-    )
+	return (
+		<Styled.BlockContainer active={active} puzzle={isPuzzle} onClick={clickHandler}>
+			{value === 0 ? '' : value}
+		</Styled.BlockContainer>
+	)
 })

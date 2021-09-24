@@ -1,2 +1,2 @@
 
-export { ReactComponent as ReloadIcon } from './reload.svg';
+export { ReactComponent as ReloadIcon } from './reload.svg'

@@ -10,7 +10,7 @@
 [x] Create a persistence between reloads/tabs
 [x] Add favicon.ico
 [ ] Add loading state to Redux and add buissiness rules for that
-[ ] Add Jest VSCode debugging
+[x] Add Jest VSCode debugging
 [x] Create custom hooks for keyboard events
 [x] Fix persitence bug for user input
 [ ] Add TSDocs and ESLint to make Intellisence happy: https://github.com/microsoft/tsdoc/tree/master/eslint-plugin
@@ -19,7 +19,7 @@
 [ ] Add snapshot/DOM tests for any react component
 [ ] Add Dark/Light mode theme: https://www.smashingmagazine.com/2020/04/dark-mode-react-apps-styled-components/
 [ ] Toggle theme with a cutom hook: https://fettblog.eu/typescript-react-typeing-custom-hooks/
-[ ] 9 as a cont/variable and use it as it's calculations
+[x] 9 as a const/variable and use it as it's calculations
 [ ] Investigate a better `solve` method acc to: https://en.wikipedia.org/wiki/Sudoku_solving_algorithms
 [ ] 100% test coverage
 [ ] Search for algorithms that better fit this program
@@ -28,18 +28,18 @@
 [ ] Write test for compareArrays
 [ ] Fix global/index stuff
 [ ] Use floodfill-algorithm to animate solved rows/colums/regions/entire field
-[ ] Highlight number of the same type as selected
-[ ] Highlight row/column of selected
-[ ] Make highlighting optional
+[ ] Highlight number of the same type as selected (flood-fill?)
+[ ] Highlight row/column of selected (flood-fill?)
 [ ] Create a erase/clear functionality for a cell
 [ ] When guessed the wrong input, show it anyway, but in error-red. It should be deletable
 [ ] When all Cells for a number are revealed, remove/disable the button/option from the butons
 [ ] Introduce a gameover state, e.g when a user guess 3 times wrong.
 [ ] Add cypress e2e testing
 [ ] Create a button to show hints for empty cells
-[ ] Create options to allow and reveal a max amount of cells
 [ ] Introduce Easy/Medium/Hard difficulties
 [ ] Add timer to track duration
+[ ] Log best time
+[ ] Make highlighting optional
 
 -   Horizontally adjacent rows are a band, and vertically adjacent columns are a stack
 -   The initially defined values are clues or givens
