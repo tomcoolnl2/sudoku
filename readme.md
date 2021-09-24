@@ -24,6 +24,8 @@
 [ ] 100% test coverage
 [ ] Search for algorithms that better fit this program
 [ ] Use chinese characters
+[ ] adopt shuffle and com[areArrays into the Sudoku class?]
+[ ] Write test for compareArrays
 [ ] Fix global/index stuff
 [ ] Use floodfill-algorithm to animate solved rows/colums/regions/entire field
 [ ] Highlight number of the same type as selected

@@ -15,11 +15,11 @@ export class Sudoku {
     public static readonly CELLS: number = Sudoku.SIZE * Sudoku.SIZE
 
     /** The solution */
-    public readonly solutionGrid: GridMatrix = null
+    private solutionGrid: GridMatrix = null
     /** The start of the game */
-    public initialGrid: GridMatrix = null
+    private initialGrid: GridMatrix = null
     /** The board a user will use */
-    public workingGrid: GridMatrix = null
+    private workingGrid: GridMatrix = null
 
     constructor() {
         //always start with a 9x9 grid, filled with 0 as cell values
@@ -29,6 +29,27 @@ export class Sudoku {
         this.setInitialGame()
         // colone the initial game so we have something a user can play with
         this.workingGrid = Sudoku.cloneGrid(this.initialGrid)
+    }
+
+    /**
+     * Public accessor for the solution
+     */
+    public get solutionMatrix() {
+        return this.solutionGrid
+    }
+
+    /**
+     * Public accessor for the initial game matrix
+     */
+    public get initialGameMatrix() {
+        return this.initialGrid
+    }
+
+    /**
+     * Public accessor for the UI grid
+     */
+    public get workingMatrix() {
+        return this.workingGrid
     }
 
     /**
@@ -75,19 +96,6 @@ export class Sudoku {
         
         return Array.from({ length: Sudoku.SIZE }).map(mapFn) as unknown as T
     }
-
-    public get solutionMatrix() {
-        return this.solutionGrid
-    }
-
-    public get initialGameMatrix() {
-        return this.initialGrid
-    }
-
-    public get workingMatrix() {
-        return this.workingGrid
-    }
-
 
     /**
      * Returns true if the value is already being used in the current grid Region
@@ -141,7 +149,7 @@ export class Sudoku {
      * @param grid The grid to validate
      * @returns boolean
      */
-    private gameIsSet(grid: GridMatrix): boolean {
+    public gameIsSet(grid: GridMatrix): boolean {
         return !grid.flat().includes(Sudoku.HIDDEN_CELL_VALUE)
     }
 
@@ -182,6 +190,11 @@ export class Sudoku {
         grid[row][col] = 0
     }
 
+    /**
+     * Validte if a give grid hold s the solution
+     * @param grid GridMatrix
+     * @returns boolean 
+     */
     private testSolution(grid: GridMatrix): boolean {
 
         let row: GridMatrixIndex = 0 // we start at [0][0] of the grid
