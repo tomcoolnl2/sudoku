@@ -1,4 +1,5 @@
-[ ] Convert into a class, (singleton?)
+[x] Convert into a class, (singleton?)
+[ ] Fix and cover proficient testing with Jest
 [x] Reset/New Game button
 [x] Create better method, incl generic for creating grid/rows 9xN
 [x] Refactor checkGrid -> array.flat().inlcudes(0)
@@ -11,7 +12,7 @@
 [ ] Add loading state to Redux and add buissiness rules for that
 [ ] Add Jest VSCode debugging
 [x] Create custom hooks for keyboard events
-[ ] Fix persitence bug for user input
+[x] Fix persitence bug for user input
 [ ] Add TSDocs and ESLint to make Intellisence happy: https://github.com/microsoft/tsdoc/tree/master/eslint-plugin
 [ ] Analize performance of reset functionality
 [ ] Add Unit tests for the Redux Reducer: https://betterprogramming.pub/unit-testing-react-redux-hooks-ce7d69e1e834
@@ -36,6 +37,7 @@
 [ ] Create a button to show hints for empty cells
 [ ] Create options to allow and reveal a max amount of cells
 [ ] Introduce Easy/Medium/Hard difficulties
+[ ] Add timer to track duration
 
 -   Horizontally adjacent rows are a band, and vertically adjacent columns are a stack
 -   The initially defined values are clues or givens

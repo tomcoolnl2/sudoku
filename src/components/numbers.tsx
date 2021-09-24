@@ -2,12 +2,13 @@
 import { FC, useRef, memo } from 'react'
 import * as Styled from '../styles'
 import { InputValueButton } from './input-value-button'
-import { SudokuInput } from '../typings'
+import { SudokuInputValue } from '../typings'
+import { Sudoku } from '../Sudoku'
 
 
 export const Numbers: FC = memo(() => {
 
-    const nrs = useRef<SudokuInput[]>([1, 2, 3, 4, 5, 6, 7, 8, 9])
+    const nrs = useRef<SudokuInputValue[]>(Sudoku.createSeries((_, i) => i + 1))
 
     return (
         <Styled.NumbersContainer>
