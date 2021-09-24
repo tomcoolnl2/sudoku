@@ -5,20 +5,20 @@ import { useDispatch, useSelector } from 'react-redux'
 import * as Styled from '../styles'
 import { AttachKeyBoardEvents, Block, Numbers, ResetGameButton } from './'
 import { createGrid, StoreReducer, fillCell } from '../redux'
-import { GridMatrix, GridMatrixCoörds, GridMatrixIndex, N, SudokuInput } from '../typings'
+import { GridMatrix, GridMatrixCoörds, GridMatrixIndex, N, SudokuInputValue } from '../typings'
 
 interface GridState {
     selection?: GridMatrixCoörds
     selectedValue: N
-    solvedGrid?: GridMatrix
+    solutionMatrix?: GridMatrix
 }
 
 export const Grid: FC = memo(() => {
     
-    const { selection, selectedValue, solvedGrid } = useSelector<StoreReducer, GridState>(({ selection, solvedGrid, workingGrid }) => ({ 
+    const { selection, selectedValue, solutionMatrix } = useSelector<StoreReducer, GridState>(({ selection, solutionMatrix, workingMatrix }) => ({ 
         selection,
-        selectedValue: workingGrid && selection ? workingGrid[selection[0]][selection[1]] : 0,
-        solvedGrid
+        selectedValue: workingMatrix && selection ? workingMatrix[selection[0]][selection[1]] : 0,
+        solutionMatrix
     }))
     
     const dispatch = useDispatch<Dispatch<AnyAction>>()
@@ -27,15 +27,15 @@ export const Grid: FC = memo(() => {
         dispatch(createGrid())
     }, [dispatch])
     
-    const fill = useCallback((n: SudokuInput) => {
+    const fill = useCallback((n: SudokuInputValue) => {
         if (selection && selectedValue === 0) {
             dispatch(fillCell(n, selection))
         }
     }, [dispatch, selection, selectedValue])
 
     useEffect(() => { 
-        if (!solvedGrid) create() 
-    }, [create, solvedGrid])
+        if (!solutionMatrix) create() 
+    }, [create, solutionMatrix])
 
     return (
         <>

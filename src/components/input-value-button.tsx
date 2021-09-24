@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Dispatch, AnyAction } from 'redux'
 import * as Styled from '../styles'
 import { fillCell, StoreReducer, } from '../redux'
-import { SudokuInput, GridMatrixCoörds, N } from '../typings'
+import { SudokuInputValue, GridMatrixCoörds, N } from '../typings'
 
 
 interface InputValueProps {
-    value: SudokuInput
+    value: SudokuInputValue
 }
 
 interface InputValueState {
@@ -17,9 +17,9 @@ interface InputValueState {
 
 export const InputValueButton: FC<InputValueProps> = memo(({ value }) => {
 
-    const { selection, selectedValue } = useSelector<StoreReducer, InputValueState>(({ selection, workingGrid }) => ({ 
+    const { selection, selectedValue } = useSelector<StoreReducer, InputValueState>(({ selection, workingMatrix }) => ({ 
         selection,
-        selectedValue: workingGrid && selection ? workingGrid[selection[0]][selection[1]] : 0
+        selectedValue: workingMatrix && selection ? workingMatrix[selection[0]][selection[1]] : 0
     }))
 
     const dispatch = useDispatch<Dispatch<AnyAction>>()

@@ -4,7 +4,7 @@
 export type N = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 
 // All possible input numbers to solve a Sudoku
-export type SudokuInput = Exclude<N, 0>
+export type SudokuInputValue = Exclude<N, 0>
 
 // A zero based index, mainly for use in loops
 export type GridMatrixIndex = Exclude<N, 9>

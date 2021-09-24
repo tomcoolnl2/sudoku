@@ -19,12 +19,12 @@ interface BlockState {
 
 export const Block: FC<BlockProps> = memo(({ ri, ci }) => {
 
-    const { value, active, isPuzzle } = useSelector<StoreReducer, BlockState>(({ challengeGrid, workingGrid, selection }) => ({
+    const { value, active, isPuzzle } = useSelector<StoreReducer, BlockState>(({ initialGameMatrix, workingMatrix, selection }) => ({
         active: selection 
             ? selection[0] === ri && selection[1] === ci 
             : false,
-        value: workingGrid ? workingGrid[ri][ci] : 0,
-        isPuzzle: challengeGrid && challengeGrid[ri][ci] !== 0 ? true: false
+        value: workingMatrix ? workingMatrix[ri][ci] : 0,
+        isPuzzle: initialGameMatrix && initialGameMatrix[ri][ci] !== 0 ? true: false
     }))
 
     const dispatch = useDispatch<Dispatch<AnyAction>>()

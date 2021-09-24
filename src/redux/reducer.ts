@@ -1,7 +1,6 @@
 
 import { AnyAction } from 'redux'
 import { Sudoku } from '../Sudoku'
-import { GridMatrix } from '../typings'
 import { compareArrays } from '../utils'
 import { AppState } from './models'
 import * as types from './types'
@@ -13,50 +12,42 @@ export function reducer(state: AppState = {}, action: AnyAction): AppState {
     
         case types.UNLEASH_THE_MATRIX: {
             
-            // solutionGrid
-            const solution = new Sudoku().createSolution()
-            console.log('solution', solution, solution?.grid)
+            const { solutionMatrix, initialGameMatrix, workingMatrix } = new Sudoku()
 
-            // // initialGrid
-            // const initial = new Sudoku().initialGame()
-            // // const challengeGrid: GridMatrix = new Sudoku().initialGameGrid()
-            // console.log('initial', initial, initial.grid)
-            
-            // // use spread to copy the cloned Grid, to prevent a object reference
-            // gridClone = [...gridClone].map(row => [...row]) as GridMatrix
-            // const workingGrid: GridMatrix = gridClone
+            console.log('solution', solutionMatrix)
+            console.log('initialGame', initialGameMatrix)
+            console.log('workingMatrix', workingMatrix)
 
-            // return {
-            //     ...state,
-            //     challengeGrid,
-            //     solvedGrid,
-            //     workingGrid
-            // }
-            return { ...state }
+            return {
+                ...state,
+                solutionMatrix,
+                initialGameMatrix,
+                workingMatrix
+            }
         }
         case types.FILL_CELL: {
 
-            const { workingGrid, solvedGrid } = state
+            const { workingMatrix, solutionMatrix } = state
             const { value } = action
             
-            if (workingGrid && solvedGrid) {
+            if (workingMatrix && solutionMatrix) {
                 
                 const [ri, ci] = action.coords
                 
-                if (solvedGrid[ri][ci] !== value) {
+                if (solutionMatrix[ri][ci] !== value) {
                     console.log('WRONG')
                     return state
                 }
 
-                workingGrid[ri][ci] = value
+                workingMatrix[ri][ci] = value
                 
-                if (compareArrays(workingGrid, solvedGrid)) {
+                if (compareArrays(workingMatrix, solutionMatrix)) {
                     console.log('WIN')    
                 }
 
                 return {
                     ...state,
-                    workingGrid: [...workingGrid]
+                    workingMatrix: [...workingMatrix]
                 }
             }
 
