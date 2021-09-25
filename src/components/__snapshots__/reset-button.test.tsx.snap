@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test if the reset button is present in the DOM 1`] = `
+<button
+  class="sc-gKseQn hFABYf"
+>
+  <svg>
+    reload.svg
+  </svg>
+   New Game
+</button>
+`;

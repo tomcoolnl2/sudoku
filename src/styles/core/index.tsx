@@ -1,4 +1,7 @@
 
+
+import { FC, JSXElementConstructor } from 'react'
+import { ThemeProvider }  from 'styled-components'
 import { createGlobalStyle, css } from 'styled-components'
 
 
@@ -37,3 +40,12 @@ export const GlobalStyles = createGlobalStyle`
         }
     `
 }`
+
+export const withTheme: FC = (Component: unknown) => {
+	return (
+		<ThemeProvider theme={theme}>
+			<GlobalStyles />
+			{Component}
+		</ThemeProvider>
+	)
+}
