@@ -1,6 +1,3 @@
-
-import global from './global'
-
 import { GridMatrix, GridMatrixIndex, GridMatrixRegionSeries, N, SudokuInputValue } from './typings'
 import { shuffle } from './utils'
 import { RegionSettings, RowSettings, ColumnSettings, SeriesIndex } from './typings/Sudoku'
@@ -20,6 +17,8 @@ export class Sudoku {
 	private initialGrid: GridMatrix = null
 	/** The board a user will use */
 	private workingGrid: GridMatrix = null
+	/** Counter to validate backtracking */
+	private backTrackAttempt: number = 0
 
 	constructor() {
 		//always start with a 9x9 grid, filled with 0 as cell values
@@ -150,7 +149,7 @@ export class Sudoku {
 	}
 	
 	/**
-	 * Validate if the grid is full and does not contain any zeroes (0)
+	 * Validate if the given grid does not contain any zeroes (0)
 	 * @param grid The grid to validate
 	 * @returns boolean
 	 */
@@ -204,7 +203,7 @@ export class Sudoku {
 
 		let row: GridMatrixIndex = 0 // we start at [0][0] of the grid
 		let col: GridMatrixIndex = 0
-		const series = Sudoku.createSeries<SudokuInputValue[], number>((_, i) => i + 1) // Create [1, 2, 3, 4, 5, 6, 7, 8, 9] to check against
+		const series = Sudoku.createSeries<SudokuInputValue[], number>((_, i) => i + 1)
 		
 		for (let i = 0; i < Sudoku.CELLS; i += 1) {
 		
@@ -216,7 +215,7 @@ export class Sudoku {
 					if (this.valueIsSafeToPlace({ grid, row, col, value })) {
 						grid[row][col] = value
 						if (this.gameIsSet(grid)) {
-							global.counter++
+							this.backTrackAttempt++
 							break
 						}
 						else if (this.testSolution(grid)) {
@@ -232,14 +231,14 @@ export class Sudoku {
 
 	/**
 	 * Removes numbers from a full grid to set an actual Sudoku Challenge
-	 * @param attempts Number of attepts to solve (higher means more difficult) - default 5
+	 * @param difficulty Number of attepts to solve (higher means more difficult) - default 5
 	 * @returns GridMatrix
 	 */
-	private setInitialGame(attempts = 5) {
+	private setInitialGame(difficulty = 5) {
 		
 		const initialGrid: GridMatrix = Sudoku.cloneGrid(this.solutionGrid)
 		
-		while (attempts > 0) {
+		while (difficulty > 0) {
 			let row = Sudoku.getRandomIndex()
 			let col = Sudoku.getRandomIndex()
 	
@@ -248,15 +247,15 @@ export class Sudoku {
 				col = Sudoku.getRandomIndex()
 			}
 	
-			const backup = initialGrid[row][col]
-			initialGrid[row][col] = 0
+			const backup = initialGrid[row][col] // store value to optionally restore it
+			initialGrid[row][col] = 0 // remove number from the grid
 
-			global.counter = 0
-			this.testSolution(initialGrid)
-	
-			if (global.counter !== 1) {
-				initialGrid[row][col] = backup
-				attempts--
+			this.backTrackAttempt = 0
+			this.testSolution(initialGrid) // attempt to solve it
+			
+			if (this.backTrackAttempt !== 1) {
+				initialGrid[row][col] = backup // put it back and try again
+				difficulty-- // step back and try again (backtrack)
 			}
 		}
 
