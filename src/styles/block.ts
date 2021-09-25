@@ -3,15 +3,15 @@ import  styled, { css } from 'styled-components'
 
 
 interface BlockContainerProps {
-    active?: boolean
+    selected?: boolean
+    highlighted?: boolean
     clue?: boolean
 }
 
 export const BlockContainer = styled.div<BlockContainerProps>`
-    ${({ theme, active, clue }) => css`
+    ${({ theme, clue, selected, highlighted }) => css`
         align-items: center;
-        background-color: ${theme.colors[active ? 'lightBlue' : 'white']}
-        ;
+        background-color: ${theme.colors[selected ? 'blue' : (highlighted ? 'lightBlue' : 'white')]};
         border: 1px solid ${theme.colors.black};
         cursor: pointer;
         display: flex;
