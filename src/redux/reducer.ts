@@ -12,7 +12,7 @@ export function reducer(state: AppState = {}, action: AnyAction): AppState {
 	switch(action.type) {
     
 	case types.UNLEASH_THE_MATRIX: {
-            
+					
 		const { solutionMatrix, initialGameMatrix, workingMatrix } = new Sudoku()
 
 		// console.log('solution', solutionMatrix)
@@ -30,18 +30,18 @@ export function reducer(state: AppState = {}, action: AnyAction): AppState {
 
 		const { workingMatrix, solutionMatrix } = state
 		const { value, coords } = action
-            
+					
 		if (workingMatrix && solutionMatrix) {
-                
+						
 			const [ri, ci]: GridMatrixCoörds = coords
-                
+						
 			if (solutionMatrix[ri][ci] !== value) {
 				console.log('WRONG')
 				return state
 			}
 
 			workingMatrix[ri][ci] = value
-                
+						
 			if (compareArrays(workingMatrix, solutionMatrix)) {
 				console.log('WIN')    
 			}

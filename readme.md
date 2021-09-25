@@ -17,28 +17,27 @@
 [x] Fix global/index stuff
 [x] Fix persitence bug for user input
 [x] Add TSDocs and ESLint to make Intellisence happy: https://github.com/microsoft/tsdoc/tree/master/eslint-plugin
-[ ] Add difficulty levels Easy, Medium, Hard
+[ ] Highlight row/column of selected (flood-fill?)
+[ ] Add Dark/Light mode theme: https://www.smashingmagazine.com/2020/04/dark-mode-react-apps-styled-components/
 [ ] Analize performance of reset functionality
 [ ] Disable numbers-button when 9 selections of that number are present within the grid
 [ ] Test for disabled buttons with https://github.com/testing-library/jest-dom#tobedisabled
 [ ] Add Unit tests for the Redux Reducer: https://betterprogramming.pub/unit-testing-react-redux-hooks-ce7d69e1e834
 [ ] Test persistence with https://create-react-app.dev/docs/running-tests/#srcsetuptestsjs
-[ ] Add Dark/Light mode theme: https://www.smashingmagazine.com/2020/04/dark-mode-react-apps-styled-components/
 [ ] Toggle theme with a custom hook: https://fettblog.eu/typescript-react-typeing-custom-hooks/
 [ ] Investigate a better `solve` method acc to: https://en.wikipedia.org/wiki/Sudoku_solving_algorithms
-[ ] Search for algorithms that better fit this program
 [ ] Use chinese characters
 [ ] Use floodfill-algorithm to animate solved rows/colums/regions/entire field
 [ ] Highlight number of the same type as selected (flood-fill?)
-[ ] Highlight row/column of selected (flood-fill?)
+[ ] Add difficulty levels Easy, Medium, Hard
 [ ] Create a erase/clear functionality for a cell, when wrong value is put in
 [ ] When guessed the wrong input, show it anyway, but in error-red. It should be deletable
 [ ] When all Cells for a number are revealed, remove/disable the button/option from the butons
 [ ] Introduce a gameover state, e.g when a user guess 3 times wrong.
 [ ] Add cypress e2e testing
-[ ] Create a button to show hints for empty cells
-[ ] Introduce Easy/Medium/Hard difficulties
+[ ] Create a button to show and add hints for empty cells
 [ ] Add timer to track duration
+[ ] Search for algorithms that better fit this program
 [ ] Log best time
 [ ] Make highlighting optional
 [ ] 100% test coverage

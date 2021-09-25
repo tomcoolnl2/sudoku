@@ -12,17 +12,19 @@ export interface BlockProps {
 }
 
 interface BlockState {
-    active: boolean
-    clue: boolean
     value: N
+    clue: boolean
+	highlighted: boolean
+    selected: boolean
 }
 
 export const Block: FC<BlockProps> = memo(({ ri, ci }) => {
 
-	const { value, active, clue } = useSelector<StoreReducer, BlockState>(({ initialGameMatrix, workingMatrix, selection }) => ({
-		active: selection 
+	const { value, clue, selected, highlighted } = useSelector<StoreReducer, BlockState>(({ initialGameMatrix, workingMatrix, selection }) => ({
+		selected: selection 
 			? selection[0] === ri && selection[1] === ci 
 			: false,
+		highlighted: selection[0] === ri || selection[1] === ci,
 		value: workingMatrix ? workingMatrix[ri][ci] : 0,
 		clue: initialGameMatrix && initialGameMatrix[ri][ci] !== 0
 	}))
@@ -30,11 +32,11 @@ export const Block: FC<BlockProps> = memo(({ ri, ci }) => {
 	const dispatch = useDispatch<Dispatch<AnyAction>>()
 
 	const clickHandler = () => {
-		!active && dispatch(selectCell([ri, ci]))
+		!selected && dispatch(selectCell([ri, ci]))
 	}
 
 	return (
-		<Styled.BlockContainer active={active} clue={clue} onClick={clickHandler}>
+		<Styled.BlockContainer clue={clue} selected={selected} highlighted={highlighted} onClick={clickHandler}>
 			{value === 0 ? '' : value}
 		</Styled.BlockContainer>
 	)
