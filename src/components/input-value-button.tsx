@@ -6,11 +6,11 @@ import { fillCell, StoreReducer, } from '../redux'
 import { SudokuInputValue, GridMatrixCoörds, N } from '../typings'
 
 
-interface InputValueProps {
+export interface InputValueProps {
     value: SudokuInputValue
 }
 
-interface InputValueState {
+export interface InputValueState {
     selection?: GridMatrixCoörds
     selectedValue?: N
 }

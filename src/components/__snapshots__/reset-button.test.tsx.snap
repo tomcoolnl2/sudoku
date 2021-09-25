@@ -1,8 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Test if the reset button is present in the DOM 1`] = `
+exports[`ResetGameButton should match it's snapshot 1`] = `
 <button
   class="sc-gKseQn hFABYf"
+  data-testid="reset-button"
 >
   <svg>
     reload.svg

@@ -8,9 +8,16 @@ const props: ResetGameButtonProps = {
 	reset: jest.fn()
 }
 
-test('Test if the reset button is present in the DOM', () => {
-	const { container } = render(withTheme(<ResetGameButton {...props} />))
-	const buttonElement = screen.getByText(/New Game/i)
-	expect(buttonElement).toBeInTheDocument()
-	expect(container.firstChild).toMatchSnapshot()
+describe('ResetGameButton', () => {
+	
+	it('should match it\'s snapshot', () => {
+		const { container } = render(withTheme(<ResetGameButton {...props} />))
+		expect(container.firstChild).toMatchSnapshot()
+	})
+
+	it('should be present within the DOM', () => {
+		render(withTheme(<ResetGameButton {...props} />))
+		const buttonElement = screen.getByText(/New Game/i)
+		expect(buttonElement).toBeInTheDocument()
+	})
 })
