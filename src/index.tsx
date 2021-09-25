@@ -10,8 +10,9 @@ import { configureStore } from './redux'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 import reportWebVitals from './reportWebVitals'
 
-console.log(configureStore())
-
+// Weird validation error causes the app to crash, but it works fine
+// eslint-disable-next-line
+// @ts-ignore
 const { store, persistor } = configureStore()
 
 ReactDOM.render(

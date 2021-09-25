@@ -7,7 +7,7 @@ import { reducer } from '.'
 
 
 const persistConfig = {
-	key: 'root',
+	key: 'sudoku',
 	storage
 }
 
@@ -21,6 +21,6 @@ export function configureStore(): unknown {
 	)
 
 	const persistor = persistStore(store)
-    
+
 	return { store, persistor }
 }
