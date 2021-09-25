@@ -1,5 +1,4 @@
 
-import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
@@ -10,6 +9,8 @@ import { Grid } from './components'
 import { configureStore } from './redux'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 import reportWebVitals from './reportWebVitals'
+
+console.log(configureStore())
 
 const { store, persistor } = configureStore()
 

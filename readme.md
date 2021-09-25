@@ -13,8 +13,9 @@
 [x] Add Jest VSCode debugging
 [x] Create custom hooks for keyboard events
 [x] Fix persitence bug for user input
-[ ] Add TSDocs and ESLint to make Intellisence happy: https://github.com/microsoft/tsdoc/tree/master/eslint-plugin
+[x] Add TSDocs and ESLint to make Intellisence happy: https://github.com/microsoft/tsdoc/tree/master/eslint-plugin
 [ ] Analize performance of reset functionality
+[ ] Disable numbers-button when 9 selections of that number are present within the grid
 [ ] Add Unit tests for the Redux Reducer: https://betterprogramming.pub/unit-testing-react-redux-hooks-ce7d69e1e834
 [ ] Add snapshot/DOM tests for any react component
 [ ] Add Dark/Light mode theme: https://www.smashingmagazine.com/2020/04/dark-mode-react-apps-styled-components/
@@ -24,7 +25,7 @@
 [ ] 100% test coverage
 [ ] Search for algorithms that better fit this program
 [ ] Use chinese characters
-[ ] adopt shuffle and com[areArrays into the Sudoku class?]
+[ ] adopt shuffle and compareArrays into the Sudoku class?
 [ ] Write test for compareArrays
 [ ] Fix global/index stuff
 [ ] Use floodfill-algorithm to animate solved rows/colums/regions/entire field
