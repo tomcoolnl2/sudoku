@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Numbers should match it's snapshot 1`] = `
+<div
+  class="sc-hKgJUU iXTsOt"
+>
+  <button
+    class="sc-gKseQn hFABYf"
+    data-testid="reset-button"
+  >
+    <svg>
+      reload.svg
+    </svg>
+     New Game
+  </button>
+</div>
+`;

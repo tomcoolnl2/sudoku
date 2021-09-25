@@ -7,7 +7,7 @@ import { GridMatrixCoörds, GridMatrixIndex, SudokuInputValue } from '../typings
 import useMouseTrap from 'react-hook-mousetrap'
 
 
-interface AttachKeyBoardEventsProps {
+export interface AttachKeyBoardEventsProps {
     selection: GridMatrixCoörds | undefined
     numbersInputHandler: (n: SudokuInputValue) => void
 }

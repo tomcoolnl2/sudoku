@@ -4,11 +4,11 @@ import  styled, { css } from 'styled-components'
 
 interface BlockContainerProps {
     active?: boolean
-    puzzle?: boolean
+    clue?: boolean
 }
 
 export const BlockContainer = styled.div<BlockContainerProps>`
-    ${({ theme, active, puzzle }) => css`
+    ${({ theme, active, clue }) => css`
         align-items: center;
         background-color: ${theme.colors[active ? 'lightBlue' : 'white']}
         ;
@@ -19,7 +19,7 @@ export const BlockContainer = styled.div<BlockContainerProps>`
         flex-shrink: 0;
         flex-basis: 0;
         font-size: 20px;
-        font-weight: ${puzzle ? 'bold' : 'normal'};
+        font-weight: ${clue ? 'bold' : 'normal'};
         height: auto;
         justify-content: center;
         transition: ${theme.transition};

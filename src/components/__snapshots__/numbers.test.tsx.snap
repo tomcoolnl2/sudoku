@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Numbers should match it's snapshot 1`] = `
+<div
+  class="sc-iBPTik kafkLt"
+>
+  <button
+    class="sc-gKseQn hFABYf"
+  >
+    1
+  </button>
+  <button
+    class="sc-gKseQn hFABYf"
+  >
+    2
+  </button>
+  <button
+    class="sc-gKseQn hFABYf"
+  >
+    3
+  </button>
+  <button
+    class="sc-gKseQn hFABYf"
+  >
+    4
+  </button>
+  <button
+    class="sc-gKseQn hFABYf"
+  >
+    5
+  </button>
+  <button
+    class="sc-gKseQn hFABYf"
+  >
+    6
+  </button>
+  <button
+    class="sc-gKseQn hFABYf"
+  >
+    7
+  </button>
+  <button
+    class="sc-gKseQn hFABYf"
+  >
+    8
+  </button>
+  <button
+    class="sc-gKseQn hFABYf"
+  >
+    9
+  </button>
+</div>
+`;
