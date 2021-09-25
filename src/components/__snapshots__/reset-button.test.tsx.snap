@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResetGameButton should match it's snapshot 1`] = `
+<button
+  class="sc-gKseQn hFABYf"
+  data-testid="reset-button"
+>
+  <svg>
+    reload.svg
+  </svg>
+   New Game
+</button>
+`;

@@ -2,12 +2,12 @@
 import { Dispatch, FC, memo } from 'react'
 import { useDispatch } from 'react-redux'
 import { AnyAction } from 'redux'
-import useMouseTrap from 'react-hook-mousetrap'
 import { selectCell } from '../redux'
 import { GridMatrixCoörds, GridMatrixIndex, SudokuInputValue } from '../typings'
+import useMouseTrap from 'react-hook-mousetrap'
 
 
-interface AttachKeyBoardEventsProps {
+export interface AttachKeyBoardEventsProps {
     selection: GridMatrixCoörds | undefined
     numbersInputHandler: (n: SudokuInputValue) => void
 }

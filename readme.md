@@ -15,9 +15,10 @@
 [x] Fix persitence bug for user input
 [x] Add TSDocs and ESLint to make Intellisence happy: https://github.com/microsoft/tsdoc/tree/master/eslint-plugin
 [ ] Analize performance of reset functionality
-[ ] Disable numbers-button when 9 selections of that number are present within the grid
+[ ] Disable numbers-button when 9 selections of that number are present within the grid: https://github.com/testing-library/jest-dom#tobedisabled
 [ ] Add Unit tests for the Redux Reducer: https://betterprogramming.pub/unit-testing-react-redux-hooks-ce7d69e1e834
-[ ] Add snapshot/DOM tests for any react component
+[x] Add snapshot/DOM tests for any react component
+[ ] Test persistence with https://create-react-app.dev/docs/running-tests/#srcsetuptestsjs
 [ ] Add Dark/Light mode theme: https://www.smashingmagazine.com/2020/04/dark-mode-react-apps-styled-components/
 [ ] Toggle theme with a cutom hook: https://fettblog.eu/typescript-react-typeing-custom-hooks/
 [x] 9 as a const/variable and use it as it's calculations

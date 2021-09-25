@@ -1,16 +1,14 @@
 
-import { FC, memo } from 'react'
+import { FC, memo, SyntheticEvent } from 'react'
 import * as Styled from '../styles'
 import { ReloadIcon } from '../icons'
 
-interface ResetGameButtonProps {
-    reset: () => void
+export interface ResetGameButtonProps {
+    reset: (event: SyntheticEvent) => void
 }
 
-export const ResetGameButton: FC<ResetGameButtonProps> = memo(({ reset }) => {
-
-	return (
-		<Styled.Button onClick={reset}>
-			<ReloadIcon /> New Game
-		</Styled.Button>)
-})
+export const ResetGameButton: FC<ResetGameButtonProps> = memo(({ reset }) => (
+	<Styled.Button onClick={reset} data-testid='reset-button'>
+		<ReloadIcon /> New Game
+	</Styled.Button>
+))

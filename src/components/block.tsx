@@ -6,25 +6,25 @@ import { selectCell, StoreReducer } from '../redux'
 import { GridMatrixIndex, N } from '../typings'
 import * as Styled from '../styles'
 
-interface BlockProps {
+export interface BlockProps {
     ri: GridMatrixIndex
     ci: GridMatrixIndex
 }
 
 interface BlockState {
     active: boolean
-    isPuzzle: boolean
+    clue: boolean
     value: N
 }
 
 export const Block: FC<BlockProps> = memo(({ ri, ci }) => {
 
-	const { value, active, isPuzzle } = useSelector<StoreReducer, BlockState>(({ initialGameMatrix, workingMatrix, selection }) => ({
+	const { value, active, clue } = useSelector<StoreReducer, BlockState>(({ initialGameMatrix, workingMatrix, selection }) => ({
 		active: selection 
 			? selection[0] === ri && selection[1] === ci 
 			: false,
 		value: workingMatrix ? workingMatrix[ri][ci] : 0,
-		isPuzzle: initialGameMatrix && initialGameMatrix[ri][ci] !== 0 ? true: false
+		clue: initialGameMatrix && initialGameMatrix[ri][ci] !== 0
 	}))
 
 	const dispatch = useDispatch<Dispatch<AnyAction>>()
@@ -34,7 +34,7 @@ export const Block: FC<BlockProps> = memo(({ ri, ci }) => {
 	}
 
 	return (
-		<Styled.BlockContainer active={active} puzzle={isPuzzle} onClick={clickHandler}>
+		<Styled.BlockContainer active={active} clue={clue} onClick={clickHandler}>
 			{value === 0 ? '' : value}
 		</Styled.BlockContainer>
 	)

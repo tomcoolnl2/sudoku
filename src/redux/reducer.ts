@@ -15,9 +15,9 @@ export function reducer(state: AppState = {}, action: AnyAction): AppState {
             
 		const { solutionMatrix, initialGameMatrix, workingMatrix } = new Sudoku()
 
-		console.log('solution', solutionMatrix)
-		console.log('initialGame', initialGameMatrix)
-		console.log('workingMatrix', workingMatrix)
+		// console.log('solution', solutionMatrix)
+		// console.log('initialGame', initialGameMatrix)
+		// console.log('workingMatrix', workingMatrix)
 
 		return {
 			...state,
