@@ -16,7 +16,7 @@
           "type": "node",
           "request": "launch",
           "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/react-scripts",
-          "args": ["test", "--runInBand", "--no-cache", "--env=jsdom", "--watchAll"],
+          "args": ["test", "--runInBand", "--no-cache", "--env=jsdom", "--watchAll", "--collectCoverage"],
           "cwd": "${workspaceRoot}",
           "protocol": "inspector",
           "console": "integratedTerminal",

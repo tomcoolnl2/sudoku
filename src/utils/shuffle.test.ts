@@ -2,6 +2,7 @@
 import { shuffle } from './'
 
 describe('shuffle', () => {
+	
 	it('returns an array with the same length after being shuffled', () => {
 		const range = [1, 2, 3]
 		const shuffledRange = shuffle(range)
