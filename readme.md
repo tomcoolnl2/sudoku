@@ -9,30 +9,29 @@
 [x] Register serviceworker to enable PWA/Offline support
 [x] Create a persistence between reloads/tabs
 [x] Add favicon.ico
-[ ] Add loading state to Redux and add buissiness rules for that
+[x] Write test for compareArrays
+[x] Add snapshot/DOM tests for any react component
+[x] 9 as a const/variable and use it as it's calculations
 [x] Add Jest VSCode debugging
 [x] Create custom hooks for keyboard events
+[x] Fix global/index stuff
 [x] Fix persitence bug for user input
 [x] Add TSDocs and ESLint to make Intellisence happy: https://github.com/microsoft/tsdoc/tree/master/eslint-plugin
+[ ] Add difficulty levels Easy, Medium, Hard
 [ ] Analize performance of reset functionality
-[ ] Disable numbers-button when 9 selections of that number are present within the grid: https://github.com/testing-library/jest-dom#tobedisabled
+[ ] Disable numbers-button when 9 selections of that number are present within the grid
+[ ] Test for disabled buttons with https://github.com/testing-library/jest-dom#tobedisabled
 [ ] Add Unit tests for the Redux Reducer: https://betterprogramming.pub/unit-testing-react-redux-hooks-ce7d69e1e834
-[x] Add snapshot/DOM tests for any react component
 [ ] Test persistence with https://create-react-app.dev/docs/running-tests/#srcsetuptestsjs
 [ ] Add Dark/Light mode theme: https://www.smashingmagazine.com/2020/04/dark-mode-react-apps-styled-components/
-[ ] Toggle theme with a cutom hook: https://fettblog.eu/typescript-react-typeing-custom-hooks/
-[x] 9 as a const/variable and use it as it's calculations
+[ ] Toggle theme with a custom hook: https://fettblog.eu/typescript-react-typeing-custom-hooks/
 [ ] Investigate a better `solve` method acc to: https://en.wikipedia.org/wiki/Sudoku_solving_algorithms
-[ ] 100% test coverage
 [ ] Search for algorithms that better fit this program
 [ ] Use chinese characters
-[ ] adopt shuffle and compareArrays into the Sudoku class?
-[ ] Write test for compareArrays
-[ ] Fix global/index stuff
 [ ] Use floodfill-algorithm to animate solved rows/colums/regions/entire field
 [ ] Highlight number of the same type as selected (flood-fill?)
 [ ] Highlight row/column of selected (flood-fill?)
-[ ] Create a erase/clear functionality for a cell
+[ ] Create a erase/clear functionality for a cell, when wrong value is put in
 [ ] When guessed the wrong input, show it anyway, but in error-red. It should be deletable
 [ ] When all Cells for a number are revealed, remove/disable the button/option from the butons
 [ ] Introduce a gameover state, e.g when a user guess 3 times wrong.
@@ -42,6 +41,7 @@
 [ ] Add timer to track duration
 [ ] Log best time
 [ ] Make highlighting optional
+[ ] 100% test coverage
 
 -   Horizontally adjacent rows are a band, and vertically adjacent columns are a stack
 -   The initially defined values are clues or givens
