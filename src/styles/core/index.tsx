@@ -7,10 +7,10 @@ import { createGlobalStyle, css } from 'styled-components'
 const theme = {
 	colors: {
 		background: 'radial-gradient(#282c34cc, #282c34)',
-		black: '#282c34',
+		primary: 'white',
+		secondary: '#282c34',
 		active: '#EDDA74',
-		highlighted: '#ECE5B6',
-		white: 'white'
+		highlighted: '#FCF3CF',
 	},
 	transition: '0.3s'
 }
@@ -23,10 +23,10 @@ export const darkTheme = {
 	...theme,
 	colors: {
 		...theme.colors,
-		black: '#EBEDEF',
-		active: '#5D6D7E',
-		highlighted: '#85929E',
-		white: '#2E4053'
+		primary: '#2E4053',
+		secondary: '#EBEDEF',
+		active: '#515A5A',
+		highlighted: '#616A6B',
 	},
 }
 
@@ -48,7 +48,7 @@ export const GlobalStyles = createGlobalStyle`
 
             #root {
                 background-image: ${props.theme.colors.background};
-                color: ${props.theme.colors.black};
+                color: ${props.theme.colors.secondary};
                 display: flex;
                 font-family: sans-serif;
                 height: 100%;

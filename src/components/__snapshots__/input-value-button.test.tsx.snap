@@ -2,7 +2,7 @@
 
 exports[`InputValueButton should match it's snapshot 1`] = `
 <button
-  class="sc-gKseQn hFABYf"
+  class="sc-gKseQn kYpDyL"
 >
   1
 </button>

@@ -8,7 +8,7 @@ export interface ToggleThemeProps {
 }
 
 export const ToggleTheme: FC<ToggleThemeProps> = memo(({ toggleTheme, selected = false }) => (
-	<label htmlFor='theme-toggle'>
+	<label htmlFor='theme-toggle' data-testid='theme-toggle'>
 		Dark mode: <input type='checkbox' name='theme-toggle' onChange={toggleTheme} checked={selected} />
 	</label>
 ))

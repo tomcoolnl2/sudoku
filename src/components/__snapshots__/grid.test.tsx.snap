@@ -1,17 +1,417 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Numbers should match it's snapshot 1`] = `
-<div
-  class="sc-hKgJUU iXTsOt"
+<section
+  data-testid="sudoku-grid-wrapper"
 >
-  <button
-    class="sc-gKseQn hFABYf"
-    data-testid="reset-button"
+  <div
+    class="sc-hKgJUU iXTsOt"
   >
-    <svg>
-      reload.svg
-    </svg>
-     New Game
-  </button>
-</div>
+    <button
+      class="sc-gKseQn kYpDyL"
+      data-testid="reset-button"
+    >
+      <svg>
+        reload.svg
+      </svg>
+       New Game
+    </button>
+  </div>
+  <div
+    class="sc-hKgJUU iXTsOt"
+  >
+    <div
+      class="sc-eCstlR eHgvz"
+    >
+      <div
+        class="sc-jSgvzq dAfEGv"
+      />
+      <div
+        class="sc-jSgvzq jrHmMz"
+      >
+        3
+      </div>
+      <div
+        class="sc-jSgvzq jrHmMz"
+      >
+        1
+      </div>
+      <div
+        class="sc-jSgvzq NGaEp"
+      />
+      <div
+        class="sc-jSgvzq jrHmMz"
+      >
+        5
+      </div>
+      <div
+        class="sc-jSgvzq NGaEp"
+      />
+      <div
+        class="sc-jSgvzq NGaEp"
+      />
+      <div
+        class="sc-jSgvzq NGaEp"
+      />
+      <div
+        class="sc-jSgvzq NGaEp"
+      />
+    </div>
+    <div
+      class="sc-eCstlR eHgvz"
+    >
+      <div
+        class="sc-jSgvzq NGaEp"
+      />
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        6
+      </div>
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        9
+      </div>
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        7
+      </div>
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        4
+      </div>
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        3
+      </div>
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+    </div>
+    <div
+      class="sc-eCstlR eHgvz"
+    >
+      <div
+        class="sc-jSgvzq NGaEp"
+      />
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        7
+      </div>
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        3
+      </div>
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        9
+      </div>
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        6
+      </div>
+    </div>
+    <div
+      class="sc-eCstlR eHgvz"
+    >
+      <div
+        class="sc-jSgvzq NGaEp"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        8
+      </div>
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+    </div>
+    <div
+      class="sc-eCstlR eHgvz"
+    >
+      <div
+        class="sc-jSgvzq NGaEp"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        3
+      </div>
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        2
+      </div>
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        7
+      </div>
+    </div>
+    <div
+      class="sc-eCstlR eHgvz"
+    >
+      <div
+        class="sc-jSgvzq jrHmMz"
+      >
+        9
+      </div>
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        7
+      </div>
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        3
+      </div>
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+    </div>
+    <div
+      class="sc-eCstlR eHgvz"
+    >
+      <div
+        class="sc-jSgvzq NGaEp"
+      />
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        2
+      </div>
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        4
+      </div>
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        8
+      </div>
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        9
+      </div>
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        5
+      </div>
+    </div>
+    <div
+      class="sc-eCstlR eHgvz"
+    >
+      <div
+        class="sc-jSgvzq jrHmMz"
+      >
+        3
+      </div>
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        1
+      </div>
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+    </div>
+    <div
+      class="sc-eCstlR eHgvz"
+    >
+      <div
+        class="sc-jSgvzq jrHmMz"
+      >
+        7
+      </div>
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        9
+      </div>
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        8
+      </div>
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        4
+      </div>
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+    </div>
+  </div>
+  <div
+    class="sc-hKgJUU iXTsOt"
+  >
+    <div
+      class="sc-iBPTik kafkLt"
+    >
+      <button
+        class="sc-gKseQn kYpDyL"
+      >
+        1
+      </button>
+      <button
+        class="sc-gKseQn kYpDyL"
+      >
+        2
+      </button>
+      <button
+        class="sc-gKseQn kYpDyL"
+      >
+        3
+      </button>
+      <button
+        class="sc-gKseQn kYpDyL"
+      >
+        4
+      </button>
+      <button
+        class="sc-gKseQn kYpDyL"
+      >
+        5
+      </button>
+      <button
+        class="sc-gKseQn kYpDyL"
+      >
+        6
+      </button>
+      <button
+        class="sc-gKseQn kYpDyL"
+      >
+        7
+      </button>
+      <button
+        class="sc-gKseQn kYpDyL"
+      >
+        8
+      </button>
+      <button
+        class="sc-gKseQn kYpDyL"
+      >
+        9
+      </button>
+    </div>
+  </div>
+</section>
 `;

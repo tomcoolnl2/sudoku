@@ -15,32 +15,32 @@ export const GridRow = styled.div`
 
         &:nth-child(1) {
             div {
-                border-top: solid 4px ${theme.colors.black};
+                border-top: solid 4px ${theme.colors.secondary};
             }
         }
 
         &:nth-child(3),
         &:nth-child(6) {
             div {
-                border-bottom: solid 3px ${theme.colors.black};
+                border-bottom: solid 3px ${theme.colors.secondary};
             }
         }
 
         &:nth-child(9) {
             div {
-                border-bottom: solid 4px ${theme.colors.black};
+                border-bottom: solid 4px ${theme.colors.secondary};
             }
         }
 
         div {
             &:nth-child(1) {
-                border-left: solid 4px ${theme.colors.black};
+                border-left: solid 4px ${theme.colors.secondary};
             }
 
             &:nth-child(3),
             &:nth-child(6),
             &:nth-child(9) {
-                border-right: solid 4px ${theme.colors.black};
+                border-right: solid 4px ${theme.colors.secondary};
             }
 
             &:nth-child(4),

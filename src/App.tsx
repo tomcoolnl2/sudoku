@@ -3,11 +3,12 @@ import { FC } from 'react'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 import { ThemeProvider }  from 'styled-components'
+import { VisualMode } from './typings/enum'
 import { configureStore } from './redux'	
 import { GlobalStyles, lightTheme, darkTheme } from './styles/core'
 import * as Styled from './styles'
 import { Grid, ToggleTheme } from './components'
-import { useDarkMode, VisualMode } from './utils/useDarkMode'
+import { useDarkMode } from './utils/useDarkMode'
 
 // Weird validation error causes the app to crash, but it works fine
 // eslint-disable-next-line

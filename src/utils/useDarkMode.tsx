@@ -1,11 +1,7 @@
 
 import { useEffect, useState } from 'react'
+import { VisualMode } from '../typings/enum'
 
-
-export enum VisualMode {
-	LIGHT = 'light',
-	DARK = 'dark'
-}
 
 const key = 'theme:sudoku'
 
