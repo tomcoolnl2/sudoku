@@ -11,8 +11,8 @@ interface BlockContainerProps {
 export const BlockContainer = styled.div<BlockContainerProps>`
     ${({ theme, clue, selected, highlighted }) => css`
         align-items: center;
-        background-color: ${theme.colors[selected ? 'blue' : (highlighted ? 'lightBlue' : 'white')]};
-        border: 1px solid ${theme.colors.black};
+        background-color: ${theme.colors[selected ? 'active' : (highlighted ? 'highlighted' : 'primary')]};
+        border: 1px solid ${theme.colors.secondary};
         cursor: pointer;
         display: flex;
         flex-grow: 1;
@@ -32,7 +32,7 @@ export const BlockContainer = styled.div<BlockContainerProps>`
         }
 
         &:hover {
-            background-color: ${theme.colors.lightBlue}
+            background-color: ${theme.colors.highlighted}
         }
     `}
 `

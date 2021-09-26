@@ -9,10 +9,10 @@ const rotate = keyframes`
 export const Button = styled.button`
     ${({ theme }) => css`
         align-items: center;
-        background-color: ${theme.colors.black};
-        border: 2px solid ${theme.colors.black};
+        background-color: ${theme.colors.secondary};
+        border: 2px solid ${theme.colors.secondary};
         border-radius: 4px;
-        color: ${theme.colors.white};
+        color: ${theme.colors.primary};
         cursor: pointer;
         display: flex;
         flex: 1;
@@ -26,7 +26,7 @@ export const Button = styled.button`
         opacity: .9;
 
         &:focus {
-            border-color: ${theme.colors.blue};
+            border-color: ${theme.colors.active};
             outline: none;
         }
 
@@ -36,7 +36,7 @@ export const Button = styled.button`
 
         > svg { 
             margin-right: 10px;
-            fill: ${theme.colors.white}
+            fill: ${theme.colors.primary}
         }
 
         &:hover {

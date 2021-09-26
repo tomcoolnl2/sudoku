@@ -15,7 +15,7 @@ export function shuffle(range: number[]): number[] {
 
 		// Pick a remaining element...
 		randomIndex = (Math.random() * currentIndex) << 0
-		currentIndex--;
+		currentIndex--
 
 		// And swap it with the current element.
 		[range[currentIndex], range[randomIndex]] = [range[randomIndex], range[currentIndex]]

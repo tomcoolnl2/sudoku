@@ -17,8 +17,8 @@
 [x] Fix global/index stuff
 [x] Fix persitence bug for user input
 [x] Add TSDocs and ESLint to make Intellisence happy: https://github.com/microsoft/tsdoc/tree/master/eslint-plugin
-[ ] Highlight row/column of selected (flood-fill?)
-[ ] Add Dark/Light mode theme: https://www.smashingmagazine.com/2020/04/dark-mode-react-apps-styled-components/
+[x] Highlight row/column of selected (flood-fill?)
+[x] Add Dark/Light mode theme: https://www.smashingmagazine.com/2020/04/dark-mode-react-apps-styled-components/
 [ ] Analize performance of reset functionality
 [ ] Disable numbers-button when 9 selections of that number are present within the grid
 [ ] Test for disabled buttons with https://github.com/testing-library/jest-dom#tobedisabled

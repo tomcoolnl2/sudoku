@@ -16,6 +16,3 @@ export const selectCell = (coords: GridMatrixCoörds): AnyAction => ({
 	coords,
 	type: types.SELECT_CELL
 })
-
-
-// select row?

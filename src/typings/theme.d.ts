@@ -1,9 +1,9 @@
 
 import 'styled-components'
 
-import { theme } from '../styles/core'
+import { lightTheme } from '../styles/core'
 
-type Theme = typeof theme
+type Theme = typeof lightTheme
 
 declare module 'styled-components' {
     // eslint-disable-next-line
