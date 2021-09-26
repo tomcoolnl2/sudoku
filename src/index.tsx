@@ -1,34 +1,12 @@
 
 import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
-import { PersistGate } from 'redux-persist/integration/react'
-import { ThemeProvider }  from 'styled-components'
-import { GlobalStyles, theme } from './styles/core'
-import * as Styled from './styles'
-import { Grid } from './components'
-import { configureStore } from './redux'
+import { App } from './App'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 import reportWebVitals from './reportWebVitals'
 
-// Weird validation error causes the app to crash, but it works fine
-// eslint-disable-next-line
-// @ts-ignore
-const { store, persistor } = configureStore()
 
 ReactDOM.render(
-	<ThemeProvider theme={theme}>
-		<GlobalStyles />
-		<Provider store={store}>
-			<PersistGate loading={null} persistor={persistor}>
-				<Styled.Content>
-					<Styled.Title>Sudoku</Styled.Title>
-					<Styled.Card>
-						<Grid />
-					</Styled.Card>
-				</Styled.Content>
-			</PersistGate>
-		</Provider>
-	</ThemeProvider>,
+	<App />,
 	document.getElementById('root')
 )
 

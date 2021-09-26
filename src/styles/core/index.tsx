@@ -1,23 +1,41 @@
 
 
-import { FC, JSXElementConstructor } from 'react'
+import { FC } from 'react'
 import { ThemeProvider }  from 'styled-components'
 import { createGlobalStyle, css } from 'styled-components'
 
-
-export const theme = {
+const theme = {
 	colors: {
 		background: 'radial-gradient(#282c34cc, #282c34)',
 		black: '#282c34',
-		blue: '#a0e9fd',
-		lightBlue: '#caf3fe',
+		active: '#EDDA74',
+		highlighted: '#ECE5B6',
 		white: 'white'
 	},
 	transition: '0.3s'
 }
 
+export const lightTheme = {
+	...theme
+}
+
+export const darkTheme = {
+	...theme,
+	colors: {
+		...theme.colors,
+		black: 'white',
+		active: 'red',
+		highlighted: 'rebeccapurple',
+		white: 'black'
+	},
+}
+
 export const GlobalStyles = createGlobalStyle`
     ${props => css`
+		:root {
+			color-scheme: light dark;
+		}
+
         html {
             height: 100%;
         }
@@ -43,7 +61,7 @@ export const GlobalStyles = createGlobalStyle`
 
 export const withTheme: FC = (Component: unknown) => {
 	return (
-		<ThemeProvider theme={theme}>
+		<ThemeProvider theme={lightTheme}>
 			<GlobalStyles />
 			{Component}
 		</ThemeProvider>

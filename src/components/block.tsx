@@ -20,13 +20,13 @@ interface BlockState {
 
 export const Block: FC<BlockProps> = memo(({ ri, ci }) => {
 
-	const { value, clue, selected, highlighted } = useSelector<StoreReducer, BlockState>(({ initialGameMatrix, workingMatrix, selection }) => ({
+	const { value, clue, selected, highlighted } = useSelector<StoreReducer, BlockState>(({ initialGameMatrix, workingMatrix, selection = [0, 0] }) => ({
+		value: workingMatrix ? workingMatrix[ri][ci] : 0,
+		clue: initialGameMatrix && initialGameMatrix[ri][ci] !== 0,
+		highlighted: selection[0] === ri || selection[1] === ci,
 		selected: selection 
 			? selection[0] === ri && selection[1] === ci 
 			: false,
-		highlighted: selection[0] === ri || selection[1] === ci,
-		value: workingMatrix ? workingMatrix[ri][ci] : 0,
-		clue: initialGameMatrix && initialGameMatrix[ri][ci] !== 0
 	}))
 
 	const dispatch = useDispatch<Dispatch<AnyAction>>()

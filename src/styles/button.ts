@@ -26,7 +26,7 @@ export const Button = styled.button`
         opacity: .9;
 
         &:focus {
-            border-color: ${theme.colors.blue};
+            border-color: ${theme.colors.active};
             outline: none;
         }
 
