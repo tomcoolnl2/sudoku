@@ -23,10 +23,10 @@ export const darkTheme = {
 	...theme,
 	colors: {
 		...theme.colors,
-		black: 'white',
-		active: 'red',
-		highlighted: 'rebeccapurple',
-		white: 'black'
+		black: '#EBEDEF',
+		active: '#5D6D7E',
+		highlighted: '#85929E',
+		white: '#2E4053'
 	},
 }
 
