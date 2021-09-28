@@ -19,11 +19,17 @@
 [x] Add TSDocs and ESLint to make Intellisence happy: https://github.com/microsoft/tsdoc/tree/master/eslint-plugin
 [x] Highlight row/column of selected (flood-fill?)
 [x] Add Dark/Light mode theme: https://www.smashingmagazine.com/2020/04/dark-mode-react-apps-styled-components/
-[ ] Disable numbers-button when 9 selections of that number are present within the grid
+[x] Disable numbers-button when 9 selections of that nmber are present within the grid
+[x] Select the first empty cell as default
+[x] When selecting a number on the grid, select all cells with that number
+[ ] When selecting a number on the grid, highlight all cells within the current region
+[ ] Upping the difficulty causes the backtracking to look like infinite. Add a tracker to reset the calculation if exceeding an amount of recursion attempts?
+[ ] Add undo button - to use once every 3 turns?
+[ ] Make undo a setting, like difficulty
 [ ] Test for disabled buttons with https://github.com/testing-library/jest-dom#tobedisabled
 [ ] Add Unit tests for the Redux Reducer: https://betterprogramming.pub/unit-testing-react-redux-hooks-ce7d69e1e834
 [ ] Test persistence with https://create-react-app.dev/docs/running-tests/#srcsetuptestsjs
-[ ] Toggle theme with a custom hook: https://fettblog.eu/typescript-react-typeing-custom-hooks/
+[x] Toggle theme with a custom hook: https://fettblog.eu/typescript-react-typeing-custom-hooks/
 [ ] Investigate a better `solve` method acc to: https://en.wikipedia.org/wiki/Sudoku_solving_algorithms
 [ ] Use chinese characters
 [ ] Use floodfill-algorithm to animate solved rows/colums/regions/entire field

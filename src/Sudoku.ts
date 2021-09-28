@@ -1,4 +1,4 @@
-import { GridMatrix, GridMatrixIndex, GridMatrixRegionSeries, GridMatrixSeries, N, SudokuInputValue } from './typings'
+import { GridMatrix, GridMatrixCoörds, GridMatrixIndex, GridMatrixRegionSeries, GridMatrixSeries, N, SudokuInputValue } from './typings'
 import { shuffle } from './utils'
 import { RegionSettings, RowSettings, ColumnSettings, SeriesIndex } from './typings/Sudoku'
 
@@ -62,6 +62,20 @@ export class Sudoku {
 	 */
 	public get trackedInput(): GridMatrixSeries<SudokuInputValue> {
 		return this.trackedUserInput
+	}
+
+	/**
+	 * Public accessor to find the first cell to select when initialising a new game
+	 */
+	public get initialSelection(): GridMatrixCoörds {
+		for (let i = 0; i < Sudoku.CELLS; i += 1) {
+			const row = (i / Sudoku.SIZE) << 0 as GridMatrixIndex
+			const col = i % Sudoku.SIZE as GridMatrixIndex
+			if (this.initialGrid[row][col] === Sudoku.HIDDEN_CELL_VALUE) {
+				return [row, col]
+			}
+		}
+		return [0, 0]
 	}
 
 	/**
