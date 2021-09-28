@@ -6,27 +6,29 @@ import { selectCell, StoreReducer } from '../redux'
 import { GridMatrixIndex, N } from '../typings'
 import * as Styled from '../styles'
 
-export interface BlockProps {
+export interface CellProps {
     ri: GridMatrixIndex
     ci: GridMatrixIndex
 }
 
-interface BlockState {
+interface CellState {
     value: N
     clue: boolean
 	highlighted: boolean
-    selected: boolean
+    selected: boolean,
+	duplicate: boolean
 }
 
-export const Block: FC<BlockProps> = memo(({ ri, ci }) => {
+export const Block: FC<CellProps> = memo(({ ri, ci }) => {
 
-	const { value, clue, selected, highlighted } = useSelector<StoreReducer, BlockState>(({ initialGameMatrix, workingMatrix, selection = [0, 0] }) => ({
+	const { value, clue, selected, highlighted, duplicate } = useSelector<StoreReducer, CellState>(({ initialGameMatrix, workingMatrix, selection }) => ({
 		value: workingMatrix ? workingMatrix[ri][ci] : 0,
 		clue: initialGameMatrix && initialGameMatrix[ri][ci] !== 0,
 		highlighted: selection[0] === ri || selection[1] === ci,
-		selected: selection 
-			? selection[0] === ri && selection[1] === ci 
-			: false,
+		selected: selection[0] === ri && selection[1] === ci,
+		duplicate: workingMatrix
+			&& workingMatrix[ri][ci] !== 0
+			&& workingMatrix[selection[0]][selection[1]] === workingMatrix[ri][ci]
 	}))
 
 	const dispatch = useDispatch<Dispatch<AnyAction>>()
@@ -36,8 +38,8 @@ export const Block: FC<BlockProps> = memo(({ ri, ci }) => {
 	}
 
 	return (
-		<Styled.BlockContainer clue={clue} selected={selected} highlighted={highlighted} onClick={clickHandler}>
+		<Styled.CellContainer clue={clue} selected={selected} highlighted={highlighted} duplicate={duplicate} onClick={clickHandler}>
 			{value === 0 ? '' : value}
-		</Styled.BlockContainer>
+		</Styled.CellContainer>
 	)
 })

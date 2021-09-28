@@ -2,16 +2,17 @@
 import  styled, { css } from 'styled-components'
 
 
-interface BlockContainerProps {
+interface CellContainerProps {
     selected?: boolean
     highlighted?: boolean
     clue?: boolean
+    duplicate?: boolean
 }
 
-export const BlockContainer = styled.div<BlockContainerProps>`
-    ${({ theme, clue, selected, highlighted }) => css`
+export const CellContainer = styled.div<CellContainerProps>`
+    ${({ theme, clue, selected, highlighted, duplicate }) => css`
         align-items: center;
-        background-color: ${theme.colors[selected ? 'active' : (highlighted ? 'highlighted' : 'primary')]};
+        background-color: ${theme.colors[selected || duplicate ? 'active' : (highlighted ? 'highlighted' : 'primary')]};
         border: 1px solid ${theme.colors.secondary};
         cursor: pointer;
         display: flex;
@@ -32,7 +33,7 @@ export const BlockContainer = styled.div<BlockContainerProps>`
         }
 
         &:hover {
-            background-color: ${theme.colors.highlighted}
+            background-color: ${theme.colors[selected ? 'active' : 'highlighted']}
         }
     `}
 `

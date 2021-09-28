@@ -33,7 +33,7 @@ export const InputValueButton: FC<InputValueProps> = memo(({ value }) => {
 		}
 	}, [dispatch, selection, selectedValue, value])
 
-	const disabled = trackedInput[value - 1] === Sudoku.SIZE
+	const disabled = trackedInput?.[value - 1] === Sudoku.SIZE
 
 	return <Styled.Button onClick={fill} disabled={disabled}>{value}</Styled.Button>
 })

@@ -1,7 +1,7 @@
 
 export * from './attach-keyboard-events'
 export * from './grid'
-export * from './block'
+export * from './cell'
 export * from './numbers'
 export * from './input-value-button'
 export * from './reset-button'

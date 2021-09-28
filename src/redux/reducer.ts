@@ -7,20 +7,34 @@ import { AppState } from './models'
 import * as types from './types'
 
 
+const initialState: AppState = {
+	initialGameMatrix: null,
+	solutionMatrix: null,
+	workingMatrix: null,
+	trackedInput: null,
+	selection: [0, 0]
+}
 
-export function reducer(state: AppState = {}, action: AnyAction): AppState {
+export function reducer(state = initialState, action: AnyAction): AppState {
     
 	switch(action.type) {
     
 	case types.UNLEASH_THE_MATRIX: {
-						
-		const { solutionMatrix, initialGameMatrix, workingMatrix, trackedInput } = new Sudoku()
+		
+		const {
+			solutionMatrix,
+			initialGameMatrix,
+			workingMatrix,
+			initialSelection,
+			trackedInput
+		} = new Sudoku()
 
 		return {
 			...state,
 			solutionMatrix,
 			initialGameMatrix,
 			workingMatrix,
+			selection: initialSelection,
 			trackedInput
 		}
 	}
