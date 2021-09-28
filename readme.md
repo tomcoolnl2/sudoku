@@ -26,6 +26,8 @@
 [ ] Upping the difficulty causes the backtracking to look like infinite. Add a tracker to reset the calculation if exceeding an amount of recursion attempts?
 [ ] Add undo button - to use once every 3 turns?
 [ ] Make undo a setting, like difficulty
+[ ] Make highlighting duplicates a setting
+[ ] Create a extra screen to alter settings
 [ ] Test for disabled buttons with https://github.com/testing-library/jest-dom#tobedisabled
 [ ] Add Unit tests for the Redux Reducer: https://betterprogramming.pub/unit-testing-react-redux-hooks-ce7d69e1e834
 [ ] Test persistence with https://create-react-app.dev/docs/running-tests/#srcsetuptestsjs

@@ -29,15 +29,6 @@ export function reducer(state = initialState, action: AnyAction): AppState {
 			trackedInput
 		} = new Sudoku()
 
-		console.log({
-			...state,
-			solutionMatrix,
-			initialGameMatrix,
-			workingMatrix,
-			selection: initialSelection,
-			trackedInput
-		})
-
 		return {
 			...state,
 			solutionMatrix,

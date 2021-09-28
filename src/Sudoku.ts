@@ -258,10 +258,10 @@ export class Sudoku {
 
 	/**
 	 * Removes numbers from a full grid to set an actual Sudoku Challenge
-	 * @param difficulty Number of attepts to solve (higher means more difficult) - default 5
+	 * @param difficulty Number of attepts to solve (higher means more difficult)
 	 * @returns GridMatrix
 	 */
-	private setInitialGame(difficulty = 5) {
+	private setInitialGame(difficulty = 3) {
 		
 		const initialGrid: GridMatrix = Sudoku.cloneGrid(this.solutionGrid)
 		
