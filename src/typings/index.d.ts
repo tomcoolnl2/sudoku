@@ -27,7 +27,7 @@ export type GridMatrix = [
 ]
 
 // Sudoku Grid Row, containig N (0 - 9)
-export type GridMatrixSeries = [N, N, N, N, N, N, N, N, N]
+export type GridMatrixSeries<T = N> = [T, T, T, T, T, T, T, T, T]
 
 // A square covering 3 GridMatrixSeries, also called a Region
 export type GridMatrixRegion = [

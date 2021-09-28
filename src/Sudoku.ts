@@ -1,4 +1,4 @@
-import { GridMatrix, GridMatrixIndex, GridMatrixRegionSeries, N, SudokuInputValue } from './typings'
+import { GridMatrix, GridMatrixIndex, GridMatrixRegionSeries, GridMatrixSeries, N, SudokuInputValue } from './typings'
 import { shuffle } from './utils'
 import { RegionSettings, RowSettings, ColumnSettings, SeriesIndex } from './typings/Sudoku'
 
@@ -18,6 +18,8 @@ export class Sudoku {
 	/** The board a user will use */
 	private workingGrid: GridMatrix = null
 	/** Counter to validate backtracking */
+	private trackedUserInput: GridMatrixSeries<SudokuInputValue> = null
+	/** Counter to validate backtracking */
 	private backTrackAttempt: number = 0
 
 	constructor() {
@@ -28,6 +30,10 @@ export class Sudoku {
 		this.setInitialGame()
 		// colone the initial game so we have something a user can play with
 		this.workingGrid = Sudoku.cloneGrid(this.initialGrid)
+		// keep track of inputted values, including clues
+		this.trackedUserInput = Sudoku.createSeries(Sudoku.HIDDEN_CELL_VALUE)
+		// assemble clues to keep track of inputted values
+		this.trackedClues()
 	}
 
 	/**
@@ -49,6 +55,13 @@ export class Sudoku {
 	 */
 	public get workingMatrix(): GridMatrix {
 		return this.workingGrid
+	}
+
+	/**
+	 * Public accessor to retrieve Clues and User Input values
+	 */
+	public get trackedInput(): GridMatrixSeries<SudokuInputValue> {
+		return this.trackedUserInput
 	}
 
 	/**
@@ -160,9 +173,9 @@ export class Sudoku {
 	/**
 	 * Backtracking recursion to check all the possible combination of numbers
 	 * @param grid 
-	 * @returns true if the solution is valid, else it will return undefined
+	 * @returns true if the solution is valid
 	 */
-	private createSolution(grid: GridMatrix = this.solutionGrid): boolean | void {
+	private createSolution(grid: GridMatrix = this.solutionGrid): boolean {
 
 		const series = Sudoku.createSeries<SudokuInputValue[], number>((_, i) => i + 1) // Create [1, 2, 3, 4, 5, 6, 7, 8, 9] to check against
 		let row: GridMatrixIndex = 0 // we start at [0][0] of the grid
@@ -215,7 +228,7 @@ export class Sudoku {
 					if (this.valueIsSafeToPlace({ grid, row, col, value })) {
 						grid[row][col] = value
 						if (this.gameIsSet(grid)) {
-							this.backTrackAttempt++
+							this.backTrackAttempt += 1
 							break
 						}
 						else if (this.testSolution(grid)) {
@@ -255,11 +268,23 @@ export class Sudoku {
 			
 			if (this.backTrackAttempt !== 1) {
 				initialGrid[row][col] = backup // put it back and try again
-				difficulty-- // step back and try again (backtrack)
+				difficulty -= 1 // step back and try again (backtrack)
 			}
 		}
 
 		this.initialGrid = initialGrid
 		return this.initialGrid
+	}
+
+	/**
+	 * Count the number of individual clues
+	 */
+	private trackedClues(): void {
+		const grid = Sudoku.cloneGrid(this.workingGrid)
+		grid.flat().forEach((value: N) => {
+			if (value !== Sudoku.HIDDEN_CELL_VALUE) {
+				this.trackedUserInput[value - 1] += 1
+			}
+		})
 	}
 }

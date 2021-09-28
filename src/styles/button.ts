@@ -25,13 +25,18 @@ export const Button = styled.button`
         transition: ${theme.transition};
         opacity: .9;
 
+        &:disabled {
+            opacity: .7;
+            cursor: default;
+        }
+
         &:focus {
             border-color: ${theme.colors.active};
             outline: none;
         }
 
         &:hover {
-            opacity: .8;
+            opacity: .7;
         }
 
         > svg { 
