@@ -19,7 +19,6 @@
 [x] Add TSDocs and ESLint to make Intellisence happy: https://github.com/microsoft/tsdoc/tree/master/eslint-plugin
 [x] Highlight row/column of selected (flood-fill?)
 [x] Add Dark/Light mode theme: https://www.smashingmagazine.com/2020/04/dark-mode-react-apps-styled-components/
-[ ] Analize performance of reset functionality
 [ ] Disable numbers-button when 9 selections of that number are present within the grid
 [ ] Test for disabled buttons with https://github.com/testing-library/jest-dom#tobedisabled
 [ ] Add Unit tests for the Redux Reducer: https://betterprogramming.pub/unit-testing-react-redux-hooks-ce7d69e1e834
@@ -37,12 +36,17 @@
 [ ] Add cypress e2e testing
 [ ] Create a button to show and add hints for empty cells
 [ ] Add timer to track duration
+[ ] Analize performance of reset functionality
 [ ] Search for algorithms that better fit this program
 [ ] Log best time
 [ ] Make highlighting optional
-[ ] 100% test coverage
+[ ] improve test coverage
 
 -   Horizontally adjacent rows are a band, and vertically adjacent columns are a stack
 -   The initially defined values are clues or givens
 -   An ordinary Sudoku (i.e. a proper Sudoku) has one solution
 -   Rows, columns and regions can be collectively referred to as groups, of which the grid has 27
+
+[ ] integrate into NX
+[ ] nestJS Backend - for what?
+[ ] introduce React Native

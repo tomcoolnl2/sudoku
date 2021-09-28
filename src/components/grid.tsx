@@ -44,9 +44,9 @@ export const Grid: FC = memo(() => {
 				<ResetGameButton reset={create} />
 			</Styled.GridContainer>
 			<Styled.GridContainer>
-				{Children.toArray([...Array(9)].map((_: undefined, ri: number) => (
+				{Children.toArray([...Array(9)].map((_: unknown, ri: number) => (
 					<Styled.GridRow>
-						{Children.toArray([...Array(9)].map((_: undefined, ci: number) => (
+						{Children.toArray([...Array(9)].map((_: unknown, ci: number) => (
 							<Block ri={ri as GridMatrixIndex} ci={ci as GridMatrixIndex} />
 						)))}
 					</Styled.GridRow>

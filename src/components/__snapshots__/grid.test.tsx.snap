@@ -26,161 +26,38 @@ exports[`Numbers should match it's snapshot 1`] = `
       <div
         class="sc-jSgvzq hwUbqZ"
       >
-        7
-      </div>
-      <div
-        class="sc-jSgvzq jrHmMz"
-      >
-        3
-      </div>
-      <div
-        class="sc-jSgvzq NGaEp"
-      />
-      <div
-        class="sc-jSgvzq jrHmMz"
-      >
-        5
-      </div>
-      <div
-        class="sc-jSgvzq jrHmMz"
-      >
-        9
-      </div>
-      <div
-        class="sc-jSgvzq NGaEp"
-      />
-      <div
-        class="sc-jSgvzq NGaEp"
-      />
-      <div
-        class="sc-jSgvzq jrHmMz"
-      >
-        2
-      </div>
-      <div
-        class="sc-jSgvzq NGaEp"
-      />
-    </div>
-    <div
-      class="sc-eCstlR eHgvz"
-    >
-      <div
-        class="sc-jSgvzq NGaEp"
-      />
-      <div
-        class="sc-jSgvzq fSvjMU"
-      />
-      <div
-        class="sc-jSgvzq jlfwUi"
-      >
-        2
-      </div>
-      <div
-        class="sc-jSgvzq fSvjMU"
-      />
-      <div
-        class="sc-jSgvzq jlfwUi"
-      >
-        7
-      </div>
-      <div
-        class="sc-jSgvzq jlfwUi"
-      >
-        4
-      </div>
-      <div
-        class="sc-jSgvzq jlfwUi"
-      >
-        3
-      </div>
-      <div
-        class="sc-jSgvzq fSvjMU"
-      />
-      <div
-        class="sc-jSgvzq jlfwUi"
-      >
-        9
-      </div>
-    </div>
-    <div
-      class="sc-eCstlR eHgvz"
-    >
-      <div
-        class="sc-jSgvzq NGaEp"
-      />
-      <div
-        class="sc-jSgvzq jlfwUi"
-      >
-        5
-      </div>
-      <div
-        class="sc-jSgvzq jlfwUi"
-      >
-        9
-      </div>
-      <div
-        class="sc-jSgvzq fSvjMU"
-      />
-      <div
-        class="sc-jSgvzq fSvjMU"
-      />
-      <div
-        class="sc-jSgvzq fSvjMU"
-      />
-      <div
-        class="sc-jSgvzq fSvjMU"
-      />
-      <div
-        class="sc-jSgvzq fSvjMU"
-      />
-      <div
-        class="sc-jSgvzq fSvjMU"
-      />
-    </div>
-    <div
-      class="sc-eCstlR eHgvz"
-    >
-      <div
-        class="sc-jSgvzq NGaEp"
-      />
-      <div
-        class="sc-jSgvzq jlfwUi"
-      >
-        7
-      </div>
-      <div
-        class="sc-jSgvzq jlfwUi"
-      >
-        4
-      </div>
-      <div
-        class="sc-jSgvzq fSvjMU"
-      />
-      <div
-        class="sc-jSgvzq jlfwUi"
-      >
-        5
-      </div>
-      <div
-        class="sc-jSgvzq jlfwUi"
-      >
-        9
-      </div>
-      <div
-        class="sc-jSgvzq jlfwUi"
-      >
-        1
-      </div>
-      <div
-        class="sc-jSgvzq jlfwUi"
-      >
         8
       </div>
       <div
-        class="sc-jSgvzq jlfwUi"
+        class="sc-jSgvzq jrHmMz"
       >
         6
       </div>
+      <div
+        class="sc-jSgvzq jrHmMz"
+      >
+        9
+      </div>
+      <div
+        class="sc-jSgvzq NGaEp"
+      />
+      <div
+        class="sc-jSgvzq NGaEp"
+      />
+      <div
+        class="sc-jSgvzq NGaEp"
+      />
+      <div
+        class="sc-jSgvzq jrHmMz"
+      >
+        7
+      </div>
+      <div
+        class="sc-jSgvzq NGaEp"
+      />
+      <div
+        class="sc-jSgvzq NGaEp"
+      />
     </div>
     <div
       class="sc-eCstlR eHgvz"
@@ -188,36 +65,38 @@ exports[`Numbers should match it's snapshot 1`] = `
       <div
         class="sc-jSgvzq jrHmMz"
       >
+        4
+      </div>
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        6
+      </div>
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        9
+      </div>
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
         1
       </div>
-      <div
-        class="sc-jSgvzq fSvjMU"
-      />
-      <div
-        class="sc-jSgvzq fSvjMU"
-      />
-      <div
-        class="sc-jSgvzq fSvjMU"
-      />
-      <div
-        class="sc-jSgvzq jlfwUi"
-      >
-        3
-      </div>
-      <div
-        class="sc-jSgvzq jlfwUi"
-      >
-        7
-      </div>
-      <div
-        class="sc-jSgvzq fSvjMU"
-      />
-      <div
-        class="sc-jSgvzq fSvjMU"
-      />
-      <div
-        class="sc-jSgvzq fSvjMU"
-      />
     </div>
     <div
       class="sc-eCstlR eHgvz"
@@ -226,19 +105,6 @@ exports[`Numbers should match it's snapshot 1`] = `
         class="sc-jSgvzq NGaEp"
       />
       <div
-        class="sc-jSgvzq jlfwUi"
-      >
-        2
-      </div>
-      <div
-        class="sc-jSgvzq fSvjMU"
-      />
-      <div
-        class="sc-jSgvzq jlfwUi"
-      >
-        6
-      </div>
-      <div
         class="sc-jSgvzq fSvjMU"
       />
       <div
@@ -247,34 +113,6 @@ exports[`Numbers should match it's snapshot 1`] = `
       <div
         class="sc-jSgvzq fSvjMU"
       />
-      <div
-        class="sc-jSgvzq fSvjMU"
-      />
-      <div
-        class="sc-jSgvzq fSvjMU"
-      />
-    </div>
-    <div
-      class="sc-eCstlR eHgvz"
-    >
-      <div
-        class="sc-jSgvzq jrHmMz"
-      >
-        9
-      </div>
-      <div
-        class="sc-jSgvzq jlfwUi"
-      >
-        4
-      </div>
-      <div
-        class="sc-jSgvzq fSvjMU"
-      />
-      <div
-        class="sc-jSgvzq jlfwUi"
-      >
-        7
-      </div>
       <div
         class="sc-jSgvzq fSvjMU"
       />
@@ -287,8 +125,10 @@ exports[`Numbers should match it's snapshot 1`] = `
         class="sc-jSgvzq fSvjMU"
       />
       <div
-        class="sc-jSgvzq fSvjMU"
-      />
+        class="sc-jSgvzq jlfwUi"
+      >
+        6
+      </div>
       <div
         class="sc-jSgvzq fSvjMU"
       />
@@ -303,51 +143,21 @@ exports[`Numbers should match it's snapshot 1`] = `
         class="sc-jSgvzq fSvjMU"
       />
       <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        5
+      </div>
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
         class="sc-jSgvzq jlfwUi"
       >
         7
       </div>
-      <div
-        class="sc-jSgvzq jlfwUi"
-      >
-        4
-      </div>
-      <div
-        class="sc-jSgvzq jlfwUi"
-      >
-        6
-      </div>
-      <div
-        class="sc-jSgvzq fSvjMU"
-      />
-      <div
-        class="sc-jSgvzq fSvjMU"
-      />
-      <div
-        class="sc-jSgvzq fSvjMU"
-      />
-      <div
-        class="sc-jSgvzq jlfwUi"
-      >
-        3
-      </div>
-    </div>
-    <div
-      class="sc-eCstlR eHgvz"
-    >
-      <div
-        class="sc-jSgvzq jrHmMz"
-      >
-        2
-      </div>
-      <div
-        class="sc-jSgvzq jlfwUi"
-      >
-        6
-      </div>
-      <div
-        class="sc-jSgvzq fSvjMU"
-      />
       <div
         class="sc-jSgvzq fSvjMU"
       />
@@ -359,8 +169,177 @@ exports[`Numbers should match it's snapshot 1`] = `
       <div
         class="sc-jSgvzq jlfwUi"
       >
+        9
+      </div>
+    </div>
+    <div
+      class="sc-eCstlR eHgvz"
+    >
+      <div
+        class="sc-jSgvzq jrHmMz"
+      >
+        6
+      </div>
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        1
+      </div>
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        9
+      </div>
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
         3
       </div>
+    </div>
+    <div
+      class="sc-eCstlR eHgvz"
+    >
+      <div
+        class="sc-jSgvzq jrHmMz"
+      >
+        9
+      </div>
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        3
+      </div>
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        6
+      </div>
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        1
+      </div>
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+    </div>
+    <div
+      class="sc-eCstlR eHgvz"
+    >
+      <div
+        class="sc-jSgvzq NGaEp"
+      />
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        9
+      </div>
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        6
+      </div>
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        8
+      </div>
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        5
+      </div>
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        3
+      </div>
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        2
+      </div>
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+    </div>
+    <div
+      class="sc-eCstlR eHgvz"
+    >
+      <div
+        class="sc-jSgvzq jrHmMz"
+      >
+        5
+      </div>
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        8
+      </div>
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        2
+      </div>
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        6
+      </div>
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
+        7
+      </div>
+    </div>
+    <div
+      class="sc-eCstlR eHgvz"
+    >
+      <div
+        class="sc-jSgvzq NGaEp"
+      />
       <div
         class="sc-jSgvzq jlfwUi"
       >
@@ -372,8 +351,25 @@ exports[`Numbers should match it's snapshot 1`] = `
       <div
         class="sc-jSgvzq jlfwUi"
       >
+        7
+      </div>
+      <div
+        class="sc-jSgvzq jlfwUi"
+      >
         1
       </div>
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
+      <div
+        class="sc-jSgvzq fSvjMU"
+      />
     </div>
   </div>
   <div
