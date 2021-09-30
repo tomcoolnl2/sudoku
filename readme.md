@@ -1,3 +1,16 @@
+## Sudoku
+
+-   Horizontally adjacent rows are a band, and vertically adjacent columns are a stack
+-   The initially defined values are clues or givens
+-   An ordinary Sudoku (i.e. a proper Sudoku) has one solution
+-   Rows, columns and regions can be collectively referred to as groups, of which the grid has 27
+
+## Urgent
+
+-   [ ] Upping the difficulty causes the backtracking to look like infinite. Add a tracker to reset the calculation if exceeding an amount of recursion attempts?
+
+# Game play
+
 -   [x] Convert into a class, (singleton?)
 -   [x] Fix and cover proficient testing with Jest
 -   [x] Reset/New Game button
@@ -16,46 +29,60 @@
 -   [x] Create custom hooks for keyboard events
 -   [x] Fix global/index stuff
 -   [x] Fix persitence bug for user input
--   [x] Add TSDocs and ESLint to make Intellisence happy: https://github.com/microsoft/tsdoc/tree/master/eslint-plugin
--   [x] Highlight row/column of selected (flood-fill?)
--   [x] Add Dark/Light mode theme: https://www.smashingmagazine.com/2020/04/dark-mode-react-apps-styled-components/
+-   [x] Add TSDocs and ESLint to make Intellisence happy
+    -   https://github.com/microsoft/tsdoc/tree/master/eslint-plugin
+-   [x] Highlight row/column of selected
+-   [x] Add Dark/Light mode theme
+    -   https://www.smashingmagazine.com/2020/04/dark-mode-react-apps-styled-components/
 -   [x] Disable numbers-button when 9 selections of that nmber are present within the grid
 -   [x] Select the first empty cell as default
 -   [x] When selecting a number on the grid, select all cells with that number
--   [ ] When selecting a number on the grid, highlight all cells within the current region
--   [ ] Upping the difficulty causes the backtracking to look like infinite. Add a tracker to reset the calculation if exceeding an amount of recursion attempts?
--   [ ] Add undo button - to use once every 3 turns?
--   [ ] Make undo a setting, like difficulty
+-   [ ] When guessed the wrong input, show it anyway, but in error-red.
+    -   It should be deletable
+    -   It should be overwritable with either the solution or the next error
+    -   A cell can contain only one error value
+    -   Once a cell contains the solution, it can not be overwritten
+-   [ ] Create a erase/clear functionality for a cell, when wrong value is put in - only active if a cell has a wrong (red) input
+-   [ ] Introduce React router to easily add screens for e.g. Game Over, Settings and initial.
+-   [ ] When selecting a number on the grid, highlight all cells within the current region - does this affect performance? Use CSS?
+-   [ ] Add undo button - to use once every 3 turns? Start with a simple scenario - redux-undoable
+-   [ ] Make undo a game setting
+-   [ ] Add game settings to redux flow
 -   [ ] Make highlighting duplicates a setting
--   [ ] Create a extra screen to alter settings
--   [ ] Test for disabled buttons with https://github.com/testing-library/jest-dom#tobedisabled
--   [ ] Add Unit tests for the Redux Reducer: https://betterprogramming.pub/unit-testing-react-redux-hooks-ce7d69e1e834
--   [ ] Test persistence with https://create-react-app.dev/docs/running-tests/#srcsetuptestsjs
--   [x] Toggle theme with a custom hook: https://fettblog.eu/typescript-react-typeing-custom-hooks/
--   [ ] Investigate a better `solve` method acc to: https://en.wikipedia.org/wiki/Sudoku_solving_algorithms
--   [ ] Use chinese characters
--   [ ] Use floodfill-algorithm to animate solved rows/colums/regions/entire field
--   [ ] Highlight number of the same type as selected (flood-fill?)
 -   [ ] Add difficulty levels Easy, Medium, Hard
--   [ ] Create a erase/clear functionality for a cell, when wrong value is put in
--   [ ] When guessed the wrong input, show it anyway, but in error-red. It should be deletable
+    -   Does the current algorithm support that?
+    -   Or are we going to introduce hard numbers of clues for that?
 -   [ ] When all Cells for a number are revealed, remove/disable the button/option from the butons
 -   [ ] Introduce a gameover state, e.g when a user guess 3 times wrong.
--   [ ] Add cypress e2e testing
 -   [ ] Create a button to show and add hints for empty cells
 -   [ ] Add timer to track duration
--   [ ] Analize performance of reset functionality
--   [ ] Search for algorithms that better fit this program
--   [ ] Log best time
+-   [ ] Log (and stoe) best time
 -   [ ] Make highlighting optional
--   [ ] improve test coverage
+
+## Algorithms & performance
+
+-   [ ] Use floodfill-algorithm to animate solved rows/colums/regions/entire field
+-   [ ] Analize performance of reset functionality
 -   [ ] Backtrack Recursion icw generators/iterators https://leetcode.com/problems/permutations/discuss/790116/javascript-backtracking-using-generator-functions
+-   [ ] Search for algorithms that better fit this program
+-   [ ] Investigate a better `solve` method acc to: https://en.wikipedia.org/wiki/Sudoku_solving_algorithms
 
--   Horizontally adjacent rows are a band, and vertically adjacent columns are a stack
--   The initially defined values are clues or givens
--   An ordinary Sudoku (i.e. a proper Sudoku) has one solution
--   Rows, columns and regions can be collectively referred to as groups, of which the grid has 27
+## Testing
 
--   [ ] integrate into NX
--   [ ] nestJS Backend - for Mongoose? GraphQl?
--   [ ] introduce React Native
+-   [ ] Test for disabled buttons with https://github.com/testing-library/jest-dom#tobedisabled
+-   [ ] Test persistence with https://create-react-app.dev/docs/running-tests/#srcsetuptestsjs
+-   [ ] Improve test coverage
+-   [ ] Add Unit tests for the Redux Reducer: https://betterprogramming.pub/unit-testing-react-redux-hooks-ce7d69e1e834
+-   [ ] Add cypress e2e testing
+
+## Nice to haves
+
+-   [ ] use hexagons icw icons https://www.npmjs.com/package/react-svg-hexagon-grid
+-   [ ] Create a nice hexagon background (animation) with React/CSS? https://css-tricks.com/hexagons-and-beyond-flexible-responsive-grid-patterns-sans-media-queries/
+-   [ ] Use chinese characters. Add switch for Cinese/Arabic numbers.
+-   [ ] Move from Redux to RxJS https://dev.t-matix.com/blog/platform/why-we-migrated-our-state-management-system-from-redux-to-rxjs/
+-   [ ] Monorepo with NX
+-   [ ] NestJS Backend - for Mongoose? GraphQl?
+-   [ ] Introduce React Native components
+-   [ ] CI/CD (CircleCI)
+-   [ ] Deployments on Azure/AWS
