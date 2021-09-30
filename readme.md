@@ -40,12 +40,15 @@
 -   [x] Select the first empty cell as default
 -   [x] When selecting a number on the grid, select all cells with that number
 -   [ ] When guessed the wrong input, show it anyway, but in error-red.
-    -   [ ] It should be deletable
-    -   [ ] It should be overwritable with either the solution or the next error
+    -   [x] It should be overwritable with either the solution or another next mistake (but not the same)
     -   [x] A cell can contain only one error value
-    -   [ ] Once a cell contains the solution, it can not be overwritten
--   [ ] Create a erase/clear functionality for a cell, when wrong value is put in - only active if a cell has a wrong (red) input
+    -   [x] Once a cell contains the solution, it can not be overwritten
+    -   [ ] A mistake will be removed from the state when overwritten (by either the solution or another mistake) or when the eraser is used
+-   [ ] Create a erase/clear functionality for a cell
+    -   [ ] It will only be active if any mistakes are made
+    -   [ ] A mistake will be removed from the state when when the eraser is used
 -   [ ] Create a erase all mistakes button
+    -   [ ] All mistake will be removed from the state when when the eraser is used
 -   [ ] Investigate if High Order Reducers (HOR) are what we need for the FILL_CELL action
 -   [ ] Introduce React router to easily add screens for e.g. Game Over, Settings and initial.
 -   [ ] When selecting a number on the grid, highlight all cells within the current region - does this affect performance? Use CSS?
@@ -89,4 +92,4 @@
 -   [ ] NestJS Backend - for Mongoose? GraphQl?
 -   [ ] Introduce React Native components
 -   [ ] CI/CD (CircleCI)
--   [ ] Deployments on Azure/AWS
+-   [ ] Deployment(s) on Azure/AWS

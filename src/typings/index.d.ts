@@ -59,9 +59,3 @@ export interface ColumnSettings {
     col: GridMatrixIndex
     value: SudokuInputValue
 }
-
-export interface SudokuMistake {
-    row: GridMatrixIndex,
-    col: GridMatrixIndex,
-    value: SudokuInputValue
-}

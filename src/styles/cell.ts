@@ -16,7 +16,7 @@ export const CellContainer = styled.div<CellContainerProps>`
         background-color: ${theme.colors[selected || duplicate ? 'active' : (highlighted ? 'highlighted' : 'primary')]};
         border: 1px solid ${theme.colors.secondary};
         cursor: pointer;
-        color: ${mistake ? 'red' : 'inherit'};
+        color: ${mistake ? '#CB4335' : 'inherit'};
         display: flex;
         flex-grow: 1;
         flex-shrink: 0;

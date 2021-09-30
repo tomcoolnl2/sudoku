@@ -29,6 +29,8 @@ export class Sudoku {
 	private initialGrid: GridMatrix = null
 	/** The board a user will use */
 	private workingGrid: GridMatrix = null
+	/** The board a user will use */
+	private mistakesGrid: GridMatrix = null
 	/** Counter to validate backtracking */
 	private trackedUserInput: GridMatrixSeries<SudokuInputValue> = null
 	/** Counter to validate backtracking */
@@ -40,8 +42,10 @@ export class Sudoku {
 		this.createSolution()
 		// poke some holes in the solution; so we have an actual game
 		this.setInitialGame()
-		// colone the initial game so we have something a user can play with
+		// clone the initial game so we have something a user can play with
 		this.workingGrid = Sudoku.cloneGrid(this.initialGrid)
+		// separate grid to track mistakes
+		this.mistakesGrid = Sudoku.generateMatrix()
 		// keep track of inputted values, including clues
 		this.trackedUserInput = Sudoku.createSeries(Sudoku.HIDDEN_CELL_VALUE)
 		// assemble clues to keep track of inputted values
@@ -67,6 +71,13 @@ export class Sudoku {
 	 */
 	public get workingMatrix(): GridMatrix {
 		return this.workingGrid
+	}
+
+	/**
+	 * Public accessor for the mistakes grid
+	 */
+	public get mistakesMatrix(): GridMatrix {
+		return this.mistakesGrid
 	}
 
 	/**

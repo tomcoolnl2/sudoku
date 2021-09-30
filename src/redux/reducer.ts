@@ -1,8 +1,8 @@
 
 import { AnyAction } from 'redux'
 import { Sudoku } from '../Sudoku'
-import { GridMatrixCoörds, SudokuMistake } from '../typings'
-import { compareArrays, compareObjects } from '../utils'
+import { GridMatrixCoörds } from '../typings'
+import { compareArrays } from '../utils'
 import { AppState } from './models'
 import * as types from './types'
 
@@ -11,9 +11,9 @@ const initialState: AppState = {
 	initialGameMatrix: null,
 	solutionMatrix: null,
 	workingMatrix: null,
+	mistakesMatrix: null,
 	trackedInput: null,
-	selection: [0, 0],
-	mistakes: []
+	selection: [0, 0]
 }
 
 export function reducer(state = initialState, action: AnyAction): AppState {
@@ -26,6 +26,7 @@ export function reducer(state = initialState, action: AnyAction): AppState {
 			solutionMatrix,
 			initialGameMatrix,
 			workingMatrix,
+			mistakesMatrix,
 			initialSelection,
 			trackedInput
 		} = new Sudoku()
@@ -35,40 +36,33 @@ export function reducer(state = initialState, action: AnyAction): AppState {
 			solutionMatrix,
 			initialGameMatrix,
 			workingMatrix,
+			mistakesMatrix,
 			trackedInput,
 			selection: initialSelection
 		}
 	}
 	case types.FILL_CELL: {
 
-		const { workingMatrix, solutionMatrix, trackedInput, mistakes } = state
+		const { workingMatrix, solutionMatrix, trackedInput, mistakesMatrix } = state
 		const { value, coords } = action
 						
 		if (workingMatrix && solutionMatrix) {
 							
 			const [row, col]: GridMatrixCoörds = coords
-			
-			// TODO split into seperate actions?
-			// Or use High Order Reducers
+		
 			if (solutionMatrix[row][col] !== value) {
-				console.log('WRONG')
-				// create mistake object
-				const mistake: SudokuMistake = { row, col, value }
-				const sameMistakeMade: boolean = mistakes.some((m: SudokuMistake): boolean => compareObjects(m, mistake))
 				
-				console.log(mistake, mistakes, sameMistakeMade)
-				
-				if (!sameMistakeMade) {
-					mistakes.push(mistake)
-					workingMatrix[row][col] = value
+				if (mistakesMatrix[row][col] !== value) {
+					mistakesMatrix[row][col] = value
 				}
 
 				return {
 					...state,
-					workingMatrix: [...workingMatrix]
+					mistakesMatrix: [...mistakesMatrix]
 				}
 			}
-
+			
+			mistakesMatrix[row][col] = Sudoku.HIDDEN_CELL_VALUE
 			workingMatrix[row][col] = value
 			trackedInput[value - 1] += 1
 							
@@ -79,6 +73,7 @@ export function reducer(state = initialState, action: AnyAction): AppState {
 
 			return {
 				...state,
+				mistakesMatrix: [...mistakesMatrix],
 				workingMatrix: [...workingMatrix],
 				trackedInput: [...trackedInput]
 			}

@@ -6,8 +6,8 @@ import { Cell, CellProps } from '.'
 
 
 const props: CellProps = {
-	ri: 1,
-	ci: 4
+	row: 1,
+	col: 4
 }
 
 describe('InputValueButton', () => {
