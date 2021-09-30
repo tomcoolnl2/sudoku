@@ -7,38 +7,44 @@ import { GridMatrixIndex, N } from '../typings'
 import * as Styled from '../styles'
 
 export interface CellProps {
-    ri: GridMatrixIndex
-    ci: GridMatrixIndex
+    row: GridMatrixIndex
+    col: GridMatrixIndex
 }
 
 interface CellState {
     value: N
     clue: boolean
 	highlighted: boolean
-    selected: boolean,
+    selected: boolean
 	duplicate: boolean
+	mistake: boolean
 }
 
-export const Block: FC<CellProps> = memo(({ ri, ci }) => {
+export const Cell: FC<CellProps> = memo(({ row, col }) => {
 
-	const { value, clue, selected, highlighted, duplicate } = useSelector<StoreReducer, CellState>(({ initialGameMatrix, workingMatrix, selection }) => ({
-		value: workingMatrix ? workingMatrix[ri][ci] : 0,
-		clue: initialGameMatrix && initialGameMatrix[ri][ci] !== 0,
-		highlighted: selection[0] === ri || selection[1] === ci,
-		selected: selection[0] === ri && selection[1] === ci,
+	const { value, clue, selected, highlighted, duplicate, mistake } = useSelector<StoreReducer, CellState>(({ initialGameMatrix, workingMatrix, mistakesMatrix, selection }) => ({
+		value: workingMatrix && mistakesMatrix 
+			? mistakesMatrix[row][col] !== 0 
+				? mistakesMatrix[row][col] 
+				: workingMatrix[row][col] 
+			: 0,
+		clue: initialGameMatrix && initialGameMatrix[row][col] !== 0,
+		highlighted: selection[0] === row || selection[1] === col,
+		selected: selection[0] === row && selection[1] === col,
 		duplicate: workingMatrix
-			&& workingMatrix[ri][ci] !== 0
-			&& workingMatrix[selection[0]][selection[1]] === workingMatrix[ri][ci]
+			&& workingMatrix[row][col] !== 0
+			&& workingMatrix[selection[0]][selection[1]] === workingMatrix[row][col],
+		mistake: mistakesMatrix && mistakesMatrix[row][col] !== 0
 	}))
 
 	const dispatch = useDispatch<Dispatch<AnyAction>>()
 
 	const clickHandler = () => {
-		!selected && dispatch(selectCell([ri, ci]))
+		!selected && dispatch(selectCell([row, col]))
 	}
 
 	return (
-		<Styled.CellContainer clue={clue} selected={selected} highlighted={highlighted} duplicate={duplicate} onClick={clickHandler}>
+		<Styled.CellContainer clue={clue} selected={selected} highlighted={highlighted} duplicate={duplicate} mistake={mistake} onClick={clickHandler}>
 			{value === 0 ? '' : value}
 		</Styled.CellContainer>
 	)

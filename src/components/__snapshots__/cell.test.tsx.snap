@@ -2,6 +2,6 @@
 
 exports[`InputValueButton should match it's snapshot 1`] = `
 <div
-  class="sc-jSgvzq fSvjMU"
+  class="sc-jSgvzq cLHgOf"
 />
 `;

@@ -3,28 +3,29 @@ import { Children, FC, useEffect, useCallback, memo } from 'react'
 import { Dispatch, AnyAction } from 'redux'
 import { useDispatch, useSelector } from 'react-redux'
 import * as Styled from '../styles'
-import { AttachKeyBoardEvents, Block, Numbers, ResetGameButton } from './'
+import { AttachKeyBoardEvents, Cell, EraseMistakesButton, Numbers, ResetGameButton } from './'
 import { createGrid, StoreReducer, fillCell } from '../redux'
 import { GridMatrix, GridMatrixCoörds, GridMatrixIndex, N, SudokuInputValue } from '../typings'
+import { Sudoku } from '../Sudoku'
 
 interface GridState {
+    solutionMatrix?: GridMatrix
     selection?: GridMatrixCoörds
     selectedValue: N
-    solutionMatrix?: GridMatrix
 }
 
 export const Grid: FC = memo(() => {
     
-	const { selection, selectedValue, solutionMatrix } = useSelector<StoreReducer, GridState>(({ selection, solutionMatrix, workingMatrix }) => ({ 
+	const { solutionMatrix, selection, selectedValue } = useSelector<StoreReducer, GridState>(({ solutionMatrix, workingMatrix, selection }) => ({ 
+		solutionMatrix,
 		selection,
-		selectedValue: workingMatrix && selection ? workingMatrix[selection[0]][selection[1]] : 0,
-		solutionMatrix
+		selectedValue: workingMatrix && selection ? workingMatrix[selection[0]][selection[1]] : 0
 	}))
     
 	const dispatch = useDispatch<Dispatch<AnyAction>>()
     
 	const create = useCallback(() => {
-		dispatch(createGrid())
+		dispatch(createGrid()) // init a new game
 	}, [dispatch])
     
 	const fill = useCallback((n: SudokuInputValue) => {
@@ -41,13 +42,16 @@ export const Grid: FC = memo(() => {
 		<section data-testid='sudoku-grid-wrapper'>
 			<AttachKeyBoardEvents selection={selection} numbersInputHandler={fill} />
 			<Styled.GridContainer>
-				<ResetGameButton reset={create} />
+				<Styled.GridRow>
+					<ResetGameButton reset={create} />
+					<EraseMistakesButton />
+				</Styled.GridRow>
 			</Styled.GridContainer>
 			<Styled.GridContainer>
-				{Children.toArray([...Array(9)].map((_: unknown, ri: number) => (
+				{Children.toArray([...Array(Sudoku.SIZE)].map((_: unknown, row: number) => (
 					<Styled.GridRow>
-						{Children.toArray([...Array(9)].map((_: unknown, ci: number) => (
-							<Block ri={ri as GridMatrixIndex} ci={ci as GridMatrixIndex} />
+						{Children.toArray([...Array(Sudoku.SIZE)].map((_: unknown, col: number) => (
+							<Cell row={row as GridMatrixIndex} col={col as GridMatrixIndex} />
 						)))}
 					</Styled.GridRow>
 				)))}
