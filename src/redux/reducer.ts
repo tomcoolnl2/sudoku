@@ -89,6 +89,12 @@ export function reducer(state = initialState, action: AnyAction): AppState {
 			selection: action.coords
 		}
 	}
+	case types.ERASE_ALL_MISTAKES: {
+		return {
+			...state,
+			mistakesMatrix: Sudoku.generateMatrix()
+		}
+	}
 	default: {
 		return state
 	}

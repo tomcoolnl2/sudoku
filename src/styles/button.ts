@@ -1,10 +1,6 @@
 
+import  styled, { css } from 'styled-components'
 
-import  styled, { css, keyframes } from 'styled-components'
-
-const rotate = keyframes`
-    100% { transform: rotate(360deg); } 
-`
 
 export const Button = styled.button`
     ${({ theme }) => css`
@@ -41,13 +37,10 @@ export const Button = styled.button`
 
         > svg { 
             margin-right: 10px;
-            fill: ${theme.colors.primary}
-        }
-
-        &:hover {
-            > svg {
-                animation: ${rotate} 2s linear infinite;
-            }
+            fill: ${theme.colors.primary};
+            position: relative;
+            width: 24px;
+            height: 24px;
         }
     `}
 `

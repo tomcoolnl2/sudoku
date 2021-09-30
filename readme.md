@@ -7,9 +7,9 @@
 
 ## Bugs / Urgent
 
--   [ ] Snapshot test fails for grid.test.tsx because the generated classnames keep updating somehow
+-   [ ] Snapshot test fail in watch for grid.test.tsx because the generated classnames keep updating somehow
     -   It block me from running a watch on jest when developing
--   [ ] Upping the difficulty causes the backtracking to look like infinite. Add a tracker to reset the calculation if exceeding an amount of recursion attempts?
+-   [ ] Upping the difficulty causes the backtracking to look like infinite. Add a tracker to reset the calculation if exceeding an amount of recursion attempts? Or use fixed clues/numbers to limit back tracking?
 
 # Game play
 
@@ -39,27 +39,24 @@
 -   [x] Disable numbers-button when 9 selections of that nmber are present within the grid
 -   [x] Select the first empty cell as default
 -   [x] When selecting a number on the grid, select all cells with that number
--   [ ] When guessed the wrong input, show it anyway, but in error-red.
+-   [x] When guessed the wrong input, show it anyway, but in error-red.
     -   [x] It should be overwritable with either the solution or another next mistake (but not the same)
     -   [x] A cell can contain only one error value
     -   [x] Once a cell contains the solution, it can not be overwritten
-    -   [ ] A mistake will be removed from the state when overwritten (by either the solution or another mistake) or when the eraser is used
--   [ ] Create a erase/clear functionality for a cell
-    -   [ ] It will only be active if any mistakes are made
-    -   [ ] A mistake will be removed from the state when when the eraser is used
--   [ ] Create a erase all mistakes button
-    -   [ ] All mistake will be removed from the state when when the eraser is used
--   [ ] Investigate if High Order Reducers (HOR) are what we need for the FILL_CELL action
+    -   [x] A mistake will be removed from the state when overwritten (by either the solution or another mistake)
+-   [x] Create a 'erase all mistakes' button
+    -   [x] All mistake will be removed from the state when when the eraser is used
+    -   [x] It will only be active if a mistake is made
+-   [x] Investigate if High Order Reducers (HOR) are what we can use for the FILL_CELL action
 -   [ ] Introduce React router to easily add screens for e.g. Game Over, Settings and initial.
--   [ ] When selecting a number on the grid, highlight all cells within the current region - does this affect performance? Use CSS?
+    -   [ ] Alternative?
 -   [ ] Add undo button - to use once every 3 turns? Start with a simple scenario - redux-undoable
--   [ ] Make undo a game setting
+-   [ ] Make 'undo' a game setting
 -   [ ] Add game settings to redux flow
 -   [ ] Make highlighting duplicates a setting
 -   [ ] Add difficulty levels Easy, Medium, Hard
     -   Does the current algorithm support that?
-    -   Or are we going to introduce hard numbers of clues for that?
--   [ ] When all Cells for a number are revealed, remove/disable the button/option from the butons
+    -   Or are we going to introduce hard numbers/clues for that?
 -   [ ] Introduce a gameover state, e.g when a user guess 3 times wrong.
 -   [ ] Create a button to show and add hints for empty cells
 -   [ ] Add timer to track duration
@@ -68,7 +65,6 @@
 
 ## Algorithms & performance
 
--   [ ] Use floodfill-algorithm to animate solved rows/colums/regions/entire field
 -   [ ] Analize performance of reset functionality
 -   [ ] Backtrack Recursion icw generators/iterators https://leetcode.com/problems/permutations/discuss/790116/javascript-backtracking-using-generator-functions
 -   [ ] Search for algorithms that better fit this program
@@ -82,9 +78,23 @@
 -   [ ] Add Unit tests for the Redux Reducer: https://betterprogramming.pub/unit-testing-react-redux-hooks-ce7d69e1e834
 -   [ ] Add cypress e2e testing
 
+## Design & Animation
+
+-   [ ] Choose a icon set for consistency
+    -   https://www.flaticon.com/packs/miscellaneous-elements
+    -   https://www.flaticon.com/packs/multimedia-collection
+-   [ ] Use floodfill-algorithm to animate
+    -   [ ] rows
+    -   [ ] colums
+    -   [ ] regions
+    -   [ ] entire grid
+-   [ ] Use hexagons as icon backgrounds
+-   [ ] Icon navigation to the left?
+-   [ ] When selecting a number on the grid, highlight all cells within the current region - does this affect performance? Use CSS?
+
 ## Nice to haves
 
--   [ ] use hexagons icw icons https://www.npmjs.com/package/react-svg-hexagon-grid
+-   [ ] Use hexagons icw icons https://www.npmjs.com/package/react-svg-hexagon-grid
 -   [ ] Create a nice hexagon background (animation) with React/CSS? https://css-tricks.com/hexagons-and-beyond-flexible-responsive-grid-patterns-sans-media-queries/
 -   [ ] Use chinese characters. Add switch for Cinese/Arabic numbers.
 -   [ ] Move from Redux to RxJS https://dev.t-matix.com/blog/platform/why-we-migrated-our-state-management-system-from-redux-to-rxjs/

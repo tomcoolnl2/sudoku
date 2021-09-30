@@ -3,7 +3,13 @@
 exports[`InputValueButton should match it's snapshot 1`] = `
 <button
   class="sc-gKseQn jogueL"
+  disabled=""
 >
-  1
+  <svg
+    style="top: -3px;"
+  >
+    erase.svg
+  </svg>
+   Erase mistakes
 </button>
 `;

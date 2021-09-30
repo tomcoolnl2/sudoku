@@ -3,7 +3,7 @@ import { Children, FC, useEffect, useCallback, memo } from 'react'
 import { Dispatch, AnyAction } from 'redux'
 import { useDispatch, useSelector } from 'react-redux'
 import * as Styled from '../styles'
-import { AttachKeyBoardEvents, Cell, Numbers, ResetGameButton } from './'
+import { AttachKeyBoardEvents, Cell, EraseMistakesButton, Numbers, ResetGameButton } from './'
 import { createGrid, StoreReducer, fillCell } from '../redux'
 import { GridMatrix, GridMatrixCoörds, GridMatrixIndex, N, SudokuInputValue } from '../typings'
 import { Sudoku } from '../Sudoku'
@@ -42,7 +42,10 @@ export const Grid: FC = memo(() => {
 		<section data-testid='sudoku-grid-wrapper'>
 			<AttachKeyBoardEvents selection={selection} numbersInputHandler={fill} />
 			<Styled.GridContainer>
-				<ResetGameButton reset={create} />
+				<Styled.GridRow>
+					<ResetGameButton reset={create} />
+					<EraseMistakesButton />
+				</Styled.GridRow>
 			</Styled.GridContainer>
 			<Styled.GridContainer>
 				{Children.toArray([...Array(Sudoku.SIZE)].map((_: unknown, row: number) => (
