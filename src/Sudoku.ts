@@ -1,6 +1,18 @@
-import { GridMatrix, GridMatrixCoörds, GridMatrixIndex, GridMatrixRegionSeries, GridMatrixSeries, N, SudokuInputValue } from './typings'
+import { 
+	RegionSettings,
+	RowSettings,
+	ColumnSettings,
+	SeriesIndex,
+	GridMatrix,
+	GridMatrixCoörds,
+	GridMatrixIndex,
+	GridMatrixRegionSeries,
+	GridMatrixSeries,
+	N,
+	SudokuInputValue
+} from './typings'
 import { shuffle } from './utils'
-import { RegionSettings, RowSettings, ColumnSettings, SeriesIndex } from './typings/Sudoku'
+
 
 export class Sudoku {
 	
