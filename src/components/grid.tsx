@@ -3,7 +3,7 @@ import { Children, FC, useEffect, useCallback, memo } from 'react'
 import { Dispatch, AnyAction } from 'redux'
 import { useDispatch, useSelector } from 'react-redux'
 import * as Styled from '../styles'
-import { AttachKeyBoardEvents, Block, Numbers, ResetGameButton } from './'
+import { AttachKeyBoardEvents, Cell, Numbers, ResetGameButton } from './'
 import { createGrid, StoreReducer, fillCell } from '../redux'
 import { GridMatrix, GridMatrixCoörds, GridMatrixIndex, N, SudokuInputValue } from '../typings'
 
@@ -44,10 +44,10 @@ export const Grid: FC = memo(() => {
 				<ResetGameButton reset={create} />
 			</Styled.GridContainer>
 			<Styled.GridContainer>
-				{Children.toArray([...Array(9)].map((_: unknown, ri: number) => (
+				{Children.toArray([...Array(9)].map((_: unknown, row: number) => (
 					<Styled.GridRow>
-						{Children.toArray([...Array(9)].map((_: unknown, ci: number) => (
-							<Block ri={ri as GridMatrixIndex} ci={ci as GridMatrixIndex} />
+						{Children.toArray([...Array(9)].map((_: unknown, col: number) => (
+							<Cell row={row as GridMatrixIndex} col={col as GridMatrixIndex} />
 						)))}
 					</Styled.GridRow>
 				)))}

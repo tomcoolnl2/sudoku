@@ -5,8 +5,10 @@
 -   An ordinary Sudoku (i.e. a proper Sudoku) has one solution
 -   Rows, columns and regions can be collectively referred to as groups, of which the grid has 27
 
-## Urgent
+## Bugs / Urgent
 
+-   [ ] Snapshot test fails for grid.test.tsx because the generated classnames keep updating somehow
+    -   It block me from running a watch on jest when developing
 -   [ ] Upping the difficulty causes the backtracking to look like infinite. Add a tracker to reset the calculation if exceeding an amount of recursion attempts?
 
 # Game play
@@ -38,11 +40,13 @@
 -   [x] Select the first empty cell as default
 -   [x] When selecting a number on the grid, select all cells with that number
 -   [ ] When guessed the wrong input, show it anyway, but in error-red.
-    -   It should be deletable
-    -   It should be overwritable with either the solution or the next error
-    -   A cell can contain only one error value
-    -   Once a cell contains the solution, it can not be overwritten
+    -   [ ] It should be deletable
+    -   [ ] It should be overwritable with either the solution or the next error
+    -   [x] A cell can contain only one error value
+    -   [ ] Once a cell contains the solution, it can not be overwritten
 -   [ ] Create a erase/clear functionality for a cell, when wrong value is put in - only active if a cell has a wrong (red) input
+-   [ ] Create a erase all mistakes button
+-   [ ] Investigate if High Order Reducers (HOR) are what we need for the FILL_CELL action
 -   [ ] Introduce React router to easily add screens for e.g. Game Over, Settings and initial.
 -   [ ] When selecting a number on the grid, highlight all cells within the current region - does this affect performance? Use CSS?
 -   [ ] Add undo button - to use once every 3 turns? Start with a simple scenario - redux-undoable

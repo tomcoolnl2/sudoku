@@ -2,7 +2,7 @@
 
 exports[`ResetGameButton should match it's snapshot 1`] = `
 <button
-  class="sc-gKseQn kYpDyL"
+  class="sc-gKseQn cjqTfh"
   data-testid="reset-button"
 >
   <svg>

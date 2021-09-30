@@ -7,14 +7,16 @@ interface CellContainerProps {
     highlighted?: boolean
     clue?: boolean
     duplicate?: boolean
+    mistake?: boolean
 }
 
 export const CellContainer = styled.div<CellContainerProps>`
-    ${({ theme, clue, selected, highlighted, duplicate }) => css`
+    ${({ theme, clue, selected, highlighted, duplicate, mistake }) => css`
         align-items: center;
         background-color: ${theme.colors[selected || duplicate ? 'active' : (highlighted ? 'highlighted' : 'primary')]};
         border: 1px solid ${theme.colors.secondary};
         cursor: pointer;
+        color: ${mistake ? 'red' : 'inherit'};
         display: flex;
         flex-grow: 1;
         flex-shrink: 0;
