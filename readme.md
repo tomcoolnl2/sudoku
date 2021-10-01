@@ -1,4 +1,4 @@
-## Sudoku
+# Sudoku
 
 -   Horizontally adjacent rows are a band, and vertically adjacent columns are a stack
 -   The initially defined values are clues or givens
@@ -11,7 +11,7 @@
     -   It block me from running a watch on jest when developing
 -   [ ] Upping the difficulty causes the backtracking to look like infinite. Add a tracker to reset the calculation if exceeding an amount of recursion attempts? Or use fixed clues/numbers to limit back tracking?
 
-# Game play
+## Game play
 
 -   [x] Convert into a class, (singleton?)
 -   [x] Fix and cover proficient testing with Jest
@@ -51,7 +51,8 @@
 -   [ ] Introduce React router to easily add screens for e.g. Game Over, Settings and initial.
     -   [ ] Alternative?
 -   [ ] Add undo button - to use once every 3 turns? Start with a simple scenario - redux-undoable
--   [ ] Make 'undo' a game setting
+    -   [ ] Make 'undo' a game setting
+    -   [ ] Ctrl+Z
 -   [ ] Add game settings to redux flow
 -   [ ] Make highlighting duplicates a setting
 -   [ ] Add difficulty levels Easy, Medium, Hard
