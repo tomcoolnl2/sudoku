@@ -57,7 +57,7 @@
     -   [ ] Alternative?
 -   [x] Add game settings to redux flow
 -   [x] Make highlighting duplicates a setting
--   [ ] Make dark mode a setting
+-   [!] Make dark mode a setting
 -   [ ] Add difficulty levels Easy, Medium, Hard
     -   Does the current algorithm support that?
     -   Or are we going to introduce hard numbers/clues for that?
