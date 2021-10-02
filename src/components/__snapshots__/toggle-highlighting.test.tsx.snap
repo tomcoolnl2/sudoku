@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToggleHighlighting renders with light mode as default 1`] = `
+<label
+  data-testid="theme-toggle"
+  for="highlight-toggle"
+>
+  Enable Highlighting:
+  <input
+    checked=""
+    name="highlight-toggle"
+    type="checkbox"
+  />
+</label>
+`;

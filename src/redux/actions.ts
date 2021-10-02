@@ -1,5 +1,6 @@
 
 import { Action, AnyAction } from 'redux'
+import { AppSettings } from './models'
 import { GridMatrixCoörds, SudokuInputValue } from '../typings'
 import * as types from './types'
 
@@ -19,4 +20,9 @@ export const selectCell = (coords: GridMatrixCoörds): AnyAction => ({
 
 export const eraseAllMistakes = (): Action => ({
 	type: types.ERASE_ALL_MISTAKES
+})
+
+export const updateSettings = (settings: AppSettings): AnyAction => ({
+	settings,
+	type: types.UPDATE_SETTINGS
 })

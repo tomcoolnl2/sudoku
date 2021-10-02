@@ -8,7 +8,7 @@
 ## Bugs / Urgent
 
 -   [ ] Snapshot test fail in watch for grid.test.tsx because the generated classnames keep updating somehow
-    -   It block me from running a watch on jest when developing
+    -   It blocks me from running a watch on jest when developing
 -   [ ] Upping the difficulty causes the backtracking to look like infinite. Add a tracker to reset the calculation if exceeding an amount of recursion attempts? Or use fixed clues/numbers to limit back tracking?
 
 ## Game play
@@ -47,22 +47,25 @@
 -   [x] Create a 'erase all mistakes' button
     -   [x] All mistake will be removed from the state when when the eraser is used
     -   [x] It will only be active if a mistake is made
--   [x] Investigate if High Order Reducers (HOR) are what we can use for the FILL_CELL action
+-   [ ] Convert tyhe 'erase all' into a 'erase current'
+    -   [ ] When the selection event is fired, check if it contains a mistake
+    -   [ ] If so: enable button
+    -   [ ] Erase when pressed
+-   [!] Investigate if High Order Reducers (HOR) are what we can use for the FILL_CELL action
+    -   Nice to have, not really usefull for this situation
 -   [ ] Introduce React router to easily add screens for e.g. Game Over, Settings and initial.
     -   [ ] Alternative?
--   [ ] Add undo button - to use once every 3 turns? Start with a simple scenario - redux-undoable
-    -   [ ] Make 'undo' a game setting
-    -   [ ] Ctrl+Z
--   [ ] Add game settings to redux flow
--   [ ] Make highlighting duplicates a setting
+-   [x] Add game settings to redux flow
+-   [x] Make highlighting duplicates a setting
+-   [!] Make dark mode a setting
 -   [ ] Add difficulty levels Easy, Medium, Hard
     -   Does the current algorithm support that?
     -   Or are we going to introduce hard numbers/clues for that?
+    -   [ ] reflect withing settings
 -   [ ] Introduce a gameover state, e.g when a user guess 3 times wrong.
 -   [ ] Create a button to show and add hints for empty cells
 -   [ ] Add timer to track duration
 -   [ ] Log (and stoe) best time
--   [ ] Make highlighting optional
 
 ## Algorithms & performance
 
