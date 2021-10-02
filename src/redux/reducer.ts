@@ -13,7 +13,10 @@ const initialState: AppState = {
 	workingMatrix: null,
 	mistakesMatrix: null,
 	trackedInput: null,
-	selection: [0, 0]
+	selection: [0, 0],
+	settings: {
+		highlightDuplicates: true
+	}
 }
 
 export function reducer(state = initialState, action: AnyAction): AppState {
@@ -93,6 +96,16 @@ export function reducer(state = initialState, action: AnyAction): AppState {
 		return {
 			...state,
 			mistakesMatrix: Sudoku.generateMatrix()
+		}
+	}
+	case types.UPDATE_SETTINGS: {
+		const { settings } = action
+		return {
+			...state,
+			settings: {
+				...state.settings,
+				...settings
+			}
 		}
 	}
 	default: {

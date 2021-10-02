@@ -7,7 +7,7 @@ import { VisualMode } from './typings/enum'
 import { configureStore } from './redux'	
 import { GlobalStyles, lightTheme, darkTheme } from './styles/core'
 import * as Styled from './styles'
-import { Grid, ToggleTheme } from './components'
+import { Grid, ToggleTheme, ToggleHighlighting } from './components'
 import { useDarkMode } from './utils/useDarkMode'
 
 // Weird validation error causes the app to crash, but it works fine
@@ -35,6 +35,7 @@ export const App: FC = () => {
 						<Styled.Card>
 							<Grid />
 							<ToggleTheme toggleTheme={setTheme} selected={theme === VisualMode.DARK} />
+							<ToggleHighlighting />
 						</Styled.Card>
 					</Styled.Content>
 				</PersistGate>

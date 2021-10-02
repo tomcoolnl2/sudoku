@@ -7,5 +7,10 @@ export interface AppState {
     workingMatrix: GridMatrix // the user will use this grid
     mistakesMatrix: GridMatrix // mistakes will be tracked
     trackedInput: GridMatrixSeries
-    selection: GridMatrixCoörds
+    selection: GridMatrixCoörds,
+    settings: AppSettings
+}
+
+export interface AppSettings {
+    highlightDuplicates: boolean
 }
