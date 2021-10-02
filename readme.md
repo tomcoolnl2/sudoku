@@ -7,7 +7,7 @@
 
 ## Bugs / Urgent
 
--   [ ] Snapshot test fail in watch for grid.test.tsx because the generated classnames keep updating somehow
+-   [x] Snapshot test fail in watch for grid.test.tsx because the generated classnames keep updating somehow
     -   It blocks me from running a watch on jest when developing
 -   [ ] Upping the difficulty causes the backtracking to look like infinite. Add a tracker to reset the calculation if exceeding an amount of recursion attempts? Or use fixed clues/numbers to limit back tracking?
 
@@ -62,6 +62,7 @@
     -   Does the current algorithm support that?
     -   Or are we going to introduce hard numbers/clues for that?
     -   [ ] reflect withing settings
+-   [ ] Write Readme.md
 -   [ ] Introduce a gameover state, e.g when a user guess 3 times wrong.
 -   [ ] Create a button to show and add hints for empty cells
 -   [ ] Add timer to track duration
@@ -90,7 +91,7 @@
 -   [ ] Use floodfill-algorithm to animate
     -   [ ] rows
     -   [ ] colums
-    -   [ ] regions
+    -   [?] regions
     -   [ ] entire grid
 -   [ ] Use hexagons as icon backgrounds
 -   [ ] Icon navigation to the left?
