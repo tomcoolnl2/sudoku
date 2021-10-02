@@ -25,7 +25,6 @@ export const EraseMistakeButton: FC = () => {
 			&& mistakesMatrix
 			&& mistakesMatrix[selection[0]][selection[1]] !== Sudoku.HIDDEN_CELL_VALUE
 	}))
-	console.log('EraseMistakeButton', selection)
 
 	const erase = useCallback(() => {
 		dispatch(eraseMistake(selection))
