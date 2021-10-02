@@ -18,8 +18,9 @@ export const selectCell = (coords: GridMatrixCoörds): AnyAction => ({
 	type: types.SELECT_CELL
 })
 
-export const eraseAllMistakes = (): Action => ({
-	type: types.ERASE_ALL_MISTAKES
+export const eraseMistake = (coords: GridMatrixCoörds): AnyAction => ({
+	coords,
+	type: types.ERASE_MISTAKE
 })
 
 export const updateSettings = (settings: AppSettings): AnyAction => ({

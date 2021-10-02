@@ -22,7 +22,20 @@ interface CellState {
 
 export const Cell: FC<CellProps> = memo(({ row, col }) => {
 
-	const { value, clue, selected, highlighted, duplicate, mistake } = useSelector<StoreReducer, CellState>(({ initialGameMatrix, workingMatrix, mistakesMatrix, selection, settings }) => ({
+	const { 
+		value, 
+		clue, 
+		selected, 
+		highlighted, 
+		duplicate, 
+		mistake 
+	} = useSelector<StoreReducer, CellState>(({ 
+		initialGameMatrix, 
+		workingMatrix, 
+		mistakesMatrix, 
+		selection, 
+		settings 
+	}) => ({
 		value: workingMatrix && mistakesMatrix 
 			? mistakesMatrix[row][col] !== 0 
 				? mistakesMatrix[row][col] 

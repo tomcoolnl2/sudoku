@@ -89,6 +89,7 @@ export function reducer(state = initialState, action: AnyAction): AppState {
 	}
 
 	case types.SELECT_CELL: {
+		console.log('SELECT_CELL', action.coords)
 		return {
 			...state,
 			selection: action.coords

@@ -128,7 +128,6 @@ exports[`Numbers should match it's snapshot 1`] = `
       >
         erase.svg
       </svg>
-       Erase mistakes
     </button>
   </div>
 </div>
