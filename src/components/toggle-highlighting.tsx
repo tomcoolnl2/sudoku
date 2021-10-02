@@ -1,14 +1,9 @@
 
-import { FC, useEffect, useState, ChangeEvent } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { AnyAction, Dispatch } from 'redux'
 import { StoreReducer, updateSettings } from '../redux'
 
-
-export enum Highlighting {
-	ON = 'on',
-	OFF = 'off'
-}
 
 export interface ToggleHighlightingState {
     highlightDuplicates?: boolean
