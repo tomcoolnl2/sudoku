@@ -39,7 +39,7 @@ export const Grid: FC = memo(() => {
 	}, [create, solutionMatrix])
 
 	return (
-		<section data-testid='sudoku-grid-wrapper'>
+		<>
 			<AttachKeyBoardEvents selection={selection} numbersInputHandler={fill} />
 			<Styled.GridContainer>
 				<Styled.GridRow>
@@ -59,6 +59,6 @@ export const Grid: FC = memo(() => {
 			<Styled.GridContainer>
 				<Numbers />
 			</Styled.GridContainer>
-		</section>
+		</>
 	)
 })
