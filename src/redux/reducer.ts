@@ -24,7 +24,7 @@ export function reducer(state = initialState, action: AnyAction): AppState {
 	switch(action.type) {
     
 	case types.UNLEASH_THE_MATRIX: {
-		
+			
 		const {
 			solutionMatrix,
 			initialGameMatrix,
@@ -44,17 +44,18 @@ export function reducer(state = initialState, action: AnyAction): AppState {
 			selection: initialSelection
 		}
 	}
+
 	case types.FILL_CELL: {
 
 		const { workingMatrix, solutionMatrix, trackedInput, mistakesMatrix } = state
 		const { value, coords } = action
-						
-		if (workingMatrix && solutionMatrix) {
 							
+		if (workingMatrix && solutionMatrix) {
+								
 			const [row, col]: GridMatrixCoörds = coords
-		
+			
 			if (solutionMatrix[row][col] !== value) {
-				
+					
 				if (mistakesMatrix[row][col] !== value) {
 					mistakesMatrix[row][col] = value
 				}
@@ -64,11 +65,11 @@ export function reducer(state = initialState, action: AnyAction): AppState {
 					mistakesMatrix: [...mistakesMatrix]
 				}
 			}
-			
+				
 			mistakesMatrix[row][col] = Sudoku.HIDDEN_CELL_VALUE
 			workingMatrix[row][col] = value
 			trackedInput[value - 1] += 1
-							
+								
 			if (compareArrays(workingMatrix, solutionMatrix)) {
 				// dispatch WIN action
 				console.log('WIN')
@@ -86,28 +87,35 @@ export function reducer(state = initialState, action: AnyAction): AppState {
 			...state,
 		}
 	}
+
 	case types.SELECT_CELL: {
+		console.log('SELECT_CELL', action.coords)
 		return {
 			...state,
 			selection: action.coords
 		}
 	}
-	case types.ERASE_ALL_MISTAKES: {
+
+	case types.ERASE_MISTAKE: {
+		const { mistakesMatrix } = state
+		const [row, col]: GridMatrixCoörds = action.coords
+		mistakesMatrix[row][col] = Sudoku.HIDDEN_CELL_VALUE
 		return {
 			...state,
-			mistakesMatrix: Sudoku.generateMatrix()
+			mistakesMatrix
 		}
 	}
+
 	case types.UPDATE_SETTINGS: {
-		const { settings } = action
 		return {
-			...state,
+			...state, 
 			settings: {
 				...state.settings,
-				...settings
+				...action.settings
 			}
 		}
 	}
+		
 	default: {
 		return state
 	}

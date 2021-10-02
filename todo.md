@@ -3,7 +3,7 @@
 ## Bugs / Urgent
 
 -   [x] Snapshot test fail in watch for grid.test.tsx because the generated classnames keep updating somehow
-    -   It blocks me from running a watch on jest when developing
+    -   :+1: It blocks me from running a watch on jest when developing
 -   [ ] Upping the difficulty causes the backtracking to look like infinite. Add a tracker to reset the calculation if exceeding an amount of recursion attempts? Or use fixed clues/numbers to limit back tracking?
 
 ## Game play
@@ -42,7 +42,7 @@
 -   [x] Create a 'erase all mistakes' button
     -   [x] All mistake will be removed from the state when when the eraser is used
     -   [x] It will only be active if a mistake is made
--   [ ] Convert tyhe 'erase all' into a 'erase current'
+-   [ ] Convert the 'erase all' into a 'erase current'
     -   [ ] When the selection event is fired, check if it contains a mistake
     -   [ ] If so: enable button
     -   [ ] Erase when pressed
@@ -53,7 +53,7 @@
 -   [x] Add game settings to redux flow
 -   [x] Make highlighting duplicates a setting
 -   [x] Make dark mode a setting
-    -   :no_entry: This will result in a chicken-egg scenario with nested theme- abd redux providers
+    -   :no_entry: This will result in a chicken-egg scenario with nested theme- and redux providers
 -   [ ] Add difficulty levels Easy, Medium, Hard
     -   Does the current algorithm support that?
     -   Or are we going to introduce hard numbers/clues for that?
