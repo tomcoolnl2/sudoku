@@ -1,51 +1,114 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Numbers should match it's snapshot 1`] = `
+.c1 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #282c34;
+  border: 2px solid #282c34;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  font-size: 16px;
+  height: 40px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 4px 2px;
+  min-height: 40px;
+  padding: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  opacity: .9;
+}
+
+.c1:disabled {
+  opacity: .7;
+  cursor: default;
+}
+
+.c1:focus {
+  border-color: #EDDA74;
+  outline: none;
+}
+
+.c1:hover {
+  opacity: .7;
+}
+
+.c1 > svg {
+  margin-right: 10px;
+  fill: white;
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row;
+  -ms-flex-flow: row;
+  flex-flow: row;
+}
+
 <div
-  class="sc-iBPTik kafkLt"
+  class="c0"
 >
   <button
-    class="sc-gKseQn jogueL"
+    class="c1"
   >
     1
   </button>
   <button
-    class="sc-gKseQn jogueL"
+    class="c1"
   >
     2
   </button>
   <button
-    class="sc-gKseQn jogueL"
+    class="c1"
   >
     3
   </button>
   <button
-    class="sc-gKseQn jogueL"
+    class="c1"
   >
     4
   </button>
   <button
-    class="sc-gKseQn jogueL"
+    class="c1"
   >
     5
   </button>
   <button
-    class="sc-gKseQn jogueL"
+    class="c1"
   >
     6
   </button>
   <button
-    class="sc-gKseQn jogueL"
+    class="c1"
   >
     7
   </button>
   <button
-    class="sc-gKseQn jogueL"
+    class="c1"
   >
     8
   </button>
   <button
-    class="sc-gKseQn jogueL"
+    class="c1"
   >
     9
   </button>

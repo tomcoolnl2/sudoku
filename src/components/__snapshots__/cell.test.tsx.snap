@@ -1,7 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`InputValueButton should match it's snapshot 1`] = `
+.c0 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #282c34;
+  cursor: pointer;
+  color: inherit;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  font-size: 20px;
+  font-weight: normal;
+  height: auto;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.c0::before {
+  padding-top: 100%;
+  content: '';
+  float: left;
+}
+
+.c0:hover {
+  background-color: #FCF3CF;
+}
+
 <div
-  class="sc-jSgvzq cLHgOf"
+  class="c0"
 />
 `;
