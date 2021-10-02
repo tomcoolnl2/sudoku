@@ -17,5 +17,4 @@ To run and test it locally with a browser, run `npx http-server build/`.
 ## Test locally
 
 Run `yarn lint` to lint all TypeScript code.
-
-To run unit- and DOM/Snapshot tests, run `yarn test`. There is also a configuration for debugging Jest in VSCOde.
+To run unit- and DOM/Snapshot tests, run `yarn test`. There is also a configuration for debugging Jest in VSCOde. This will also include coverage.

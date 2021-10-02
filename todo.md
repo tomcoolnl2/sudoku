@@ -87,7 +87,7 @@
 -   [ ] Use floodfill-algorithm to animate
     -   [ ] rows
     -   [ ] colums
-    -   [?] regions
+    -   [ ] regions :grey_question:
     -   [ ] entire grid
 -   [ ] Use hexagons as icon backgrounds
 -   [ ] Icon navigation to the left?
@@ -95,6 +95,7 @@
 
 ## Nice to haves
 
+-   [ ] Docker for local development and testing
 -   [ ] Use hexagons icw icons https://www.npmjs.com/package/react-svg-hexagon-grid
 -   [ ] Create a nice hexagon background (animation) with React/CSS? https://css-tricks.com/hexagons-and-beyond-flexible-responsive-grid-patterns-sans-media-queries/
 -   [ ] Use chinese characters. Add switch for Cinese/Arabic numbers.
