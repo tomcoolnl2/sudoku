@@ -13,6 +13,7 @@ const initialState: AppState = {
 	workingMatrix: null,
 	mistakesMatrix: null,
 	trackedInput: null,
+	trackedMistakes: 0,
 	selection: [0, 0],
 	settings: {
 		highlightDuplicates: true
@@ -48,20 +49,26 @@ export function reducer(state = initialState, action: AnyAction): AppState {
 	case types.FILL_CELL: {
 
 		const { workingMatrix, solutionMatrix, trackedInput, mistakesMatrix } = state
+		let { trackedMistakes } = state
 		const { value, coords } = action
 							
 		if (workingMatrix && solutionMatrix) {
 								
-			const [row, col]: GridMatrixCoörds = coords
+			const [ row, col ]: GridMatrixCoörds = coords
 			
 			if (solutionMatrix[row][col] !== value) {
 					
 				if (mistakesMatrix[row][col] !== value) {
+					trackedMistakes += 1
+					if (trackedMistakes === 3) {
+						alert('Game Over Loser')
+					}
 					mistakesMatrix[row][col] = value
 				}
 
 				return {
 					...state,
+					trackedMistakes,
 					mistakesMatrix: [...mistakesMatrix]
 				}
 			}
@@ -89,7 +96,6 @@ export function reducer(state = initialState, action: AnyAction): AppState {
 	}
 
 	case types.SELECT_CELL: {
-		console.log('SELECT_CELL', action.coords)
 		return {
 			...state,
 			selection: action.coords
@@ -98,11 +104,11 @@ export function reducer(state = initialState, action: AnyAction): AppState {
 
 	case types.ERASE_MISTAKE: {
 		const { mistakesMatrix } = state
-		const [row, col]: GridMatrixCoörds = action.coords
+		const [ row, col ]: GridMatrixCoörds = action.coords
 		mistakesMatrix[row][col] = Sudoku.HIDDEN_CELL_VALUE
 		return {
 			...state,
-			mistakesMatrix
+			mistakesMatrix: [...mistakesMatrix]
 		}
 	}
 

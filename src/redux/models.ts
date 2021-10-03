@@ -7,6 +7,7 @@ export interface AppState {
     workingMatrix: GridMatrix // the user will use this grid
     mistakesMatrix: GridMatrix // mistakes will be tracked
     trackedInput: GridMatrixSeries
+    trackedMistakes: number
     selection: GridMatrixCoörds,
     settings: AppSettings
 }

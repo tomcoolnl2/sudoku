@@ -110,6 +110,12 @@ exports[`Numbers should match it's snapshot 1`] = `
   <div
     class="c1"
   >
+    How many mistakes? 
+    0
+  </div>
+  <div
+    class="c1"
+  >
     <button
       class="c2"
       data-testid="reset-button"
