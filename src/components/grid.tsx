@@ -12,16 +12,18 @@ interface GridState {
     solutionMatrix?: GridMatrix
     selection?: GridMatrixCoörds
     selectedValue: N
+	mistakesMade: number
 }
 
 export const Grid: FC = memo(() => {
     
-	const { solutionMatrix, selection, selectedValue } = useSelector<StoreReducer, GridState>(({ solutionMatrix, workingMatrix, selection }) => ({ 
+	const { solutionMatrix, selection, selectedValue, mistakesMade: howManyMistakes } = useSelector<StoreReducer, GridState>(({ solutionMatrix, workingMatrix, mistakesMatrix, selection }) => ({ 
 		solutionMatrix,
 		selection,
 		selectedValue: workingMatrix && selection 
 			? workingMatrix[selection[0]][selection[1]] 
-			: 0
+			: 0,
+		mistakesMade: mistakesMatrix && mistakesMatrix.flat().filter(mistake => mistake !== Sudoku.HIDDEN_CELL_VALUE).length
 	}))
     
 	const dispatch = useDispatch<Dispatch<AnyAction>>()
@@ -44,6 +46,9 @@ export const Grid: FC = memo(() => {
 		<>
 			<AttachKeyBoardEvents selection={selection} numbersInputHandler={fill} />
 			<Styled.GridContainer>
+				<Styled.GridRow>
+					How many mistakes? {howManyMistakes} / 3
+				</Styled.GridRow>
 				<Styled.GridRow>
 					<ResetGameButton reset={create} />
 					<EraseMistakeButton />

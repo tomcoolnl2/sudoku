@@ -42,10 +42,10 @@
 -   [x] Create a 'erase all mistakes' button
     -   [x] All mistake will be removed from the state when when the eraser is used
     -   [x] It will only be active if a mistake is made
--   [ ] Convert the 'erase all' into a 'erase current'
-    -   [ ] When the selection event is fired, check if it contains a mistake
-    -   [ ] If so: enable button
-    -   [ ] Erase when pressed
+-   [x] Convert the 'erase all' into a 'erase current'
+    -   [x] When the selection event is fired, check if it contains a mistake
+    -   [x] If so: enable button
+    -   [x] Erase when pressed
 -   [x] Investigate if High Order Reducers (HOR) are what we can use for the FILL_CELL action
     -   :no_entry: Nice to have, not really usefull for this situation
 -   [ ] Introduce React router to easily add screens for e.g. Game Over, Settings and initial.
@@ -53,14 +53,15 @@
 -   [x] Add game settings to redux flow
 -   [x] Make highlighting duplicates a setting
 -   [x] Make dark mode a setting
-    -   :no_entry: This will result in a chicken-egg scenario with nested theme- and redux providers
+-   [x] Add aloader for PersistGate?
+    -   [x] :no_entry: This will result in a chicken-egg scenario with nested theme- and redux providers
 -   [ ] Add difficulty levels Easy, Medium, Hard
     -   Does the current algorithm support that?
     -   Or are we going to introduce hard numbers/clues for that?
     -   [ ] reflect withing settings
 -   [x] Write Readme.md
--   [ ] Introduce a gameover state, e.g when a user guess 3 times wrong.
--   [ ] Create a button to show and add hints for empty cells
+-   [x] Introduce a game-over state, e.g when a user guess 3 times wrong.
+    -   [x] Alert when someone lost
 -   [ ] Add timer to track duration
 -   [ ] Log (and stoe) best time
 
@@ -96,6 +97,7 @@
 ## Nice to haves
 
 -   [ ] Docker for local development and testing
+-   [ ] Create a button to show and add hints for emp ty cells
 -   [ ] Use hexagons icw icons https://www.npmjs.com/package/react-svg-hexagon-grid
 -   [ ] Create a nice hexagon background (animation) with React/CSS? https://css-tricks.com/hexagons-and-beyond-flexible-responsive-grid-patterns-sans-media-queries/
 -   [ ] Use chinese characters. Add switch for Cinese/Arabic numbers.
