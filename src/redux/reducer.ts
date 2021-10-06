@@ -17,7 +17,8 @@ const initialState: AppState = {
 	selection: [0, 0],
 	selectedInputValue: null,
 	settings: {
-		highlightDuplicates: true
+		highlightDuplicates: true,
+		allowedMistakes: 3
 	}
 }
 
@@ -49,7 +50,7 @@ export function reducer(state = initialState, action: AnyAction): AppState {
 
 	case types.FILL_CELL: {
 
-		const { workingMatrix, solutionMatrix, trackedInput, mistakesMatrix } = state
+		const { workingMatrix, solutionMatrix, trackedInput, mistakesMatrix, settings } = state
 		let { selectedInputValue, trackedMistakes } = state
 		const { value, coords } = action
 							
@@ -61,8 +62,8 @@ export function reducer(state = initialState, action: AnyAction): AppState {
 					
 				if (mistakesMatrix[row][col] !== value) {
 					trackedMistakes += 1
-					if (trackedMistakes === 3) {
-						alert('Game Over Loser')
+					if (trackedMistakes === settings.allowedMistakes) {
+						alert('Game Over Loser') // TODO
 					}
 					mistakesMatrix[row][col] = value
 					selectedInputValue = value
