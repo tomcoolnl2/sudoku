@@ -23,7 +23,7 @@ export const eraseMistake = (coords: GridMatrixCoörds): AnyAction => ({
 	type: types.ERASE_MISTAKE
 })
 
-export const updateSettings = (settings: AppSettings): AnyAction => ({
+export const updateSettings = (settings: Partial<AppSettings>): AnyAction => ({
 	settings,
 	type: types.UPDATE_SETTINGS
 })

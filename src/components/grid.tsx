@@ -4,26 +4,28 @@ import { Dispatch, AnyAction } from 'redux'
 import { useDispatch, useSelector } from 'react-redux'
 import * as Styled from '../styles'
 import { AttachKeyBoardEvents, Cell, EraseMistakeButton, Numbers, ResetGameButton } from './'
-import { createGrid, StoreReducer, fillCell } from '../redux'
+import { createGrid, StoreReducer, fillCell, AppSettings } from '../redux'
 import { GridMatrix, GridMatrixCoörds, GridMatrixIndex, N, SudokuInputValue } from '../typings'
 import { Sudoku } from '../Sudoku'
 
 interface GridState {
+	settings: AppSettings
     solutionMatrix?: GridMatrix
     selection?: GridMatrixCoörds
     selectedValue: N
-	mistakesMade: number
+	trackedMistakes: number
 }
 
 export const Grid: FC = memo(() => {
     
-	const { solutionMatrix, selection, selectedValue, mistakesMade } = useSelector<StoreReducer, GridState>(({ solutionMatrix, workingMatrix, mistakesMatrix, selection }) => ({ 
+	const { settings, solutionMatrix, selection, selectedValue, trackedMistakes } = useSelector<StoreReducer, GridState>(({ settings, solutionMatrix, workingMatrix, selection, trackedMistakes }) => ({ 
+		settings, 
 		solutionMatrix,
 		selection,
 		selectedValue: workingMatrix && selection 
 			? workingMatrix[selection[0]][selection[1]] 
 			: 0,
-		mistakesMade: mistakesMatrix && mistakesMatrix.flat().filter(mistake => mistake !== Sudoku.HIDDEN_CELL_VALUE).length
+		trackedMistakes
 	}))
     
 	const dispatch = useDispatch<Dispatch<AnyAction>>()
@@ -47,7 +49,7 @@ export const Grid: FC = memo(() => {
 			<AttachKeyBoardEvents selection={selection} numbersInputHandler={fill} />
 			<Styled.GridContainer>
 				<Styled.GridRow>
-					How many mistakes? {mistakesMade} / 3
+					How many mistakes? {trackedMistakes} / {settings.allowedMistakes}
 				</Styled.GridRow>
 				<Styled.GridRow>
 					<ResetGameButton reset={create} />
