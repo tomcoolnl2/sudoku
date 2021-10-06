@@ -38,7 +38,7 @@ export function reducer(state = initialState, action: AnyAction): AppState {
 		} = new Sudoku()
 
 		return {
-			...state,
+			...initialState,
 			solutionMatrix,
 			initialGameMatrix,
 			workingMatrix,
@@ -110,11 +110,14 @@ export function reducer(state = initialState, action: AnyAction): AppState {
 
 	case types.ERASE_MISTAKE: {
 		const { mistakesMatrix } = state
+		let { selectedInputValue } = state
 		const [ row, col ]: GridMatrixCoörds = action.coords
 		mistakesMatrix[row][col] = Sudoku.HIDDEN_CELL_VALUE
+		selectedInputValue = initialState.selectedInputValue
 		return {
 			...state,
-			mistakesMatrix: [...mistakesMatrix]
+			mistakesMatrix: [...mistakesMatrix],
+			selectedInputValue
 		}
 	}
 
