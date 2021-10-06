@@ -11,6 +11,8 @@ const theme = {
 		secondary: '#282c34',
 		active: '#EDDA74',
 		highlighted: '#FCF3CF',
+		errorPrimary: '#CB4335',
+		errorSecundary: '#E6B0AA'
 	},
 	transition: '0.3s'
 }

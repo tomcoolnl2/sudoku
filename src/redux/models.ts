@@ -1,5 +1,6 @@
 
-import { GridMatrix, GridMatrixCoörds, GridMatrixSeries } from '../typings'
+import { GridMatrix, GridMatrixCoörds, GridMatrixSeries, SudokuInputValue } from '../typings'
+
 
 export interface AppState {
     initialGameMatrix: GridMatrix // initial grid only showing clue numbers
@@ -8,7 +9,8 @@ export interface AppState {
     mistakesMatrix: GridMatrix // mistakes will be tracked
     trackedInput: GridMatrixSeries
     trackedMistakes: number
-    selection: GridMatrixCoörds,
+    selection: GridMatrixCoörds
+    selectedInputValue: SudokuInputValue
     settings: AppSettings
 }
 

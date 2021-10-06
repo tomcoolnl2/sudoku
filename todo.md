@@ -5,6 +5,7 @@
 -   [x] Snapshot test fail in watch for grid.test.tsx because the generated classnames keep updating somehow
     -   :+1: It blocks me from running a watch on jest when developing
 -   [ ] Upping the difficulty causes the backtracking to look like infinite. Add a tracker to reset the calculation if exceeding an amount of recursion attempts? Or use fixed clues/numbers to limit back tracking?
+-   [ ] App.tsx: Weird validation error causes the app to crash, but it works fine when disabling tslint
 
 ## Game play
 
@@ -49,21 +50,25 @@
 -   [x] Investigate if High Order Reducers (HOR) are what we can use for the FILL_CELL action
     -   :no_entry: Nice to have, not really usefull for this situation
 -   [ ] Introduce React router to easily add screens for e.g. Game Over, Settings and initial.
-    -   [ ] Alternative?
+    -   [ ] Splash screen: Simple start button
+    -   [ ] Playing game screen
+    -   [ ] Settings screen
 -   [x] Add game settings to redux flow
 -   [x] Make highlighting duplicates a setting
 -   [x] Make dark mode a setting
--   [x] Add aloader for PersistGate?
     -   [x] :no_entry: This will result in a chicken-egg scenario with nested theme- and redux providers
 -   [ ] Add difficulty levels Easy, Medium, Hard
     -   Does the current algorithm support that?
     -   Or are we going to introduce hard numbers/clues for that?
-    -   [ ] reflect withing settings
+    -   [ ] reflect within settings
 -   [x] Write Readme.md
 -   [x] Introduce a game-over state, e.g when a user guess 3 times wrong.
     -   [x] Alert when someone lost
 -   [ ] Add timer to track duration
--   [ ] Log (and stoe) best time
+-   [ ] Add paue option
+    -   [ ] When
+-   [ ] Log (and store) best time
+-   [ ] When we have connected a database, a Save option would save the redux state.
 
 ## Algorithms & performance
 
@@ -91,7 +96,7 @@
     -   [ ] regions :grey_question:
     -   [ ] entire grid
 -   [ ] Use hexagons as icon backgrounds
--   [ ] Icon navigation to the left?
+-   [ ] Icon navigation to the left
 -   [ ] When selecting a number on the grid, highlight all cells within the current region - does this affect performance? Use CSS?
 
 ## Nice to haves

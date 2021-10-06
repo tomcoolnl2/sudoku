@@ -15,6 +15,7 @@ const initialState: AppState = {
 	trackedInput: null,
 	trackedMistakes: 0,
 	selection: [0, 0],
+	selectedInputValue: null,
 	settings: {
 		highlightDuplicates: true
 	}
@@ -49,7 +50,7 @@ export function reducer(state = initialState, action: AnyAction): AppState {
 	case types.FILL_CELL: {
 
 		const { workingMatrix, solutionMatrix, trackedInput, mistakesMatrix } = state
-		let { trackedMistakes } = state
+		let { selectedInputValue, trackedMistakes } = state
 		const { value, coords } = action
 							
 		if (workingMatrix && solutionMatrix) {
@@ -64,17 +65,20 @@ export function reducer(state = initialState, action: AnyAction): AppState {
 						alert('Game Over Loser')
 					}
 					mistakesMatrix[row][col] = value
+					selectedInputValue = value
 				}
 
 				return {
 					...state,
 					trackedMistakes,
-					mistakesMatrix: [...mistakesMatrix]
+					mistakesMatrix: [...mistakesMatrix],
+					selectedInputValue
 				}
 			}
 				
 			mistakesMatrix[row][col] = Sudoku.HIDDEN_CELL_VALUE
 			workingMatrix[row][col] = value
+			selectedInputValue = value
 			trackedInput[value - 1] += 1
 								
 			if (compareArrays(workingMatrix, solutionMatrix)) {
@@ -86,7 +90,8 @@ export function reducer(state = initialState, action: AnyAction): AppState {
 				...state,
 				mistakesMatrix: [...mistakesMatrix],
 				workingMatrix: [...workingMatrix],
-				trackedInput: [...trackedInput]
+				trackedInput: [...trackedInput],
+				selectedInputValue
 			}
 		}
 

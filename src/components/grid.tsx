@@ -17,7 +17,7 @@ interface GridState {
 
 export const Grid: FC = memo(() => {
     
-	const { solutionMatrix, selection, selectedValue, mistakesMade: howManyMistakes } = useSelector<StoreReducer, GridState>(({ solutionMatrix, workingMatrix, mistakesMatrix, selection }) => ({ 
+	const { solutionMatrix, selection, selectedValue, mistakesMade } = useSelector<StoreReducer, GridState>(({ solutionMatrix, workingMatrix, mistakesMatrix, selection }) => ({ 
 		solutionMatrix,
 		selection,
 		selectedValue: workingMatrix && selection 
@@ -47,7 +47,7 @@ export const Grid: FC = memo(() => {
 			<AttachKeyBoardEvents selection={selection} numbersInputHandler={fill} />
 			<Styled.GridContainer>
 				<Styled.GridRow>
-					How many mistakes? {howManyMistakes} / 3
+					How many mistakes? {mistakesMade} / 3
 				</Styled.GridRow>
 				<Styled.GridRow>
 					<ResetGameButton reset={create} />
