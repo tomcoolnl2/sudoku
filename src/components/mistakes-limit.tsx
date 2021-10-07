@@ -10,10 +10,6 @@ export interface MistakesLimitState {
     mistakesLimit: number
 }
 
-export interface MistakesLimitProps {
-    limits?: number[]
-}
-
 export const MistakesLimits = {
 	[Difficulty.EASY]: 5,
 	[Difficulty.MEDIUM]: 3,
@@ -22,7 +18,7 @@ export const MistakesLimits = {
 
 const capitalize = (word: string): string => word.charAt(0) + word.slice(1).toLowerCase()
 
-export const MistakesLimit: FC<MistakesLimitProps> = () => {
+export const MistakesLimit: FC = () => {
 
 	const labelValues = useMemo(() => Object.values(MistakesLimits), [])
 	const labelKeys = useMemo(() => Object.keys(MistakesLimits).map(key => capitalize(key)), [])

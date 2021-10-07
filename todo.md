@@ -59,8 +59,6 @@
     -   [x] Alert when someone lost
 -   [x] Add game settings to redux flow
 -   [x] Make highlighting duplicates a setting
--   [x] Make dark mode a setting
-    -   [x] :no_entry: This will result in a chicken-egg scenario with nested theme- and redux providers
 -   [x] Move HOCs specially made for snapshots into a test/ directory
 -   [x] Make darkmode part of game settings
 -   [ ] When Game Over, move back to the splash screen after a notification/confirmation
@@ -116,8 +114,8 @@
     -   [ ] It should return a url/hash so when we open it, the redux state is restored to this state.
 -   [ ] Docker for local development and testing
 -   [ ] Create a button to show and add hints for empty cells
--   [ ] Set a limit on the amount of hints
--   [ ] make the limit dependant on the easy - medium - hard settings
+    -   [ ] Set a limit on the amount of hints
+    -   [ ] make the limit dependant on the easy - medium - hard settings
 -   [ ] Use hexagons icw icons https://www.npmjs.com/package/react-svg-hexagon-grid
 -   [ ] Create a nice hexagon background (animation) with React/CSS? https://css-tricks.com/hexagons-and-beyond-flexible-responsive-grid-patterns-sans-media-queries/
 -   [ ] Use chinese characters. Add switch for Cinese/Arabic numbers.
