@@ -49,7 +49,7 @@ export const Grid: FC = memo(() => {
 			<AttachKeyBoardEvents selection={selection} numbersInputHandler={fill} />
 			<Styled.GridContainer>
 				<Styled.GridRow>
-					How many mistakes? {trackedMistakes} / {settings.allowedMistakes}
+					How many mistakes? {trackedMistakes} / {settings.mistakesLimit}
 				</Styled.GridRow>
 				<Styled.GridRow>
 					<ResetGameButton reset={create} />

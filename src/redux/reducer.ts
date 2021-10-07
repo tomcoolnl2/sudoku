@@ -5,7 +5,10 @@ import { GridMatrixCoörds } from '../typings'
 import { compareArrays } from '../utils'
 import { AppState } from './models'
 import * as types from './types'
+import { MistakesLimits } from '../components/mistakes-limit'
 
+
+const difficulty = 'EASY'
 
 const initialState: AppState = {
 	initialGameMatrix: null,
@@ -18,7 +21,7 @@ const initialState: AppState = {
 	selectedInputValue: null,
 	settings: {
 		highlightDuplicates: true,
-		allowedMistakes: 3,
+		mistakesLimit: MistakesLimits[difficulty],
 		darkModeEnabled: false
 	}
 }
@@ -39,7 +42,7 @@ export function reducer(state = initialState, action: AnyAction): AppState {
 		} = new Sudoku()
 
 		return {
-			...initialState,
+			...state,
 			solutionMatrix,
 			initialGameMatrix,
 			workingMatrix,
@@ -63,7 +66,7 @@ export function reducer(state = initialState, action: AnyAction): AppState {
 					
 				if (mistakesMatrix[row][col] !== value) {
 					trackedMistakes += 1
-					if (trackedMistakes === settings.allowedMistakes) {
+					if (trackedMistakes === settings.mistakesLimit) {
 						alert('Game Over Loser') // TODO
 					}
 					mistakesMatrix[row][col] = value

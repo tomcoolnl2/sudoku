@@ -40,6 +40,59 @@ exports[`App renders with light mode as default 1`] = `
   padding: 15px;
 }
 
+.c3 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #282c34;
+  border: 2px solid #282c34;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  font-size: 16px;
+  height: 40px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 4px 2px;
+  min-height: 40px;
+  padding: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  opacity: .9;
+}
+
+.c3:disabled {
+  opacity: .7;
+  cursor: default;
+}
+
+.c3:focus {
+  border-color: #EDDA74;
+  outline: none;
+}
+
+.c3:hover {
+  opacity: .7;
+}
+
+.c3 > svg {
+  margin-right: 10px;
+  fill: white;
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
 <div
   class="c0"
 >
@@ -67,13 +120,39 @@ exports[`App renders with light mode as default 1`] = `
   <div
     class="c2"
   >
+    <label
+      for="mistakes-limit"
+    >
+      Allowed Mistakes:
+    </label>
+    <select
+      id="mistakes-limit"
+      name="mistakes-limit"
+    >
+      <option
+        selected=""
+        value="5"
+      >
+        Easy: 5
+      </option>
+      <option
+        value="3"
+      >
+        Medium: 3
+      </option>
+      <option
+        value="2"
+      >
+        Hard: 2
+      </option>
+    </select>
     <a
       href="/game"
     >
       <button
-        type="button"
+        class="c3"
       >
-        Click Me!
+        Todo!
       </button>
     </a>
   </div>
