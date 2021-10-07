@@ -12,7 +12,6 @@ export interface ToggleHighlightingState {
 export const ToggleHighlighting: FC = () => {
 	
 	const { highlightDuplicates } = useSelector<StoreReducer, ToggleHighlightingState>(state => state.settings)
-
 	const dispatch = useDispatch<Dispatch<AnyAction>>()
 
 	const onChangeHandler = useCallback(() => {
