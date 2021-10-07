@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ToggleTheme renders with light mode as default 1`] = `
+exports[`ToggleTheme should match it's snapshot 1`] = `
 <label
   for="theme-toggle"
 >

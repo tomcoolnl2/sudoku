@@ -6,7 +6,7 @@ import { ToggleTheme } from './'
 
 describe('ToggleTheme', () => {
 	
-	it('renders with light mode as default', () => {
+	it('should match it\'s snapshot', () => {
 		const { container } = render(withTheme(withRedux(<ToggleTheme />)))
 		expect(container.firstChild).toMatchSnapshot()
 	})

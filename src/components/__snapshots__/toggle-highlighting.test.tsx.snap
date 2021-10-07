@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ToggleHighlighting renders with light mode as default 1`] = `
+exports[`ToggleHighlighting should match it's snapshot 1`] = `
 <label
   for="highlight-toggle"
 >
