@@ -6,7 +6,7 @@ import { ToggleHighlighting } from '.'
 
 describe('ToggleHighlighting', () => {
 	
-	it('renders with light mode as default', () => {
+	it('should match it\'s snapshot', () => {
 		const { container } = render(withRedux(withTheme(<ToggleHighlighting />)))
 		expect(container.firstChild).toMatchSnapshot()
 	})
