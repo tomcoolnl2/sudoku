@@ -18,7 +18,8 @@ const initialState: AppState = {
 	selectedInputValue: null,
 	settings: {
 		highlightDuplicates: true,
-		allowedMistakes: 3
+		allowedMistakes: 3,
+		darkModeEnabled: false
 	}
 }
 

@@ -54,14 +54,18 @@
     -   [x] Playing game screen
     -   [x] Settings screen
     -   [x] Simple navigation
+-   [x] Write Readme.md
+-   [x] Introduce a game-over state, e.g when a user guess 3 times wrong.
+    -   [x] Alert when someone lost
 -   [x] Add game settings to redux flow
 -   [x] Make highlighting duplicates a setting
 -   [x] Make dark mode a setting
     -   [x] :no_entry: This will result in a chicken-egg scenario with nested theme- and redux providers
--   [ ] Make darkmode part of game settings?
--   [ ] When Game Over, move back to the splash screen after a notification/confirmation
--   [ ] Create a snapshot test for App.tsx
 -   [x] Move HOCs specially made for snapshots into a test/ directory
+-   [x] Make darkmode part of game settings
+-   [ ] When Game Over, move back to the splash screen after a notification/confirmation
+-   [x] Create a snapshot test for App.tsx
+-   [ ] Create a snapshot test for DarkThemeProvider
 -   [ ] Add React Suspense/Lazy to promote async components and pages
 -   [ ] When selecting a number on the grid, highlight all cells within the current region
 -   [ ] Add timer to track duration
@@ -73,9 +77,6 @@
     -   Does the current algorithm support that?
     -   Or are we going to introduce hard numbers/clues for that?
     -   [ ] reflect within settings
--   [x] Write Readme.md
--   [x] Introduce a game-over state, e.g when a user guess 3 times wrong.
-    -   [x] Alert when someone lost
 -   [ ] When we have connected a database, a Save option would save the redux state.
 
 ## Algorithms & performance

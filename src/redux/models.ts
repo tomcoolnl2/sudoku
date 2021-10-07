@@ -17,4 +17,5 @@ export interface AppState {
 export interface AppSettings {
     highlightDuplicates: boolean
     allowedMistakes: number
+    darkModeEnabled: boolean
 }

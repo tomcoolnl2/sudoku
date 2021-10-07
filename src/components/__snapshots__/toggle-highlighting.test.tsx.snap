@@ -2,7 +2,6 @@
 
 exports[`ToggleHighlighting renders with light mode as default 1`] = `
 <label
-  data-testid="theme-toggle"
   for="highlight-toggle"
 >
   Enable Highlighting:
