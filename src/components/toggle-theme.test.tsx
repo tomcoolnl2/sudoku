@@ -1,23 +1,18 @@
 
 import { render, screen } from '@testing-library/react'
-import { withTheme } from '../test'
-import { ToggleTheme, ToggleThemeProps } from './'
+import { withTheme, withRedux } from '../test'
+import { ToggleTheme } from './'
 
-
-const props: ToggleThemeProps = {
-	selected: false,
-	toggleTheme: jest.fn()
-}
 
 describe('ToggleTheme', () => {
 	
 	it('renders with light mode as default', () => {
-		const { container } = render(withTheme(<ToggleTheme {...props} />))
+		const { container } = render(withTheme(withRedux(<ToggleTheme />)))
 		expect(container.firstChild).toMatchSnapshot()
 	})
 
 	it('should be present within the DOM', () => {
-		render(withTheme(<ToggleTheme {...props} />))
+		render(withTheme(withRedux(<ToggleTheme />)))
 		const buttonElement = screen.getByText(/Dark mode/i)
 		expect(buttonElement).toBeInTheDocument()
 	})

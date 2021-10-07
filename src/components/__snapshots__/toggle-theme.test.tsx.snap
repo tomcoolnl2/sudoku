@@ -2,7 +2,6 @@
 
 exports[`ToggleTheme renders with light mode as default 1`] = `
 <label
-  data-testid="theme-toggle"
   for="theme-toggle"
 >
   Dark mode: 

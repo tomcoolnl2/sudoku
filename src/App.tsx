@@ -1,14 +1,11 @@
 
 import { FC } from 'react'
-import { Provider } from 'react-redux'
+import { Provider as ReduxProvider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
-import { ThemeProvider }  from 'styled-components'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { VisualMode } from './typings/enum'
 import { configureStore } from './redux'	
-import { GlobalStyles, lightTheme, darkTheme } from './styles/core'
+import { DarkThemeProvider } from './styles/core/ThemeProvider'
 import * as Styled from './styles'
-import { useDarkMode } from './utils/useDarkMode'
 import { Menu } from './components'
 import { Game, Settings, Splash } from './pages'
 
@@ -18,15 +15,10 @@ import { Game, Settings, Splash } from './pages'
 const { store, persistor } = configureStore()
 
 export const App: FC = () => {
-
-	const [ theme ] = useDarkMode()
-	const visualMode = theme === VisualMode.LIGHT ? lightTheme : darkTheme
-
 	return (
-		<ThemeProvider theme={visualMode}>
-			<GlobalStyles />
-			<Provider store={store}>
-				<PersistGate loading={null} persistor={persistor}>
+		<ReduxProvider store={store}>
+			<PersistGate loading={null} persistor={persistor}>
+				<DarkThemeProvider>
 					<Router>
 						<Styled.Content>
 							<Menu />
@@ -46,8 +38,8 @@ export const App: FC = () => {
 							</Styled.Card>
 						</Styled.Content>
 					</Router>
-				</PersistGate>
-			</Provider>
-		</ThemeProvider>
+				</DarkThemeProvider>
+			</PersistGate>
+		</ReduxProvider>
 	)
 }
