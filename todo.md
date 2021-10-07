@@ -68,6 +68,7 @@
 -   [ ] Create a snapshot test for DarkThemeProvider
 -   [ ] Add React Suspense/Lazy to promote async components and pages
 -   [ ] When selecting a number on the grid, highlight all cells within the current region
+-   [ ] Add number of mistakes input to splash screeen and settings screen. Default to 3.
 -   [ ] Add timer to track duration
 -   [ ] Add pauze option
     -   [ ] When pauzed, block ui/screen
