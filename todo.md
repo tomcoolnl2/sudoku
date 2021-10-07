@@ -49,14 +49,26 @@
     -   [x] Erase when pressed
 -   [x] Investigate if High Order Reducers (HOR) are what we can use for the FILL_CELL action
     -   :no_entry: Nice to have, not really usefull for this situation
--   [ ] Introduce React router to easily add screens for e.g. Game Over, Settings and initial.
-    -   [ ] Splash screen: Simple start button
-    -   [ ] Playing game screen
-    -   [ ] Settings screen
+-   [x] Introduce React router to easily add screens for e.g. Game Over, Settings and initial.
+    -   [x] Splash screen: Simple start button
+    -   [x] Playing game screen
+    -   [x] Settings screen
+    -   [x] Simple navigation
 -   [x] Add game settings to redux flow
 -   [x] Make highlighting duplicates a setting
 -   [x] Make dark mode a setting
     -   [x] :no_entry: This will result in a chicken-egg scenario with nested theme- and redux providers
+-   [ ] Make darkmode part of game settings?
+-   [ ] When Game Over, move back to the splash screen after a notification/confirmation
+-   [ ] Create a snapshot test for App.tsx
+-   [x] Move HOCs specially made for snapshots into a test/ directory
+-   [ ] Add React Suspense/Lazy to promote async components and pages
+-   [ ] When selecting a number on the grid, highlight all cells within the current region
+-   [ ] Add timer to track duration
+-   [ ] Add pauze option
+    -   [ ] When pauzed, block ui/screen
+    -   [ ] Stop the timer
+-   [ ] Log (and store) best time
 -   [ ] Add difficulty levels Easy, Medium, Hard
     -   Does the current algorithm support that?
     -   Or are we going to introduce hard numbers/clues for that?
@@ -64,10 +76,6 @@
 -   [x] Write Readme.md
 -   [x] Introduce a game-over state, e.g when a user guess 3 times wrong.
     -   [x] Alert when someone lost
--   [ ] Add timer to track duration
--   [ ] Add paue option
-    -   [ ] When
--   [ ] Log (and store) best time
 -   [ ] When we have connected a database, a Save option would save the redux state.
 
 ## Algorithms & performance
@@ -97,10 +105,10 @@
     -   [ ] entire grid
 -   [ ] Use hexagons as icon backgrounds
 -   [ ] Icon navigation to the left
--   [ ] When selecting a number on the grid, highlight all cells within the current region - does this affect performance? Use CSS?
 
 ## Nice to haves
 
+-   [ ] Dashboard with statistics for user?
 -   [ ] Docker for local development and testing
 -   [ ] Create a button to show and add hints for emp ty cells
 -   [ ] Use hexagons icw icons https://www.npmjs.com/package/react-svg-hexagon-grid
@@ -110,5 +118,6 @@
 -   [ ] Monorepo with NX
 -   [ ] NestJS Backend - for Mongoose? GraphQl?
 -   [ ] Introduce React Native components
+-   [ ] Introduce desktop version by Electron
 -   [ ] CI/CD (CircleCI)
 -   [ ] Deployment(s) on Azure/AWS

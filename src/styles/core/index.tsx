@@ -1,7 +1,4 @@
 
-
-import { FC } from 'react'
-import { ThemeProvider }  from 'styled-components'
 import { createGlobalStyle, css } from 'styled-components'
 
 const theme = {
@@ -60,12 +57,3 @@ export const GlobalStyles = createGlobalStyle`
         }
     `
 }`
-
-export const withTheme: FC = (Component: unknown) => {
-	return (
-		<ThemeProvider theme={lightTheme}>
-			<GlobalStyles />
-			{Component}
-		</ThemeProvider>
-	)
-}

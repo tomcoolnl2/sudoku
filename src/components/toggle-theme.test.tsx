@@ -1,6 +1,6 @@
 
 import { render, screen } from '@testing-library/react'
-import { withTheme } from '../styles/core'
+import { withTheme } from '../test'
 import { ToggleTheme, ToggleThemeProps } from './'
 
 

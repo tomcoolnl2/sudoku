@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Game page should match it's snapshot 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 10px 0;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row;
+  -ms-flex-flow: row;
+  flex-flow: row;
+}
+
+.c1:nth-child(1) div {
+  border-top: solid 4px #282c34;
+}
+
+.c1:nth-child(3) div,
+.c1:nth-child(6) div {
+  border-bottom: solid 3px #282c34;
+}
+
+.c1:nth-child(9) div {
+  border-bottom: solid 4px #282c34;
+}
+
+.c1 div:nth-child(1) {
+  border-left: solid 4px #282c34;
+}
+
+.c1 div:nth-child(3),
+.c1 div:nth-child(6),
+.c1 div:nth-child(9) {
+  border-right: solid 4px #282c34;
+}
+
+.c1 div:nth-child(4),
+.c1 div:nth-child(7) {
+  border-left: none;
+}
+
+.c2 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #282c34;
+  border: 2px solid #282c34;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  font-size: 16px;
+  height: 40px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 4px 2px;
+  min-height: 40px;
+  padding: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  opacity: .9;
+}
+
+.c2:disabled {
+  opacity: .7;
+  cursor: default;
+}
+
+.c2:focus {
+  border-color: #EDDA74;
+  outline: none;
+}
+
+.c2:hover {
+  opacity: .7;
+}
+
+.c2 > svg {
+  margin-right: 10px;
+  fill: white;
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    How many mistakes? 
+    0
+     / 
+    3
+  </div>
+  <div
+    class="c1"
+  >
+    <button
+      class="c2"
+      data-testid="reset-button"
+    >
+      <svg>
+        reload.svg
+      </svg>
+       New Game
+    </button>
+    <button
+      class="c2"
+      disabled=""
+    >
+      <svg
+        style="top: -3px;"
+      >
+        erase.svg
+      </svg>
+    </button>
+  </div>
+</div>
+`;

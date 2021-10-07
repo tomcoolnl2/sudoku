@@ -1,4 +1,5 @@
 
+export * from './menu'
 export * from './attach-keyboard-events'
 export * from './grid'
 export * from './cell'

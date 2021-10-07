@@ -1,7 +1,6 @@
 
 import { render } from '@testing-library/react'
-import { withTheme } from '../styles/core'
-import { withRedux } from '../redux/configureStore'
+import { withTheme, withRedux } from '../test'
 import { AttachKeyBoardEvents, AttachKeyBoardEventsProps } from './'
 
 

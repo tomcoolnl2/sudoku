@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Settings page should match it's snapshot 1`] = `
+<a
+  href="/game"
+>
+  <button
+    type="button"
+  >
+    Back to the game
+  </button>
+</a>
+`;
