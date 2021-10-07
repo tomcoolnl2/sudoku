@@ -1,7 +1,6 @@
 
 import { render } from '@testing-library/react'
-import { withTheme } from '../test'
-import { withRouter } from '../test'
+import { withTheme, withRouter } from '../test'
 import { Menu } from '.'
 
 describe('Menu', () => {

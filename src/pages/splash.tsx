@@ -1,13 +1,18 @@
 
 import { FC } from 'react'
 import { Link } from 'react-router-dom'
+import * as Styled from '../styles'
+import { MistakesLimit } from '../components'
 
 export const Splash: FC = () => {
 	return (
-		<Link to='/game'>
-			<button type='button'>
-				Click Me!
-			</button>
-		</Link>
+		<>
+			<MistakesLimit />
+			<Link to='/game'>
+				<Styled.Button>
+					Todo!
+				</Styled.Button>
+			</Link>
+		</>
 	)
 }

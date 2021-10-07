@@ -65,10 +65,11 @@
 -   [x] Make darkmode part of game settings
 -   [ ] When Game Over, move back to the splash screen after a notification/confirmation
 -   [x] Create a snapshot test for App.tsx
--   [ ] Create a snapshot test for DarkThemeProvider
+-   [x] Create a snapshot test for DarkThemeProvider
 -   [ ] Add React Suspense/Lazy to promote async components and pages
 -   [ ] When selecting a number on the grid, highlight all cells within the current region
--   [ ] Add number of mistakes input to splash screeen and settings screen. Default to 3.
+-   [x] Add number of mistakes input to splash screen and settings screen. Default to 3.
+-   [ ] Output snapshots in /test/
 -   [ ] Add timer to track duration
 -   [ ] Add pauze option
     -   [ ] When pauzed, block ui/screen
@@ -111,8 +112,12 @@
 ## Nice to haves
 
 -   [ ] Dashboard with statistics for user?
+-   [ ] Build a microservice in Node/NestJS that connects to a (headless) Database to store persistance/state.
+    -   [ ] It should return a url/hash so when we open it, the redux state is restored to this state.
 -   [ ] Docker for local development and testing
--   [ ] Create a button to show and add hints for emp ty cells
+-   [ ] Create a button to show and add hints for empty cells
+-   [ ] Set a limit on the amount of hints
+-   [ ] make the limit dependant on the easy - medium - hard settings
 -   [ ] Use hexagons icw icons https://www.npmjs.com/package/react-svg-hexagon-grid
 -   [ ] Create a nice hexagon background (animation) with React/CSS? https://css-tricks.com/hexagons-and-beyond-flexible-responsive-grid-patterns-sans-media-queries/
 -   [ ] Use chinese characters. Add switch for Cinese/Arabic numbers.
