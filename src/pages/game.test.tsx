@@ -1,13 +1,12 @@
 
 import { render } from '@testing-library/react'
 import { withTheme, withRedux } from '../test'
-import { EraseMistakeButton } from '.'
+import { Game } from '.'
 
-
-describe('InputValueButton', () => {
+describe('Game page', () => {
 	
 	it('should match it\'s snapshot', () => {
-		const { container } = render(withTheme(withRedux(<EraseMistakeButton />)))
+		const { container } = render(withTheme(withRedux(<Game />)))
 		expect(container.firstChild).toMatchSnapshot()
 	})
 })

@@ -1,14 +1,20 @@
 
-import { FC, memo, SyntheticEvent } from 'react'
+import { FC } from 'react'
+import { VisualMode } from '../typings/enum'
+import { useDarkMode } from '../utils/useDarkMode'
 
 
-export interface ToggleThemeProps {
-    selected?: boolean
-    toggleTheme: (event: SyntheticEvent) => void
+export const ToggleTheme: FC = () => {
+	
+	const [theme, setTheme, mountedComponent] = useDarkMode()
+
+	if (!mountedComponent) {
+		return null
+	}
+	
+	return (
+		<label htmlFor='theme-toggle' data-testid='theme-toggle'>
+			Dark mode: <input type='checkbox' name='theme-toggle' onChange={setTheme} checked={theme === VisualMode.DARK} />
+		</label>
+	)
 }
-
-export const ToggleTheme: FC<ToggleThemeProps> = memo(({ toggleTheme, selected = false }) => (
-	<label htmlFor='theme-toggle' data-testid='theme-toggle'>
-		Dark mode: <input type='checkbox' name='theme-toggle' onChange={toggleTheme} checked={selected} />
-	</label>
-))

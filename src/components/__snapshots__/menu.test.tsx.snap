@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu should match it's snapshot 1`] = `
+<ul>
+  <li>
+    <a
+      href="/"
+    >
+      Start
+    </a>
+  </li>
+  <li>
+    <a
+      href="/settings"
+    >
+      Settings
+    </a>
+  </li>
+</ul>
+`;

@@ -1,7 +1,6 @@
 
 import { render } from '@testing-library/react'
-import { withRedux } from '../redux/configureStore'
-import { withTheme } from '../styles/core'
+import { withTheme, withRedux } from '../test'
 import { Grid } from './'
 
 
