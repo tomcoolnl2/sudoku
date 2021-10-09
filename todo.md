@@ -84,6 +84,7 @@
 -   [ ] Analize performance of reset functionality
 -   [ ] Backtrack Recursion icw generators/iterators https://leetcode.com/problems/permutations/discuss/790116/javascript-backtracking-using-generator-functions
 -   [ ] Search for algorithms that better fit this program
+    -   https://lisperator.net/blog/javascript-sudoku-solver/
 -   [ ] Investigate a better `solve` method acc to: https://en.wikipedia.org/wiki/Sudoku_solving_algorithms
 
 ## Testing
@@ -119,6 +120,7 @@
 -   [ ] Use hexagons icw icons https://www.npmjs.com/package/react-svg-hexagon-grid
 -   [ ] Create a nice hexagon background (animation) with React/CSS? https://css-tricks.com/hexagons-and-beyond-flexible-responsive-grid-patterns-sans-media-queries/
 -   [ ] Use chinese characters. Add switch for Cinese/Arabic numbers.
+-   [ ] Manage content in Contentful
 -   [ ] Move from Redux to RxJS https://dev.t-matix.com/blog/platform/why-we-migrated-our-state-management-system-from-redux-to-rxjs/
 -   [ ] Monorepo with NX
 -   [ ] NestJS Backend - for Mongoose? GraphQl?
