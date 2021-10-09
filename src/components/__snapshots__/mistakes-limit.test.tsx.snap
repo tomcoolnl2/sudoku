@@ -7,3 +7,11 @@ exports[`MistakesLimit should match it's snapshot 1`] = `
   Allowed Mistakes:
 </label>
 `;
+
+exports[`mistakesLimit should match it's snapshot 1`] = `
+<label
+  for="mistakes-limit"
+>
+  Allowed Mistakes:
+</label>
+`;

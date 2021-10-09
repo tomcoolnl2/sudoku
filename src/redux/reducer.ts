@@ -5,7 +5,7 @@ import { GridMatrixCoörds } from '../typings'
 import { compareArrays } from '../utils'
 import { AppState } from './models'
 import * as types from './types'
-import { MistakesLimits } from '../components/mistakes-limit'
+import { mistakesLimits } from '../components/mistakes-limit'
 
 
 const difficulty = 'EASY'
@@ -21,7 +21,7 @@ const initialState: AppState = {
 	selectedInputValue: null,
 	settings: {
 		highlightDuplicates: true,
-		mistakesLimit: MistakesLimits[difficulty],
+		mistakesLimit: mistakesLimits[difficulty],
 		darkModeEnabled: false
 	}
 }
@@ -67,7 +67,12 @@ export function reducer(state = initialState, action: AnyAction): AppState {
 				if (mistakesMatrix[row][col] !== value) {
 					trackedMistakes += 1
 					if (trackedMistakes === settings.mistakesLimit) {
-						alert('Game Over Loser') // TODO
+						if (window.confirm('Too many mistakes! Reload to start another game!')) {
+							window.location.href = '/'
+							return {
+								...initialState
+							}
+						}
 					}
 					mistakesMatrix[row][col] = value
 					selectedInputValue = value
@@ -87,8 +92,13 @@ export function reducer(state = initialState, action: AnyAction): AppState {
 			trackedInput[value - 1] += 1
 								
 			if (compareArrays(workingMatrix, solutionMatrix)) {
-				// dispatch WIN action
-				console.log('WIN')
+				// dispatch WIN action // we need async action dispatchers for that
+				if (window.confirm('You won! Reload to start another game!')) {
+					window.location.href = '/'
+					return {
+						...initialState
+					}
+				}
 			}
 
 			return {

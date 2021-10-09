@@ -10,18 +10,18 @@ export interface MistakesLimitState {
     mistakesLimit: number
 }
 
-export const MistakesLimits = {
-	[Difficulty.EASY]: 5,
+export const mistakesLimits = Object.freeze({
+	[Difficulty.HARD]: 2,	
 	[Difficulty.MEDIUM]: 3,
-	[Difficulty.HARD]: 2
-}
+	[Difficulty.EASY]: 5,
+})
 
 const capitalize = (word: string): string => word.charAt(0) + word.slice(1).toLowerCase()
 
 export const MistakesLimit: FC = () => {
 
-	const labelValues = useMemo(() => Object.values(MistakesLimits), [])
-	const labelKeys = useMemo(() => Object.keys(MistakesLimits).map(key => capitalize(key)), [])
+	const labelValues = useMemo(() => Object.values(mistakesLimits), [])
+	const labelKeys = useMemo(() => Object.keys(mistakesLimits).map(key => capitalize(key)), [])
 
 	const { mistakesLimit } = useSelector<StoreReducer, MistakesLimitState>(state => state.settings)
 	const dispatch = useDispatch<Dispatch<AnyAction>>()

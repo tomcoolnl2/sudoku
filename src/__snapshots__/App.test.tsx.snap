@@ -130,10 +130,9 @@ exports[`App renders with light mode as default 1`] = `
       name="mistakes-limit"
     >
       <option
-        selected=""
-        value="5"
+        value="2"
       >
-        Easy: 5
+        Hard: 2
       </option>
       <option
         value="3"
@@ -141,9 +140,10 @@ exports[`App renders with light mode as default 1`] = `
         Medium: 3
       </option>
       <option
-        value="2"
+        selected=""
+        value="5"
       >
-        Hard: 2
+        Easy: 5
       </option>
     </select>
     <a
