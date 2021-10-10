@@ -8,7 +8,7 @@ import * as types from './types'
 import { mistakesLimits } from '../components/mistakes-limit'
 
 
-const difficulty = 'EASY'
+const difficulty = 'EASY' // TODO
 
 const initialState: AppState = {
 	initialGameMatrix: null,
@@ -18,6 +18,7 @@ const initialState: AppState = {
 	trackedInput: null,
 	trackedMistakes: 0,
 	selection: [0, 0],
+	selectedRegion: [[0, 1, 2], [0, 1, 2]],
 	selectedInputValue: null,
 	settings: {
 		highlightDuplicates: true,
@@ -41,14 +42,17 @@ export function reducer(state = initialState, action: AnyAction): AppState {
 			trackedInput
 		} = new Sudoku()
 
+		const selectedRegion = Sudoku.getSelectedRegion(initialSelection)
+
 		return {
-			...state,
+			...initialState,
 			solutionMatrix,
 			initialGameMatrix,
 			workingMatrix,
 			mistakesMatrix,
 			trackedInput,
-			selection: initialSelection
+			selection: initialSelection,
+			selectedRegion
 		}
 	}
 
@@ -116,9 +120,12 @@ export function reducer(state = initialState, action: AnyAction): AppState {
 	}
 
 	case types.SELECT_CELL: {
+		const { coords } = action
+		const selectedRegion = Sudoku.getSelectedRegion(coords)
 		return {
 			...state,
-			selection: action.coords
+			selection: coords,
+			selectedRegion
 		}
 	}
 

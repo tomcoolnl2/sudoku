@@ -1,5 +1,5 @@
 
-import { GridMatrix, GridMatrixCoörds, GridMatrixSeries, SudokuInputValue } from '../typings'
+import { GridMatrix, GridMatrixCoörds, GridMatrixRegionSelection, GridMatrixSeries, SudokuInputValue } from '../typings'
 
 
 export interface AppState {
@@ -10,6 +10,7 @@ export interface AppState {
     trackedInput: GridMatrixSeries
     trackedMistakes: number
     selection: GridMatrixCoörds
+    selectedRegion: GridMatrixRegionSelection
     selectedInputValue: SudokuInputValue
     settings: AppSettings
 }

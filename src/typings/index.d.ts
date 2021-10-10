@@ -37,7 +37,9 @@ export type GridMatrixRegion = [
 ]
 
 // A single row within a GridMatrixRegion
-export type GridMatrixRegionSeries = [N, N, N]
+export type GridMatrixRegionSeries = [GridMatrixIndex, GridMatrixIndex, GridMatrixIndex]
+
+export type GridMatrixRegionSelection = [GridMatrixRegionSeries, GridMatrixRegionSeries]
 
 export type SeriesIndex<R> = (e: unknown, i: number) => R | R[]
 
@@ -45,7 +47,7 @@ export interface RegionSettings {
     grid: GridMatrix
     row: GridMatrixIndex
     col: GridMatrixIndex
-    value: SudokuInputValue
+    value?: SudokuInputValue
 }
 
 export interface RowSettings {
