@@ -17,3 +17,5 @@ export const Settings: FC = () => {
 		</>
 	)
 }
+
+export { Settings as default }

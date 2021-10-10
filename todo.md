@@ -64,10 +64,11 @@
 -   [x] When Game Over, move back to the splash screen after a notification/confirmation
 -   [x] Create a snapshot test for App.tsx
 -   [x] Create a snapshot test for DarkThemeProvider
--   [ ] Add React Suspense/Lazy to promote async components and pages
+-   [x] Add React Suspense/Lazy to promote async components and pages
 -   [x] When selecting a number on the grid, highlight all cells within the current region
 -   [x] Add number of mistakes input to splash screen and settings screen. Default to 3.
--   [ ] Output ALL snapshots in /test/
+-   [x] Output ALL snapshots in /test/
+    -   :no_entry: Not possibke with CRA
 -   [ ] Add timer to track duration
 -   [ ] Add pauze option
     -   [ ] When pauzed, block ui/screen
@@ -91,6 +92,7 @@
 
 ## Testing
 
+-   [ ] Test for checkbox toggling and button clicks
 -   [ ] Test for disabled buttons with https://github.com/testing-library/jest-dom#tobedisabled
 -   [ ] Test persistence with https://create-react-app.dev/docs/running-tests/#srcsetuptestsjs
 -   [ ] Improve test coverage
@@ -99,6 +101,9 @@
 
 ## Design & Animation
 
+-   [ ] Add Styled Component for dropdown element
+-   [ ] Add Styled Component for checkbox element
+-   [ ] Create a nice loader as Suspense fallback
 -   [ ] Choose a icon set for consistency
     -   https://www.flaticon.com/packs/miscellaneous-elements
     -   https://www.flaticon.com/packs/multimedia-collection

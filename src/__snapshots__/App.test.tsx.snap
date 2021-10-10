@@ -1,6 +1,80 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App renders with light mode as default 1`] = `
+exports[`App renders a loader as default 1`] = `
+.c1 {
+  color: 'white';
+  margin-top: 0;
+  text-align: center;
+}
+
+.c0 {
+  max-width: 500px;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c2 {
+  background-color: white;
+  border-radius: 15px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  max-height: -webkit-fit-content;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+  padding: 15px;
+}
+
+<div
+  class="c0"
+>
+  <ul>
+    <li>
+      <a
+        href="/"
+      >
+        Start
+      </a>
+    </li>
+    <li>
+      <a
+        href="/settings"
+      >
+        Settings
+      </a>
+    </li>
+  </ul>
+  <h1
+    class="c1"
+  >
+    Sudoku
+  </h1>
+  <div
+    class="c2"
+  >
+    <div>
+      Loading...
+    </div>
+  </div>
+</div>
+`;
+
+exports[`App renders the app after waiting for lazy pages 1`] = `
 .c1 {
   color: 'white';
   margin-top: 0;
