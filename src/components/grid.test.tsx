@@ -4,7 +4,7 @@ import { withTheme, withRedux } from '../test'
 import { Grid } from './'
 
 
-describe('Numbers', () => {
+describe('Grid', () => {
 	
 	it('should match it\'s snapshot', () => {
 		const { container } = render(withTheme(withRedux(<Grid />)))

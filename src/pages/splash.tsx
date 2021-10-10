@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import * as Styled from '../styles'
 import { MistakesLimit } from '../components'
 
+
 export const Splash: FC = () => {
 	return (
 		<>
@@ -16,3 +17,5 @@ export const Splash: FC = () => {
 		</>
 	)
 }
+
+export { Splash as default }
