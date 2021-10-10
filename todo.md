@@ -61,13 +61,13 @@
 -   [x] Make highlighting duplicates a setting
 -   [x] Move HOCs specially made for snapshots into a test/ directory
 -   [x] Make darkmode part of game settings
--   [ ] When Game Over, move back to the splash screen after a notification/confirmation
+-   [x] When Game Over, move back to the splash screen after a notification/confirmation
 -   [x] Create a snapshot test for App.tsx
 -   [x] Create a snapshot test for DarkThemeProvider
 -   [ ] Add React Suspense/Lazy to promote async components and pages
--   [ ] When selecting a number on the grid, highlight all cells within the current region
+-   [x] When selecting a number on the grid, highlight all cells within the current region
 -   [x] Add number of mistakes input to splash screen and settings screen. Default to 3.
--   [ ] Output snapshots in /test/
+-   [ ] Output ALL snapshots in /test/
 -   [ ] Add timer to track duration
 -   [ ] Add pauze option
     -   [ ] When pauzed, block ui/screen
@@ -85,6 +85,8 @@
 -   [ ] Backtrack Recursion icw generators/iterators https://leetcode.com/problems/permutations/discuss/790116/javascript-backtracking-using-generator-functions
 -   [ ] Search for algorithms that better fit this program
     -   https://lisperator.net/blog/javascript-sudoku-solver/
+    -   https://github.com/robatron/sudoku.js/
+    -   https://codepen.io/pavlovsk/pen/XmjPOE
 -   [ ] Investigate a better `solve` method acc to: https://en.wikipedia.org/wiki/Sudoku_solving_algorithms
 
 ## Testing

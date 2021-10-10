@@ -3,7 +3,7 @@ import { FC, memo } from 'react'
 import { Dispatch, AnyAction } from 'redux'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectCell, StoreReducer } from '../redux'
-import { GridMatrixIndex, N } from '../typings'
+import { GridMatrixCoörds, GridMatrixIndex, GridMatrixRegionSelection, N } from '../typings'
 import * as Styled from '../styles'
 
 export interface CellProps {
@@ -22,36 +22,41 @@ interface CellState {
 }
 
 export const Cell: FC<CellProps> = memo(({ row, col }) => {
-
+	
 	const { value, ...props } = useSelector<StoreReducer, CellState>(({ 
 		initialGameMatrix, 
 		workingMatrix, 
 		mistakesMatrix, 
 		selection,
+		selectedRegion,
 		selectedInputValue,
 		settings 
 	}) => {
 
-		const value = workingMatrix && mistakesMatrix 
+		const [selectedRow, selectedCol]: GridMatrixCoörds = selection
+		const [selectedRegionRows, selectedRegionCols]: GridMatrixRegionSelection = selectedRegion
+
+		const value: N = workingMatrix && mistakesMatrix 
 			? mistakesMatrix[row][col] !== 0 
 				? mistakesMatrix[row][col] 
-				: workingMatrix[row][col] 
+				: workingMatrix[row][col]
 			: 0
 		
-		const selected = selection[0] === row && selection[1] === col
+		const selected: boolean = selectedRow === row && selectedCol === col
 
-		const clue = initialGameMatrix && initialGameMatrix[row][col] !== 0
+		const clue: boolean = initialGameMatrix && initialGameMatrix[row][col] !== 0
 		
-		const highlighted = selection[0] === row || selection[1] === col
+		const highlighted: boolean = selectedRow === row || selectedCol === col 
+			|| (selectedRegionRows.includes(row) && selectedRegionCols.includes(col))
 
-		const duplicate = settings.highlightDuplicates 
+		const duplicate: boolean = settings.highlightDuplicates 
 			&& workingMatrix
 			&& workingMatrix[row][col] !== 0
-			&& workingMatrix[selection[0]][selection[1]] === workingMatrix[row][col]
+			&& workingMatrix[selectedRow][selectedCol] === workingMatrix[row][col]
 		
-		const mistake = mistakesMatrix && mistakesMatrix[row][col] !== 0
+		const mistake: boolean = mistakesMatrix && mistakesMatrix[row][col] !== 0
 
-		const mistakeDuplicate = !selected && highlighted && selectedInputValue === value
+		const mistakeDuplicate: boolean = !selected && highlighted && selectedInputValue === value
 
 		return {
 			value,

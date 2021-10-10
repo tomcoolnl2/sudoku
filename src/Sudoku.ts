@@ -9,7 +9,8 @@ import {
 	GridMatrixRegionSeries,
 	GridMatrixSeries,
 	N,
-	SudokuInputValue
+	SudokuInputValue,
+	GridMatrixRegionSelection
 } from './typings'
 import { shuffle } from './utils'
 
@@ -100,7 +101,7 @@ export class Sudoku {
 		}
 		return [0, 0]
 	}
-
+	
 	/**
 	 * Create a empty 9x9 Grid, filled with zeros (0)
 	 * @returns a 9x9 GridMatrix
@@ -147,6 +148,34 @@ export class Sudoku {
 	}
 
 	/**
+	 * Get the region the current selected cell is in
+	 * @param [row, col] the x, y coordinates of the current selection
+	 * @returns An arry of rows for the current region the selection is in, same for cols.
+	 */
+	public static getSelectedRegion([row, col]: GridMatrixCoörds): GridMatrixRegionSelection {
+		
+		// Define top left corner of the region for empty cell
+		const x: number = row - (row % 3)
+		const y: number = col - (col % 3)
+		const series: GridMatrixRegionSeries = [0, 1, 2]
+		
+		const rows: number[] = []
+		const cols: number[] = []
+
+		// Get the region rows by it's indexes
+		for (const ri of series) {
+			rows.push((x + ri))
+		}
+		
+		// Get the region colums by it's indexes
+		for (const ci of series) {
+			cols.push((y + ci))
+		}
+
+		return [ rows, cols ] as GridMatrixRegionSelection
+	}
+
+	/**
 	 * Returns true if the value is already being used in the current grid Region
 	 * @param input Object with 3x3 Region and value
 	 * @returns 
@@ -154,8 +183,8 @@ export class Sudoku {
 	private valueExistsInRegion({ grid, row, col, value }: RegionSettings): boolean {
 		
 		// Define top left corner of the region for empty cell
-		const x = row - (row % 3) as GridMatrixIndex
-		const y = col - (col % 3) as GridMatrixIndex
+		const x: number = row - (row % 3)
+		const y: number = col - (col % 3)
 		const series: GridMatrixRegionSeries = [0, 1, 2]
 		
 		// Check the 3x3 region
@@ -221,7 +250,7 @@ export class Sudoku {
 		for (let i = 0; i < Sudoku.CELLS; i += 1) { // label this loop so we can reference to it from inside inner loops 
 			
 			row = (i / Sudoku.SIZE) << 0 as GridMatrixIndex // we gracefully increase row every 9th iteration
-			col = i % Sudoku.SIZE as GridMatrixIndex // this will count from 0-8 (9%9 = 0), and then start over again
+			col = i % Sudoku.SIZE as GridMatrixIndex // this will count from 0-8 (9 % 9 = 0), and then start over again
 
 			if (grid[row][col] === Sudoku.HIDDEN_CELL_VALUE) {
 				// The range of values 1 to 9 is shuffled at the start of each iteration, 
