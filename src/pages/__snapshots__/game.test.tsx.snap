@@ -107,14 +107,22 @@ exports[`Game page should match it's snapshot 1`] = `
 <div
   class="c0"
 >
-  <div
-    class="c1"
-  >
-    How many mistakes? 
+  <time>
+    Timer:
+    <span>
+      0
+      :
+    </span>
+    <span>
+      0
+    </span>
+  </time>
+  <p>
+    Mistakes 
     0
      / 
     5
-  </div>
+  </p>
   <div
     class="c1"
   >

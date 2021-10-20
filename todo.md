@@ -69,10 +69,11 @@
 -   [x] Add number of mistakes input to splash screen and settings screen. Default to 3.
 -   [x] Output ALL snapshots in /test/
     -   :no_entry: Not possibke with CRA
--   [ ] Add timer to track duration
+-   [x] Add timer to track duration
 -   [ ] Add pauze option
-    -   [ ] When pauzed, block ui/screen
     -   [ ] Stop the timer
+    -   [ ] When pauzed, block ui/screen
+    -   [ ] Show time, difficulty level
 -   [ ] Log (and store) best time
 -   [ ] Add difficulty levels Easy, Medium, Hard
     -   Does the current algorithm support that?

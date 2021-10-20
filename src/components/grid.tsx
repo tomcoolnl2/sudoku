@@ -3,7 +3,7 @@ import { Children, FC, useEffect, useCallback, memo } from 'react'
 import { Dispatch, AnyAction } from 'redux'
 import { useDispatch, useSelector } from 'react-redux'
 import * as Styled from '../styles'
-import { AttachKeyBoardEvents, Cell, EraseMistakeButton, Numbers, ResetGameButton } from './'
+import { AttachKeyBoardEvents, Timer, Cell, EraseMistakeButton, Numbers, ResetGameButton } from './'
 import { createGrid, StoreReducer, fillCell, AppSettings } from '../redux'
 import { GridMatrix, GridMatrixCoörds, GridMatrixIndex, N, SudokuInputValue } from '../typings'
 import { Sudoku } from '../Sudoku'
@@ -48,9 +48,8 @@ export const Grid: FC = memo(() => {
 		<>
 			<AttachKeyBoardEvents selection={selection} numbersInputHandler={fill} />
 			<Styled.GridContainer>
-				<Styled.GridRow>
-					How many mistakes? {trackedMistakes} / {settings.mistakesLimit}
-				</Styled.GridRow>
+				<Timer />
+				<p>Mistakes {trackedMistakes} / {settings.mistakesLimit}</p>
 				<Styled.GridRow>
 					<ResetGameButton reset={create} />
 					<EraseMistakeButton />
