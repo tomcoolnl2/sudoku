@@ -37,7 +37,7 @@ export type GridMatrixRegion = [
 ]
 
 // A single row within a GridMatrixRegion
-export type GridMatrixRegionSeries = [GridMatrixIndex, GridMatrixIndex, GridMatrixIndex]
+export type GridMatrixRegionSeries = [N, N, N]
 
 export type GridMatrixRegionSelection = [GridMatrixRegionSeries, GridMatrixRegionSeries]
 

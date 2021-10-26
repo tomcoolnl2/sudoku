@@ -68,7 +68,7 @@
 -   [x] When selecting a number on the grid, highlight all cells within the current region
 -   [x] Add number of mistakes input to splash screen and settings screen. Default to 3.
 -   [x] Output ALL snapshots in /test/
-    -   :no_entry: Not possibke with CRA
+    -   :no_entry: Not possible with CRA
 -   [ ] Add timer to track duration
 -   [ ] Add pauze option
     -   [ ] When pauzed, block ui/screen
@@ -126,8 +126,8 @@
     -   [ ] make the limit dependant on the easy - medium - hard settings
 -   [ ] Use hexagons icw icons https://www.npmjs.com/package/react-svg-hexagon-grid
 -   [ ] Create a nice hexagon background (animation) with React/CSS? https://css-tricks.com/hexagons-and-beyond-flexible-responsive-grid-patterns-sans-media-queries/
--   [ ] Use chinese characters. Add switch for Cinese/Arabic numbers.
--   [ ] Manage content in Contentful
+-   [ ] Use Chinese characters. Add switch for Chinese/Arabic numbers.
+-   [ ] Manage content in Contentful? - i18n?
 -   [ ] Move from Redux to RxJS https://dev.t-matix.com/blog/platform/why-we-migrated-our-state-management-system-from-redux-to-rxjs/
 -   [ ] Monorepo with NX
 -   [ ] NestJS Backend - for Mongoose? GraphQl?

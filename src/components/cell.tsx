@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { selectCell, StoreReducer } from '../redux'
 import { GridMatrixCoörds, GridMatrixIndex, GridMatrixRegionSelection, N } from '../typings'
 import * as Styled from '../styles'
+import { Sudoku } from '../Sudoku'
 
 export interface CellProps {
     row: GridMatrixIndex
@@ -20,6 +21,14 @@ interface CellState {
 	mistake: boolean,
 	mistakeDuplicate: boolean
 }
+
+const nrsCH: string[] = ['一', '二', '三', '四', '五', '六', '七', '八', '九']
+const nrsEN: string[] = Sudoku.createSeries((_, i) => String(i + 1))
+const langs = {
+	en: nrsEN,
+	ch: nrsCH
+}
+const lang = langs.ch
 
 export const Cell: FC<CellProps> = memo(({ row, col }) => {
 	
@@ -77,7 +86,7 @@ export const Cell: FC<CellProps> = memo(({ row, col }) => {
 
 	return (
 		<Styled.CellContainer {...props} onClick={clickHandler}>
-			{value === 0 ? '' : value}
+			{value === 0 ? '' : lang[value - 1]}
 		</Styled.CellContainer>
 	)
 })
