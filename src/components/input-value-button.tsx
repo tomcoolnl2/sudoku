@@ -8,6 +8,7 @@ import { Sudoku } from '../Sudoku'
 
 
 export interface InputValueProps {
+	char: string
     value: SudokuInputValue
 }
 
@@ -17,7 +18,7 @@ export interface InputValueState {
 	trackedInput?: GridMatrixSeries
 }
 
-export const InputValueButton: FC<InputValueProps> = memo(({ value }) => {
+export const InputValueButton: FC<InputValueProps> = memo(({ value, char }) => {
 
 	const { selection, selectedValue, trackedInput } = useSelector<StoreReducer, InputValueState>(({ selection, workingMatrix, trackedInput }) => ({ 
 		selection,
@@ -35,5 +36,5 @@ export const InputValueButton: FC<InputValueProps> = memo(({ value }) => {
 
 	const disabled = trackedInput?.[value - 1] === Sudoku.SIZE
 
-	return <Styled.Button onClick={fill} disabled={disabled}>{value}</Styled.Button>
+	return <Styled.Button onClick={fill} disabled={disabled}>{char}</Styled.Button>
 })

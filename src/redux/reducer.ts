@@ -8,7 +8,7 @@ import * as types from './types'
 import { mistakesLimits } from '../components/mistakes-limit'
 
 
-const difficulty = 'EASY' // TODO
+const difficulty = 'EASY' // TODO should be in initialState
 
 const initialState: AppState = {
 	initialGameMatrix: null,

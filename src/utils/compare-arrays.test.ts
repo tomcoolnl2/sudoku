@@ -18,8 +18,7 @@ describe('compareArrays', () => {
 			[9, 3, 0]
 		]
 
-		const comparedArrays = compareArrays(grid1, grid2)
-		expect(comparedArrays).toBeFalsy()
+		expect(compareArrays(grid1, grid2)).toBeFalsy()
 	})
 
 	it('returns true if two arrays are the same', () => {
@@ -36,8 +35,7 @@ describe('compareArrays', () => {
 			[0, 0, 0]
 		]
 
-		const comparedArrays = compareArrays(grid1, grid2)
-		expect(comparedArrays).toBeTruthy()
+		expect(compareArrays(grid1, grid2)).toBeTruthy()
 	})
 
 	it('returns false if the first argument is not an array', () => {
@@ -50,8 +48,7 @@ describe('compareArrays', () => {
 			[0, 0, 0]
 		]
 
-		const comparedArrays = compareArrays(grid1, grid2)
-		expect(comparedArrays).toBeFalsy()
+		expect(compareArrays(grid1, grid2)).toBeFalsy()
 	})
 
 	it('returns false if the second argument is not an array', () => {
@@ -61,19 +58,16 @@ describe('compareArrays', () => {
 			[0, 5, 0],
 			[0, 0, 0]
 		]
-
 		const grid2: GridMatrixRegion = null
 
-		const comparedArrays = compareArrays(grid1, grid2)
-		expect(comparedArrays).toBeFalsy()
+		expect(compareArrays(grid1, grid2)).toBeFalsy()
 	})
 
 	it('returns false if the arrays are of different lengths', () => {
 		
-		const grid1: number[] = [3, 0, 7, 0, 5, 0]
+		const grid1: number[] = [3, 0, 7, 0]
 		const grid2: number[] = [7, 0, 5]
 
-		const comparedArrays = compareArrays(grid1, grid2)
-		expect(comparedArrays).toBeFalsy()
+		expect(compareArrays(grid1, grid2)).toBeFalsy()
 	})
 })
