@@ -1,2 +1,11 @@
 
-export * from './difficulty'
+export enum Difficulty {
+    EASY = 'EASY', 
+    MEDIUM = 'MEDIUM', 
+    HARD = 'HARD'
+}
+
+export enum Language { 
+    EN = 'en', 
+    CH = 'ch'
+}

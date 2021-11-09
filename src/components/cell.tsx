@@ -5,7 +5,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { selectCell, StoreReducer } from '../redux'
 import { GridMatrixCoörds, GridMatrixIndex, GridMatrixRegionSelection, N } from '../typings'
 import * as Styled from '../styles'
-import { Sudoku } from '../Sudoku'
+import { Language } from '../enums'
+import { i18n } from '../i18n'
 
 export interface CellProps {
     row: GridMatrixIndex
@@ -20,26 +21,20 @@ interface CellState {
 	duplicate: boolean
 	mistake: boolean,
 	mistakeDuplicate: boolean
+	language: Language
 }
-
-const nrsCH: string[] = ['一', '二', '三', '四', '五', '六', '七', '八', '九']
-const nrsEN: string[] = Sudoku.createSeries((_, i) => String(i + 1))
-const langs = {
-	en: nrsEN,
-	ch: nrsCH
-}
-const lang = langs.ch
 
 export const Cell: FC<CellProps> = memo(({ row, col }) => {
 	
-	const { value, ...props } = useSelector<StoreReducer, CellState>(({ 
-		initialGameMatrix, 
-		workingMatrix, 
-		mistakesMatrix, 
+	const { value, language, ...props } = useSelector<StoreReducer, CellState>(({ 
+		initialGameMatrix,
+		workingMatrix,
+		mistakesMatrix,
 		selection,
 		selectedRegion,
 		selectedInputValue,
-		settings 
+		language,
+		settings
 	}) => {
 
 		const [selectedRow, selectedCol]: GridMatrixCoörds = selection
@@ -74,7 +69,8 @@ export const Cell: FC<CellProps> = memo(({ row, col }) => {
 			selected,
 			duplicate,
 			mistake,
-			mistakeDuplicate
+			mistakeDuplicate,
+			language
 		}
 	})
 
@@ -86,7 +82,7 @@ export const Cell: FC<CellProps> = memo(({ row, col }) => {
 
 	return (
 		<Styled.CellContainer {...props} onClick={clickHandler}>
-			{value === 0 ? '' : lang[value - 1]}
+			{value === 0 ? '' : i18n[language].numbers[value - 1]}
 		</Styled.CellContainer>
 	)
 })

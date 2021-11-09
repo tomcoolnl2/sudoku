@@ -6,6 +6,7 @@
     -   :+1: It blocks me from running a watch on jest when developing
 -   [ ] Upping the difficulty causes the backtracking to look like infinite. Add a tracker to reset the calculation if exceeding an amount of recursion attempts? Or use fixed clues/numbers to limit back tracking?
 -   [ ] App.tsx: Weird validation error causes the app to crash, but it works fine when disabling tslint
+-   [ ] When making a mistake, and then fixing it by using the remove option, still keeps the rrored nr in memory so it keeps showing that nr as an error when it is in a selected row/region.
 
 ## Game play
 
@@ -126,7 +127,7 @@
     -   [ ] make the limit dependant on the easy - medium - hard settings
 -   [ ] Use hexagons icw icons https://www.npmjs.com/package/react-svg-hexagon-grid
 -   [ ] Create a nice hexagon background (animation) with React/CSS? https://css-tricks.com/hexagons-and-beyond-flexible-responsive-grid-patterns-sans-media-queries/
--   [ ] Use Chinese characters. Add switch for Chinese/Arabic numbers.
+-   [x] Use Chinese characters. Add switch for Chinese/Arabic numbers.
 -   [ ] Manage content in Contentful? - i18n?
 -   [ ] Move from Redux to RxJS https://dev.t-matix.com/blog/platform/why-we-migrated-our-state-management-system-from-redux-to-rxjs/
 -   [ ] Monorepo with NX
