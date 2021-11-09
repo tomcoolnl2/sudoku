@@ -22,7 +22,7 @@ export class Sudoku {
 	/** The maximum value a Cell can hold: 9 */
 	public static readonly SIZE: N = 9
 	/** The total of a 9x9 Grid: 81 */
-	public static readonly CELLS: number = Sudoku.SIZE * Sudoku.SIZE
+	public static readonly CELLS: number = Sudoku.SIZE ** 2
 
 	/** The solution */
 	private solutionGrid: GridMatrix = null
@@ -30,7 +30,7 @@ export class Sudoku {
 	private initialGrid: GridMatrix = null
 	/** The board a user will use */
 	private workingGrid: GridMatrix = null
-	/** The board a user will use */
+	/** The board to track mistakes */
 	private mistakesGrid: GridMatrix = null
 	/** Counter to validate backtracking */
 	private trackedUserInput: GridMatrixSeries<SudokuInputValue> = null
@@ -260,9 +260,7 @@ export class Sudoku {
 					// if value does not already exists in region, row or col
 					if (this.valueIsSafeToPlace({ grid, row, col, value })) {
 						grid[row][col] = value
-						if (this.gameIsSet(grid)) {
-							return true
-						} else if (this.createSolution(grid)) {
+						if (this.gameIsSet(grid) || this.createSolution(grid)) {
 							return true
 						}
 					}
@@ -274,7 +272,7 @@ export class Sudoku {
 	}
 
 	/**
-	 * Validte if a give grid hold s the solution
+	 * Validte if a given grid holds the solution
 	 * @param grid GridMatrix
 	 * @returns boolean 
 	 */
@@ -287,7 +285,7 @@ export class Sudoku {
 		for (let i = 0; i < Sudoku.CELLS; i += 1) {
 		
 			row = (i / Sudoku.SIZE) << 0 as GridMatrixIndex
-			col = i % Sudoku.SIZE as GridMatrixIndex
+			col = (i % Sudoku.SIZE) as GridMatrixIndex
 	
 			if (grid[row][col] === Sudoku.HIDDEN_CELL_VALUE) {
 				for (const value of series) {

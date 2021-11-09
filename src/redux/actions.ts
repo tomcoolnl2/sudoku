@@ -1,29 +1,35 @@
 
 import { Action, AnyAction } from 'redux'
+import * as TYPES from './types'
 import { AppSettings } from './models'
 import { GridMatrixCoörds, SudokuInputValue } from '../typings'
-import * as types from './types'
+import { Language } from '../enums' 
 
 
-export const createGrid = (): Action => ({ type: types.UNLEASH_THE_MATRIX })
+export const createGrid = (): Action => ({ type: TYPES.UNLEASH_THE_MATRIX })
 
 export const fillCell = (value: SudokuInputValue, coords: GridMatrixCoörds): AnyAction => ({ 
 	value,
 	coords,
-	type: types.FILL_CELL
+	type: TYPES.FILL_CELL
 })
 
 export const selectCell = (coords: GridMatrixCoörds): AnyAction => ({ 
 	coords,
-	type: types.SELECT_CELL
+	type: TYPES.SELECT_CELL
 })
 
 export const eraseMistake = (coords: GridMatrixCoörds): AnyAction => ({
 	coords,
-	type: types.ERASE_MISTAKE
+	type: TYPES.ERASE_MISTAKE
 })
 
 export const updateSettings = (settings: Partial<AppSettings>): AnyAction => ({
 	settings,
-	type: types.UPDATE_SETTINGS
+	type: TYPES.UPDATE_SETTINGS
+})
+
+export const setLanguage = (language: Language): AnyAction => ({
+	type: TYPES.SET_LANGUAGE,
+	language
 })

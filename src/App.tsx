@@ -7,7 +7,7 @@ import { ErrorBoundary } from 'react-error-boundary'
 import { configureStore } from './redux'	
 import { DarkThemeProvider } from './styles/core/ThemeProvider'
 import * as Styled from './styles'
-import { Menu, ErrorFallback } from './components'
+import { Menu, ErrorFallback, ToggleLanguage } from './components'
 
 const Splash = lazy(() => import('./pages/splash'))
 const Game = lazy(() => import('./pages/game'))
@@ -31,6 +31,7 @@ export const App: FC = () => {
 							<Styled.Card>
 								<ErrorBoundary FallbackComponent={ErrorFallback} onReset={location.reload}>
 									<Suspense fallback={<div>Loading...</div>}>
+										<ToggleLanguage />
 										<Switch>
 											<Route exact path="/">
 												<Splash />
