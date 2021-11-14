@@ -150,7 +150,7 @@ export class Sudoku {
 	/**
 	 * Get the region the current selected cell is in
 	 * @param [row, col] the x, y coordinates of the current selection
-	 * @returns An arry of rows for the current region the selection is in, same for cols.
+	 * @returns An array of rows for the current region the selection is in, same for cols
 	 */
 	public static getSelectedRegion([row, col]: GridMatrixCoörds): GridMatrixRegionSelection {
 		
@@ -228,7 +228,7 @@ export class Sudoku {
 	}
 	
 	/**
-	 * Validate if the given grid does not contain any zeroes (0)
+	 * Validate if the given grid does not contain any (0)
 	 * @param grid The grid to validate
 	 * @returns boolean
 	 */
@@ -278,8 +278,10 @@ export class Sudoku {
 	 */
 	private testSolution(grid: GridMatrix): boolean {
 
-		let row: GridMatrixIndex = 0 // we start at [0][0] of the grid
+		// we start at [0][0] of the grid
+		let row: GridMatrixIndex = 0
 		let col: GridMatrixIndex = 0
+		
 		const series = Sudoku.createSeries<SudokuInputValue[], number>((_, i) => i + 1)
 		
 		for (let i = 0; i < Sudoku.CELLS; i += 1) {
