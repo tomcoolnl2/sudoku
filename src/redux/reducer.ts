@@ -83,6 +83,7 @@ export function reducer(state = initialState, action: AnyAction): AppState {
 						trackedMistakes += 1
 						if (trackedMistakes === settings.mistakesLimit) {
 							// TODO introduce a modal or something...
+							// TODO remove from reducer
 							if (window.confirm('Too many mistakes! Reload to start another game!')) {
 								window.location.href = '/'
 								return {
@@ -92,6 +93,8 @@ export function reducer(state = initialState, action: AnyAction): AppState {
 						}
 						mistakesMatrix[row][col] = value
 						selectedInputValue = value
+					} else {
+						mistakesMatrix[row][col] = Sudoku.HIDDEN_CELL_VALUE
 					}
 
 					return {
@@ -146,7 +149,9 @@ export function reducer(state = initialState, action: AnyAction): AppState {
 			let { selectedInputValue } = state
 			const [ row, col ]: GridMatrixCoörds = action.coords
 			mistakesMatrix[row][col] = Sudoku.HIDDEN_CELL_VALUE
+			
 			selectedInputValue = initialState.selectedInputValue
+
 			return {
 				...state,
 				mistakesMatrix: [...mistakesMatrix],

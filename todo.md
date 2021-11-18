@@ -5,8 +5,8 @@
 -   [x] Snapshot test fail in watch for grid.test.tsx because the generated classnames keep updating somehow
     -   :+1: It blocks me from running a watch on jest when developing
 -   [ ] Upping the difficulty causes the backtracking to look like infinite. Add a tracker to reset the calculation if exceeding an amount of recursion attempts? Or use fixed clues/numbers to limit back tracking?
--   [ ] App.tsx: Weird validation error causes the app to crash, but it works fine when disabling tslint
--   [ ] When making a mistake, and then fixing it by using the remove option, still keeps the rrored nr in memory so it keeps showing that nr as an error when it is in a selected row/region.
+-   [ ] App.tsx: Weird validation error causes the app to crash, but it works fine when disabling with tslint
+-   [ ] When making a mistake, and then fixing it by using the remove option, still keeps the errored nr in memory/state, so it keeps showing that nr as an error when it is in a selected row/region.
 
 ## Game play
 
@@ -70,6 +70,11 @@
 -   [x] Add number of mistakes input to splash screen and settings screen. Default to 3.
 -   [x] Output ALL snapshots in /test/
     -   :no_entry: Not possible with CRA
+-   [ ] Create a Undo option that sets the redux state back a move
+-   [ ] Add a pencil mode
+    -   [ ] highlight penciled numbers when a large number is selected
+    -   [ ] a user will be able to remove a penciled number
+    -   [ ] whe a number is chosen to add as penciled, and that is not possible because that number is already present within a block/row/column, notify the user
 -   [ ] Add timer to track duration
 -   [ ] Add pauze option
     -   [ ] When pauzed, block ui/screen
@@ -79,7 +84,7 @@
     -   Does the current algorithm support that?
     -   Or are we going to introduce hard numbers/clues for that?
     -   [ ] reflect within settings
--   [ ] When we have connected a database, a Save option would save the redux state.
+-   [ ] When we have connected a database, a Save option could save the redux state.
 
 ## Algorithms & performance
 
@@ -91,18 +96,14 @@
     -   https://codepen.io/pavlovsk/pen/XmjPOE
 -   [ ] Investigate a better `solve` method acc to: https://en.wikipedia.org/wiki/Sudoku_solving_algorithms
 
-## Testing
-
--   [ ] Test for checkbox toggling and button clicks
--   [ ] Test for disabled buttons with https://github.com/testing-library/jest-dom#tobedisabled
--   [ ] Test persistence with https://create-react-app.dev/docs/running-tests/#srcsetuptestsjs
--   [ ] Improve test coverage
--   [ ] Add Unit tests for the Redux Reducer: https://betterprogramming.pub/unit-testing-react-redux-hooks-ce7d69e1e834
--   [ ] Add cypress e2e testing
-
 ## Design & Animation
 
+-   [ ] Setup Storybook for elements and styleguide
 -   [ ] Add Styled Component for dropdown element
+-   [ ] Setup a coloring system in CSS
+    -   [ ] both dark and light theme
+    -   https://chartio.com/images/tutorials/charts/choosing-colors/sequential-palette-example.png
+    -   https://www.slideteam.net/media/catalog/product/cache/960x720/c/o/color_palette_for_presentation_turquoise_teal_and_blue_Slide01.jpg
 -   [ ] Add Styled Component for checkbox element
 -   [ ] Create a nice loader as Suspense fallback
 -   [ ] Choose a icon set for consistency
@@ -115,6 +116,15 @@
     -   [ ] entire grid
 -   [ ] Use hexagons as icon backgrounds
 -   [ ] Icon navigation to the left
+
+## Testing
+
+-   [ ] Test for checkbox toggling and button clicks
+-   [ ] Test for disabled buttons with https://github.com/testing-library/jest-dom#tobedisabled
+-   [ ] Test persistence with https://create-react-app.dev/docs/running-tests/#srcsetuptestsjs
+-   [ ] Improve test coverage
+-   [ ] Add Unit tests for the Redux Reducer: https://betterprogramming.pub/unit-testing-react-redux-hooks-ce7d69e1e834
+-   [ ] Add cypress e2e testing
 
 ## Nice to haves
 
